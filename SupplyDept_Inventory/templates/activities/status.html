@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="status.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>AAM</title>
+  <!-- MDB icon -->
+  <link rel="icon" href="img/AAM.png" type="image/x-icon">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+  <!-- Google Fonts Roboto -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <!-- Material Design Bootstrap -->
+  <link rel="stylesheet" href="css/mdb.min.css">
+  <!-- Your custom styles (optional) -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Start your project here--> 
+  <header>
+    <div class="container">
+      <div class="row cbanner "  >
+        <div class="col-md-8" >
+           <label  class="Banner "  >Department Of Supply</label>
+        </div> 
+        <div class="col-md-2 ">
+           <label   ></label>
+        </div> 
+        <div class="col-md-2 ">
+           <label  class="bn "  >Status</label>
+        </div> 
+      </div>
+    </div>
+  </header><br>
+   <div class="container">
+      <div class="row "  >
+        <div class="col-md-4" >
+          <form action="mainpage.html">
+            <button id="btn"  a>Back</button>
+          </form>
+        </div> 
+        <div class="col-md-8">
+
+           <img src="pic.png" alt="" class="img-fluid rounded " width="100%"  >
+      </form>
+      </div>
+    </div>
+  <main> 
+    <div class="container">
+      <hr class="line1">
+      <h6>PER ITEM</h6><br><br>
+      <div class="row">
+      <div class="col-md-12" >
+          <form action="/action_page.php" method="get">
+          <label for="item">Choose your browser from the list:</label>
+          <input list="items" name="item" id="item">
+          <datalist id="items">
+            <option value="pencil">
+            <option value="marker">
+            <option value="bondpaper">
+            <option value="ballpen">
+          </datalist>
+          <input type="submit">
+          </form>
+        <label  for ="choose">SORT BY</label>
+          <select class =dropd  >
+          <option value=BET-COET>  Alphabetical </option>
+          <option value=BET-ET>  Descending </option>
+          <option value=BET-ET>  Ascending </option>
+        </select>
+        <button  id="btn">SORT</button>
+        <button  id="btn">SEARCH</button>
+        <input type="dep" name="Sdepartment" id="Sdep" >
+          
+        <table id="t01" class="table1">
+              <tr>
+                <th>Items</th>
+                <th>Unit</th>
+                <th>Quantity</th>
+                <th>Remainning</th>
+                <th>Percentage</th>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>               
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>               
+              </tr> 
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>               
+              </tr> 
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>               
+              </tr>  
+          </table>  
+          </div>
+        </div>
+
+      </div><br><br>
+
+      <div class="container">
+      <hr class="line1">
+      <h6>PER DEPARTMENT</h6><br><br>
+      <label  for ="choose" class="nah" >Choose Department</label>
+          <select id ="choose ">
+            <option value=OCS - CASHIER SERVICES>  OCS - CASHIER SERVICES </option>
+            <option value=OES - EXTENSION SERVICEST>  OES - EXTENSION SERVICES </option>
+            <option value=OGS - GUIDANCE SERVICES>  OGS - GUIDANCE SERVICES </option>
+            <option value=OGS - OHR - HUMAN RESOURCES>  OHR - HUMAN RESOURCES </option>
+            <option value=OHS - HEALTH SERVICES>  OHS - HEALTH SERVICES </option>
+            <option value=OIT - INFORMATION TECHNOLOGY>  OIT - INFORMATION TECHNOLOGY </option>
+            <option value=OSP - JOB PLACEMENT>  OSP - JOB PLACEMENT </option>
+            <option value=OPR - PROCUREMENT>  OPR - PROCUREMENT </option>
+            <option value=ORE - RESEARCH AND EXTENSION> ORE - RESEARCH AND EXTENSION </option>
+            <option value=ORM - RECORD MANAGEMENT>  ORM - RECORD MANAGEMENT </option>
+            <option value=ORS - RESEARCH SERVICES>  ORS - RESEARCH SERVICES </option>
+            <option value=BOSA - STUDENT AFFAIRS>  OSA - STUDENT AFFAIRS </option>
+            <option value=BOSH - SECURITY HOUSE>  OSH - SECURITY HOUSE</option>
+            <option value=DCG - DOCUMENT CONTROL GUIDE>  DCG - DOCUMENT CONTROL GUIDE </option>
+            <option value=DID - INDUSTRIAL EDUCATION>  DID - INDUSTRIAL EDUCATION </option>
+            <option value=DES - ENGINEERING TECHNOLOGY>  DES - ENGINEERING TECHNOLOGY </option>
+            <option value=DLA - LIBERAL ARTS>  DLA - LIBERAL ARTS </option>
+            <option value=DMS - MATH AND SCIENCE>  DMS - MATH AND SCIENCE </option>
+            <option value=DPECS - PHYSICAL , EDUCATION, CULTURAL, SPORTS>  DPECS - PHYSICAL , EDUCATION, CULTURAL, SPORTS </option>
+            <option value=BETEEAP - EXPANDED TERTIARY EDUCATION EQUIVALENCY AND ACCREDITATION>  ETEEAP - EXPANDED TERTIARY EDUCATION EQUIVALENCY AND ACCREDITATION </option>
+            <option value=GAD - GENDER AND DEVELOPMENT>  GAD - GENDER AND DEVELOPMENT </option>
+            <option value=NSTP - NATIONAL SERVICE TRAINING PROGRAM>  IDO - INFRASTRUCTURE DEVELOPMENT OFFICE</option>NSTP - NATIONAL SERVICE TRAINING PROGRAM </option>
+            <option value=OAA - ACADEMIC AFFAIRS>  OAA - ACADEMIC AFFAIRS </option>
+            <option value=BOAC ACCOUNTING CAMPUS>  OAC ACCOUNTING CAMPUS</option>
+            <option value=OAD - ADMISSION>  OAD - ADMISSION</option>
+            <option value=OAF - ADMIN AND FINANCE>  OAF - ADMIN AND FINANCE</option>
+            <option value=OAS - ADMIN SERVICES>  OAS - ADMIN SERVICES</option>
+            <option value=OAX - AUXILIARY>  OAX - AUXILIARY</option>
+            <option value=OBA - BIDS AND AWARDS>  OBA - BIDS AND AWARDS</option>
+            <option value=OBD - BUDGET DEVELOPMENT> OBD - BUDGET DEVELOPMENT/option>
+            <option value=OCD - CAMPUS DIRECTOR>  OCD - CAMPUS DIRECTOR</option>
+            <option value=OAL - ALUMNI>  OOAL - ALUMNI</option>
+            <option value=OCL - CAMPUS LIBRARY>OCL - CAMPUS LIBRARY</option>
+            <option value=OCP - CAMPUS PLANNING> OCP - CAMPUS PLANNING</option>
+            <option value=OOCR - CAMPUS REGISTRAL> OCR - CAMPUS REGISTRAL</option>
+          </select><br><br>
+      <div class="row">
+      <div class="col-md-4">
+        <table id="t01" class="table1">
+              <tr>
+              <th>Items</th>
+              </tr>
+              <tr>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+              </tr>
+        </table>
+      </div>
+      <div class="col-md-4" id="ab"><br>
+            <input  type="Number" name="inputQ" id="Quantity" maxlength="2" placeholder="Quantity" max="20" min="0" ><br><br>
+            <button id="btn1">ADD</button><br><br>
+            <button id="btn1">UNDO</button><br><br>
+      </div>
+      <div class="col-md-4">
+        <table id="t01" class="table1">
+              <tr>
+                <th>Department Items</th>
+              </tr>
+              <tr>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+              </tr>
+        </table>
+      </div>
+      </div><br><br><br>      
+  </main>
+
+  <!-- End your project here-->
+
+  <!-- jQuery -->
+  <script type="text/javascript" src="js/jquery.min.js"></script>
+  <!-- Bootstrap tooltips -->
+  <script type="text/javascript" src="js/popper.min.js"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <!-- MDB core JavaScript -->
+  <script type="text/javascript" src="js/mdb.min.js"></script>
+  <!-- Your custom scripts (optional) -->
+  <script type="text/javascript"></script>
+
+</body>
+</html>
