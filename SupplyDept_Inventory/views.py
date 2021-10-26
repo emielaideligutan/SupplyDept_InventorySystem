@@ -2,4 +2,4 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 def login(request):
-    return HttpResponse("LOGIN")
+    return render(request, 'activities/login.html')
