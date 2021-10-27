@@ -1,0 +1,235 @@
+.Banner{
+	text-align: left;
+	padding-right: 70px;
+	color: white;
+	width: 100%;
+	font-size: 25px;
+}
+.cbanner{
+	background-color: maroon;
+}
+
+.label1{
+	text-align: center;
+	padding-top: 5px;
+}
+
+.input1{
+	padding-left: 10px;
+	left: 15px;
+	height: 6%;
+	width: 50%;
+}
+.bn{
+	color: white;
+	font-size: 20px;
+}
+table {
+  width:100%;
+
+ 
+}
+
+table, th, td {
+  border: 1px solid #993333;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 15px;
+	text-align: center;
+}
+#t01 tr:nth-child(even) {
+  background-color: #f2e6e6;
+}
+#t01 tr:nth-child(odd) {
+ background-color: #e6cccc;
+}
+
+#t01 th {
+  background-color: maroon;
+  color: white;
+  text-align: center;
+}
+.tab1{
+	position: absolute;
+	top: 550px;
+	left: 0%;
+	width: 100%;
+}
+#add{
+	background-color: maroon;
+	color: white;
+	border-radius: 8px;
+	border: 1px solid maroon;
+}
+#delete{
+	background-color: maroon;
+	color: maroon;
+	border-radius: 8px;
+	border: 2px solid black;
+	background-color: white;
+}
+#delete:hover{
+	background-color: grey;
+	color: white;
+	border-radius: 8px;
+	border: 1px solid black;
+	background-color: grey;
+}
+}
+#add:hover{
+	background-color: white;
+	color: maroon;
+	border-radius: 8px;
+	border: 1px solid maroon;
+}
+#loginbtn1{
+	border-radius: 8px;
+	border: 1px solid maroon;
+	background-color: white;
+	color: maroon;
+	font-size: 15px;
+}
+
+#loginbtn1:hover{
+	border-radius: 8px;
+	border: 1px solid gray;
+	background-color: white;
+	color: black;
+	font-size: 15px;
+}
+#bgc{
+	background-color: #222222;
+}
+#footerlabel{
+	color: white;
+
+}
+#footerpadding{
+	padding-top: 250px;
+	width: 100%;
+}
+#aboutbtn{
+	padding-left: 10px;
+	border-radius: 8px;
+	border: 1px solid #222222;
+	background-color: #222222;
+	color: white;
+	font-size: 15px;
+	font: arial;
+}
+#aboutbtn:hover{
+
+	color: gray;
+
+}
+#contactbtn{
+	padding-left: 10px;
+	border-radius: 8px;
+	border: 1px solid #222222;
+	background-color: #222222;
+	color: white;
+	font-size: 15px;
+	font: arial;
+}
+#contactbtn:hover{
+
+	color: gray;
+
+}
+#companyname{
+	font: arial;
+	font-size: 25px;
+	color: white;
+	background-color: #222222;
+}
+#companyname1{
+	font: arial;
+	font-size: 15px;
+	color: white;
+	background-color: #222222;
+}
+#btn{
+	background-color: white;
+	color: white;
+	border-radius: 8px;
+	border: 1px solid maroon;
+	background-color: maroon;
+}
+#btn:hover{
+	background-color: white;
+	color: maroon;
+	border-radius: 8px;
+	border: 1px solid maroon;
+	background-color: white;
+}
+.bg-modal{
+	width: 100%;
+	height: 200%;
+	background-color: rgba(0, 0, 0, 0.7);
+	position: absolute;
+	top: 0;
+	display: none;
+
+}
+.bg-modal1{
+	width: 100%;
+	height: 500%;
+	background-color: rgba(0, 0, 0, 0.7);
+	position: absolute;
+	top: 0;
+	display: none;
+
+}
+.modal-content{
+	display: none;
+	background-color: white;
+	border-radius: 4px;
+	padding: 20px;
+	position: relative;
+	text-align: center;
+}
+.close{
+	position: absolute;
+	top: 0;
+	right: 14px;
+	transform: rotate(45deg);
+	cursor: pointer;
+}
+.close1{
+	position: absolute;
+	top: 0;
+	right: 14px;
+	transform: rotate(45deg);
+	cursor: pointer;
+}
+.close2{
+	position: absolute;
+	top: 0;
+	right: 14px;
+	transform: rotate(45deg);
+	cursor: pointer;
+}
+#aboutbg{
+	background-color: maroon;
+	color:white;
+	text-align: center;
+	justify-content: center;
+
+}
+#contactbg{
+	background-color: maroon;
+	color:white;
+	text-align: center;
+	justify-content: center;
+}
+.line1{
+	border-top: 3px solid maroon;
+}
+.contactBG{
+
+	background-color: white;
+	border-radius: 4px;
+
+	text-align: center;
+}
