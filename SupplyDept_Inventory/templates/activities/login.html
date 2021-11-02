@@ -3,7 +3,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
   <link rel="stylesheet" href="{% static 'css/loginCss.css'%}">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -22,6 +21,7 @@
   <!-- Your custom styles (optional) -->
   <link rel="stylesheet" href="{% static 'media/style.css'%}">
 </head>
+{% block content%}
 <body>
   <!----- Main Navigation--->
   <header>
@@ -71,3 +71,4 @@
 
 </body>
 </html>
+{% endblock%}
