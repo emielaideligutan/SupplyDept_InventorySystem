@@ -1,4 +1,4 @@
-	.Banner{
+.Banner{
 	text-align: left;
 	
 	color: white;
@@ -186,7 +186,6 @@ hr.line1{
 	position: absolute;
 	top: 0;
 	display: none;
-s
 }
 .bg-modal1{
 	width: 100%;
@@ -195,7 +194,6 @@ s
 	position: absolute;
 	top: 0;
 	display: none;
-
 }
 .modal-content{
 	display: none;

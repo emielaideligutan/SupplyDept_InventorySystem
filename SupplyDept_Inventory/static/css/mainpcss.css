@@ -1,13 +1,76 @@
+*{
+	margin: 0%;
+}
+.navbar{
+	background-color: maroon;
+}
+.navbar-nav{
+
+}
 .Banner{
 	text-align: left;
 	padding-right: 70px;
-	color: white;
-	width: 100%;
-	height: 50%;
-	font-size: 25px;
+	color:white;
+	font-size: 40px;
+	font-family: cursive;
 }
-#loginbtn{
+#image{
+	width: 100%;
+	height: 110%;
+	border-radius: 15px;
+	border: 1px solid black;
+}
+#deliveryimg{
+	padding-left: 20px;
+	height: 30%;
+	width: 50%;
+	border: 0.5px solid black;
+}
+#Deliverybtn{
+	padding-left: 20px;
+	width: 50%;
+	border-radius: 8px;
+	border: 1px solid maroon;
+	background-color: white;
+	color: maroon;
+	font-size: 15px;
+	font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+	font-weight: 100px;
+}
+#Deliverybtn:hover{
+	border-radius: 8px;
+	border: 1px solid gray;
+	background-color: white;
+	color: black;
+	font-size: 15px;
+}
+#withdrawimg{
+	height: 30%;
+	width: 50%;
+	border: 0.5px solid black;
+}
+#withdrawbtn{
+	width: 50%;
+	border-radius: 8px;
+	border: 1px solid maroon;
+	background-color: white;
+	color: maroon;
+	font-size: 15px;
+	font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+	font-weight: 100px;
+}
+#withdrawbtn:hover{
+	border-radius: 8px;
+	border: 1px solid gray;
+	background-color: white;
+	color: black;
+	font-size: 15px;
+}
 
+
+
+
+#loginbtn{
 	font-size: 14px;
 	color: white;
 	border: .5px solid maroon;
@@ -18,7 +81,7 @@
 
 }
 #popup{
-
+	text-align: left;
 	font-size: 14px;
 	color: white;
 	border: .5px solid maroon;
@@ -34,39 +97,9 @@
 		background-color: maroon;
 }
 
-
-#withdrawbtn{
-	border-radius: 8px;
-	border: 1px solid maroon;
-	background-color: white;
-	color: maroon;
-	font-size: 15px;
-}
-
-#withdrawbtn:hover{
-	border-radius: 8px;
-	border: 1px solid gray;
-	background-color: white;
-	color: black;
-	font-size: 15px;
-}
-#Deliverybtn{
-	border-radius: 8px;
-	border: 1px solid maroon;
-	background-color: white;
-	color: maroon;
-	font-size: 15px;
-}
-
-#Deliverybtn:hover{
-	border-radius: 8px;
-	border: 1px solid gray;
-	background-color: white;
-	color: black;
-	font-size: 15px;
-	
-}
 #Logout{
+	position: relative;
+	right: auto;
 	border-radius: 8px;
 	border: 1px solid maroon;
 	background-color: white;
@@ -85,7 +118,6 @@
 }
 #bgc{
 	background-color: #222222;
-	width: 100%;
 }
 #footerlabel{
 	color: white;
@@ -103,10 +135,9 @@
 	font: arial;
 }
 #aboutbtn:hover{
-
 	color: gray;
-
 }
+
 #contactbtn{
 	padding-left: 10px;
 	border-radius: 8px;

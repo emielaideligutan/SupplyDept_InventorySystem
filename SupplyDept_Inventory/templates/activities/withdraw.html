@@ -7,237 +7,270 @@
 <body>
 
   <!-- Start your project here--> 
-  <header>
-    <div class="container">
-      <div class="row cbanner"  >
-        <div class="col-md-8" >
-           <label  class="Banner "  >Department Of Supply</label>
-        </div> 
-        <div class="col-md-2 ">
-           <label   ></label>
-        </div> 
-        <div class="col-md-2 ">
-           <label  class="bn "  >Withdraw</label>
-        </div> 
-      </div>
+  <div class="">
+    <div class="row cbanner"  >
+      <div class="col-md-8" >
+         <label  class="Banner "  >DEPARTMENT OF SUPPLY</label>
+      </div> 
+      <div class="col-md-2 ">
+         <label   ></label>
+      </div> 
+      <div class="col-md-2 ">
+         <label  class="bn "  >WITHDRAW</label>
+      </div> 
     </div>
-  </header><br>
-  <main>
-    <div class="container">
-      <form action="mainpage.html">
-        <button id="btn" a>Back</button>
+  </div>
+</header><br>
+<main>
+  <div class="continer">
+    <div class="">
+      <form action="{% url 'Supplydept_mainpage' %}">
+        <button id="btn" data-mdb-toogle="tooltip" title="Back to home " >BACK</button>
       </form>
+      <form style="text-align: center;" method="post">
+            <label  for ="dep" class="nah" >Choose Department</label>
+            <select id="deps" name="choice" class=dropd>
+            <option value=OCS_CASHIER_SERVICES>OCS(CASHIER-SERVICES)</option>
+            <option value=OES_EXTENSION_SERVICES>OES(EXTENSION-SERVICES)</option>
+            <option value=OGS_GUIDANCE_SERVICES>OGS(GUIDANCE-SERVICES)</option>
+            <option value=OHR_HUMAN_RESOURCES>OHR(HUMAN-RESOURCES)</option>
+            <option value=OHS_HEALTH_SERVICES>OHS(HEALTH-SERVICES)</option>
+            <option value=OIT_INFORMATION_TECHNOLOGY>OIT(INFORMATION-TECHNOLOGY)</option>
+            <option value=OSP_JOB_PLACEMENT>OSP(JOB-PLACEMENT)</option>
+            <option value=OPR_PROCUREMENT>OPR(PROCUREMENT)</option>
+            <option value=ORE_RESEARCH_AND_EXTENSION>ORE(RESEARCH-AND-EXTENSION)</option>
+            <option value=ORM_RECORD_MANAGEMENT>ORM(RECORD-MANAGEMENT)</option>
+            <option value=ORS_RESEARCH_SERVICES>ORS(RESEARCH-SERVICES)</option>
+            <option value=OSA_STUDENT_AFFAIRS>OSA(STUDENT-AFFAIRS)</option>
+            <option value=OSH_SECURITY_HOUSE>OSH(SECURITY-HOUSE)</option>
+            <option value=DCG_DOCUMENT_CONTROL_GUIDE>DCG(DOCUMENT-CONTROL-GUIDE)</option>
+            <option value=DID_INDUSTRIAL_EDUCATION>DID(INDUSTRIAL-EDUCATION)</option>
+            <option value=DES_ENGINEERING_TECHNOLOGY>DES(ENGINEERING-TECHNOLOGY)</option>
+            <option value=DLA_LIBERAL_ARTS>DLA(LIBERAL-ARTS)</option>
+            <option value=DMS_MATH_AND_SCIENCE>DMS(MATH-AND-SCIENCE)</option>
+            <option value=DPECS_PHYSICAL_EDUCATION_CULTURAL_SPORTS>DPECS(PHYSICAL,EDUCATION,CULTURAL,SPORTS)</option>
+            <option value=BETEEAP_EXPANDED_TERTIARY_EDUCATION_EQUIVALENCY_AND_ACCREDITATION>BETEEAP(EXPANDED-TERTIARY-EDUCATION-EQUIVALENCY-AND-ACCREDITATION)</option>
+            <option value=GAD_GENDER_AND_DEVELOPMENT>GAD(GENDER-AND-DEVELOPMENT)</option>
+            <option value=IDO_INFRASTRUCTURE_DEVELOPMENT_OFFICE>IDO(INFRASTRUCTURE-DEVELOPMENT-OFFICE)</option>
+            <option value=NSTP_NATIONAL_SERVICE_TRAINING_PROGRAM>NSTP(NATIONAL-SERVICE-TRAINING-PROGRAM)</option>
+            <option value=OAA_ACADEMIC_AFFAIRS>OAA(ACADEMIC-AFFAIRS)</option>
+            <option value=OAC_ACCOUNTING_CAMPUS>OAC(ACCOUNTING-CAMPUS)</option>
+            <option value=OAD_ADMISSION>OAD(ADMISSION)</option>
+            <option value=OAF_ADMIN_AND_FINANCE>OAF(ADMIN-AND-FINANCE)</option>
+            <option value=OAL_ALUMNI>OAL(ALUMNI)</option>
+            <option value=OAS_ADMIN_SERVICES>OAS(ADMIN-SERVICES)</option>
+            <option value=OAX_AUXILIARY>OAX(AUXILIARY)</option>
+            <option value=OBA_BIDS_AND_AWARDS>OBA(BIDS-AND-AWARDS)</option>
+            <option value=OBD_BUDGET_DEVELOPMENT>OBD(BUDGET-DEVELOPMENT)</option>
+            <option value=OCD_CAMPUS_DIRECTOR>OCD(CAMPUS-DIRECTOR)</option>
+            <option value=OCL_CAMPUS_LIBRARY>OCL(CAMPUS-LIBRARY)</option>
+            <option value=OCP_CAMPUS_PLANNING>OCP(CAMPUS-PLANNING)</option>
+            <option value=OCR_CAMPUS_REGISTRAR>OCR(CAMPUS-REGISTRAR)</option>
+            </select><br>
+          
+
+    <!--<button id="btn" name="refresh" data-mdb-toogle="tooltip" title="Choose and Refresh the item of Department" >Refresh</button>-->
+      <button id="btn" name="to_withdraw" data-mdb-toogle="tooltip" title="Choose and Refresh the item of Department" >Select</button>
+      <br>
       <br><br>
-      <div class="row "    >
-        <div  class="col-md-12 " >
-        <label  for ="choose" class="nah" >Choose Department</label>
-          <select id ="choose "name="choose" class =dropd  >
-            <option value=OCS - CASHIER SERVICES>  OCS - CASHIER SERVICES </option>
-            <option value=OES - EXTENSION SERVICEST>  OES - EXTENSION SERVICES </option>
-            <option value=OGS - GUIDANCE SERVICES>  OGS - GUIDANCE SERVICES </option>
-            <option value=OGS - OHR - HUMAN RESOURCES>  OHR - HUMAN RESOURCES </option>
-            <option value=OHS - HEALTH SERVICES>  OHS - HEALTH SERVICES </option>
-            <option value=OIT - INFORMATION TECHNOLOGY>  OIT - INFORMATION TECHNOLOGY </option>
-            <option value=OSP - JOB PLACEMENT>  OSP - JOB PLACEMENT </option>
-            <option value=OPR - PROCUREMENT>  OPR - PROCUREMENT </option>
-            <option value=ORE - RESEARCH AND EXTENSION> ORE - RESEARCH AND EXTENSION </option>
-            <option value=ORM - RECORD MANAGEMENT>  ORM - RECORD MANAGEMENT </option>
-            <option value=ORS - RESEARCH SERVICES>  ORS - RESEARCH SERVICES </option>
-            <option value=BOSA - STUDENT AFFAIRS>  OSA - STUDENT AFFAIRS </option>
-            <option value=BOSH - SECURITY HOUSE>  OSH - SECURITY HOUSE</option>
-            <option value=DCG - DOCUMENT CONTROL GUIDE>  DCG - DOCUMENT CONTROL GUIDE </option>
-            <option value=DID - INDUSTRIAL EDUCATION>  DID - INDUSTRIAL EDUCATION </option>
-            <option value=DES - ENGINEERING TECHNOLOGY>  DES - ENGINEERING TECHNOLOGY </option>
-            <option value=DLA - LIBERAL ARTS>  DLA - LIBERAL ARTS </option>
-            <option value=DMS - MATH AND SCIENCE>  DMS - MATH AND SCIENCE </option>
-            <option value=DPECS - PHYSICAL , EDUCATION, CULTURAL, SPORTS>  DPECS - PHYSICAL , EDUCATION, CULTURAL, SPORTS </option>
-            <option value=BETEEAP - EXPANDED TERTIARY EDUCATION EQUIVALENCY AND ACCREDITATION>  ETEEAP - EXPANDED TERTIARY EDUCATION EQUIVALENCY AND ACCREDITATION </option>
-            <option value=GAD - GENDER AND DEVELOPMENT>  GAD - GENDER AND DEVELOPMENT </option>
-            <option value=NSTP - NATIONAL SERVICE TRAINING PROGRAM>  IDO - INFRASTRUCTURE DEVELOPMENT OFFICE</option>NSTP - NATIONAL SERVICE TRAINING PROGRAM </option>
-            <option value=OAA - ACADEMIC AFFAIRS>  OAA - ACADEMIC AFFAIRS </option>
-            <option value=BOAC ACCOUNTING CAMPUS>  OAC ACCOUNTING CAMPUS</option>
-            <option value=OAD - ADMISSION>  OAD - ADMISSION</option>
-            <option value=OAF - ADMIN AND FINANCE>  OAF - ADMIN AND FINANCE</option>
-            <option value=OAS - ADMIN SERVICES>  OAS - ADMIN SERVICES</option>
-            <option value=OAX - AUXILIARY>  OAX - AUXILIARY</option>
-            <option value=OBA - BIDS AND AWARDS>  OBA - BIDS AND AWARDS</option>
-            <option value=OBD - BUDGET DEVELOPMENT> OBD - BUDGET DEVELOPMENT/option>
-            <option value=OCD - CAMPUS DIRECTOR>  OCD - CAMPUS DIRECTOR</option>
-            <option value=OAL - ALUMNI>  OOAL - ALUMNI</option>
-            <option value=OCL - CAMPUS LIBRARY>OCL - CAMPUS LIBRARY</option>
-            <option value=OCP - CAMPUS PLANNING> OCP - CAMPUS PLANNING</option>
-            <option value=OOCR - CAMPUS REGISTRAL> OCR - CAMPUS REGISTRAL</option>
-          </select>
+      <h2>MAIN STORAGE</h2>
+      <hr class="line1">
+      <div class="">
+      <div class="row">
+        <div class="col-md-12 " style="width:600px; height:350px; overflow:auto;">
+        <table id="t01" class="table1" cellspacing="0" cellpadding="1" border="1" width="300" >
+        <!--<div  class="col-md-12 " >
+          
+          <table id="t01" class="table1">-->
+              <tr>
+                <th>AVAILABLE ITEMS</th>
+                <th>REMAINING</th>
+                <th>UNIT</th>
+              </tr>
+              <tr>
+                <td>itemname</td>
+                <td>quantity</td>
+                <td>unit</td>
+                
+              </tr> 
+          </table><br><br>
+          
+
+          </form>
+          
         </div> 
       </div><br><br><br><br>
-      <div class="container">
-      <div class="row "    >
-        <div  class="col-md-12 " >
-          <table id="t01" class="table1">
-              <tr>
-                <th>Available Items</th>
-                <th>Quantity</th>
-                <th>Unit</th>
-                <th>Withdraw Quantity</th>
-                <th>Description</th>
-                <th>Process</th>
-              </tr>
-              <tr>
-                <td></td>
-                <td></td>
-                <td><label for="unit"></label>
-                  
-                  <select id="unit">
-  <option value="pcs">pcs</option>
-  <option value="bundle">bundle</option>
-  <option value="ream">ream</option>
-  <option value="box">box</option>
-</select>
-                </td>
-                <td><input type="number"  id="WithdrawQuantity" ></label></td>
-                <td><input id="description"></td>
-                <td><button a id="btn">Withdraw</button></td>
-              </tr> 
-          </table>  
-        </div> 
-      </div><br><br>
     </div>
-      <div class="container">
-      <div class="row "    >
-        <div  class="col-md-12 " >
-          <table id="t02" class="table1">
+    <h2>WITHDRAW RECORDS</h2>
+      <div class="">
+      <div class="row ">
+        <div class="col-md-12 " style="width:600px; height:350px; overflow:auto;">
+        <table id="t02" class="table1" cellspacing="0" cellpadding="1" border="1" width="300" >
+        <!--<div  class="col-md-12 " >
+          <table id="t02" class="table1">-->
               <tr>
-                <th>Department</th>
-                <th>Items</th>
-                <th>Description</th>
-                <th>Unit</th>
-                <th>Quantity</th>
-                <th>Remaining</th>
-                <th>Date</th>
-                <th>time</th>
+                <th>DEPARTMENT</th>
+                <th>ITEMS</th>
+                <th>UNIT</th>
+                <th>QUANTITY</th>
+                <th>DATE</th>
+                <th>TIME</th>
+                <th>ACTIONS</th>
               </tr>
               <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr> 
+                <td>Department</td>
+                <td>itemname</td>
+                <td>unit</td>
+                <td>quantity</td>
+                <td>curren_date</td>
+                <td>curren_time</td>
+                <td>
+                  <a href=""id="del">Delete</a>
+                </td>
+            </tr>
+
+              <!--<tr>
+                <td>new item</td>
+                <td>new item</td>
+                <td>new item</td>
+                <td>new item</td>
+                <td>new item</td>
+                <td>new item</td>
+                <td>new item</td>
+              </tr>
+              <tr>
+                <td>new item</td>
+                <td>new item</td>
+                <td>new item</td>
+                <td>new item</td>
+                <td>new item</td>
+                <td>new item</td>
+                <td>new item</td>
+              </tr>
+              <tr>
+                <td>new item</td>
+                <td>new item</td>
+                <td>new item</td>
+                <td>new item</td>
+                <td>new item</td>
+                <td>new item</td>
+                <td>new item</td>
+              </tr>-->
+                
+              
           </table>  
         </div> 
       </div>     
     </div> 
-  </main>
-  <footer id="footerpadding"  >
-    <div  class="container" id="bgc" >
-      <div class="row">
-        <div class="col-md-8"  ><br>
-          <label id="companyname">AAM</label><br>
-          <a id="aboutbtn">About</a><br>
-          <a id="contactbtn">Contact us</a><br><br>
-          <label id="companyname1">&#169; 2020 AAM. All Right Reserve</label>
-        </div>
-        <div class="col-md-4"  ><br>
-          <label id="footerlabel">Technological University of the Philippines</label>
-        </div>
+  </div>
+</main>
+<footer id="footerpadding">
+  <div  class="">
+    <div class="row" id="bgc" >
+      <div class="col-md-8"  ><br>
+        <label id="companyname">AAM</label><br>
+        <a id="aboutbtn">About</a><br>
+        <a id="contactbtn">Contact us</a><br><br>
+        <label id="companyname1">&#169; 2020 AAM. All Right Reserve</label>
+      </div>
+      <div class="col-md-4" ><br>
+        <label id="footerlabel">Technological University of the Philippines</label>
       </div>
     </div>
-  </footer>
-  <div id="About-modal" class="bg-modal">
-    <div  class="container">
-      <div class="row"  >
-      <div class="col-md-2">
-      </div>
-      <div class="col-md-8">
-        <div class="modal-content" >
-        <div class="close1">+</div>
-        <form >
-        <h5  id="aboutbg"  >ABOUT</h5><br>
-        <p id="pg">This Inventory system (website) was create to  speed up and streamline the process of data management and monitoring ,  Also created by the students of Technological University of the  Philippines cavite as a fulfillment for the subject Data-Structure/Web-App . And also this website will be used by the Supply Department of the TUPC. </p>
-        </form>
-      </div>  
-      <div class="col-md-2">
-      
-       </div>
+  </div>
+</footer>
+<div id="About-modal" class="bg-modal">
+  <div  class="container">
+    <div class="row"  >
+    <div class="col-md-2">
     </div>
-    </div>
-   </div>   
+    <div class="col-md-8">
+      <div class="modal-content" >
+      <div class="close1">+</div>
+      <form >
+      <h5  id="aboutbg" style="text-align: center;" >ABOUT</h5><br>
+      <p style="text-align: center;">This Inventory system (website) was create to  speed up and streamline the process of data management and monitoring ,  Also created by the students of Technological University of the  Philippines cavite as a fulfillment for the subject Data-Structure/Web-App . And also this website will be used by the Supply Department of the TUPC. </p>
+      </form>
+    </div>  
+    <div class="col-md-2">
+    
+     </div>
+  </div>
+  </div>
+ </div>   
 </div>
 <div id="contact-modal" class="bg-modal1" >
-    <div  class="container">
-      <div class="row"  >
-      <div class="col-md-2">
-      </div>
-      <div class="col-md-8" >
-        <div class="modal-content">
-        <div class="close2">+</div>
-        
-        <h5 id="contactbg">Contact Us</h5>
-        <h2 id="contactP">AAM</h2>
-        <label>Alberto, Alvero, Madera</label><br><br><br>
-        <img src="img/airo.jpg" alt="pic" class="img-fluid rounded" style="text-align: center;" height="20%" >
-        <form  >
-        <hr class="line1">
-        <label >Alberto, Airo James</label><br>
-        <label>
-          Back End Developer
-        </label>
-        <label>
-          Student of Technological University of the  Philippines Cavite
-        </label><br>
-        <label>
-          09235933267
-        </label><br>
-        <label>
-          airojamesalberto@gmail.com
-        </label>
-        <hr class="line1">
-        </form>
-        <img src="img/wendel.jpeg" alt="pic" class="img-fluid rounded" style="text-align: center;" height="20%" >
-        <form>
-               <hr class="line1">
-        <label >Alvero, Wendel</label><br>
-        <label>
-          Front End Developer
-        </label>
-        <label>
-          Student of Technological University of the  Philippines Cavite
-        </label><br>
-        <label>
-          09753789929
-        </label><br>
-        <label>
-          wendelpatalalvero@gmail.com
-        </label>
-        <hr class="line1">
-        </form>
-        <img src="img/reymie.jpg" alt="pic" class="img-fluid rounded" style="text-align: center;" height="20%" >
-        <form>
-               <hr class="line1">
-        <label >Madera, Reymie</label><br>
-        <label>
-          Front End Developer
-        </label>
-        <label>
-          Student of Technological University of the  Philippines Cavite
-        </label><br>
-        <label>
-          09095930914
-        </label><br>
-        <label>
-          reymiebmadera16@gmail.com
-        </label>
-        <hr class="line1">
-        </form>
-      </div>  
-      <div class="col-md-2">
-      </div>
+  <div  class="container">
+    <div class="row"  >
+    <div class="col-md-2">
     </div>
+    <div class="col-md-8" >
+      <div class="modal-content">
+      <div class="close2">+</div>
+      
+      <h5 id="contactbg">Contact Us</h5>
+      <h2 id="contactP">AAM</h2>
+      <label>Alberto, Alvero, Madera</label><br><br><br>
+      <img src="img/airo.jpg" alt="pic" class="img-fluid rounded" style="text-align: center;" height="20%" >
+      <form  >
+      <hr class="line1">
+      <label >Alberto, Airo James</label><br>
+      <label>
+        Back End Developer
+      </label>
+      <label>
+        Student of Technological University of the  Philippines Cavite
+      </label><br>
+      <label>
+        09235933267
+      </label><br>
+      <label>
+        airojamesalberto@gmail.com
+      </label>
+      <hr class="line1">
+      </form><br><br>
+      <img src="img/wendel.jpeg" alt="pic" class="img-fluid rounded" style="text-align: center;" height="20%" >
+      <form>
+             <hr class="line1">
+      <label >Alvero, Wendel</label><br>
+      <label>
+        Front End Developer
+      </label>
+      <label>
+        Student of Technological University of the  Philippines Cavite
+      </label><br>
+      <label>
+        09753789929
+      </label><br>
+      <label>
+        wendelpatalalvero@gmail.com
+      </label>
+      <hr class="line1">
+      </form><br><br>
+      <img src="img/reymie.jpg" alt="pic" class="img-fluid rounded" style="text-align: center;" height="20%" >
+      <form>
+             <hr class="line1">
+      <label >Madera, Reymie</label><br>
+      <label>
+        Front End Developer
+      </label>
+      <label>
+        Student of Technological University of the  Philippines Cavite
+      </label><br>
+      <label>
+        09095930914
+      </label><br>
+      <label>
+        reymiebmadera16@gmail.com
+      </label>
+      <hr class="line1">
+      </form>
+    </div>  
+    <div class="col-md-2">
     </div>
-   </div> 
+  </div>
+  </div>
+ </div> 
 </div>
   <!-- End your project here-->
 

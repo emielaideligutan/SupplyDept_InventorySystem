@@ -3,13 +3,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="stylesheet" href="{% static 'css/loginCss.css'%}">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title>AAM</title>
+  <title>SUPPLY INVENTORY SYSTEM</title>
   <!-- MDB icon -->
-  <link rel="icon" href="{% static 'media/AAM.png'%}" type="image/x-icon">
+  <link rel="icon" href="{% static 'media/logo.png'%}" type="image/x-icon">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="{% static 'media/https://use.fontawesome.com/releases/v5.11.2/css/all.css'%}">
   <!-- Google Fonts Roboto -->
@@ -20,26 +19,34 @@
   <link rel="stylesheet" href="{% static 'media/mdb.min.css'%}">
   <!-- Your custom styles (optional) -->
   <link rel="stylesheet" href="{% static 'media/style.css'%}">
-</head>
+
 {% block content%}
+  <link rel="stylesheet" href="{% static 'css/loginCss.css'%}">
+</head>
+
 <body>
   <!----- Main Navigation--->
-  <header>
-    <h2  class="welcome"  >Welcome</h2>
-  </header>
+  <nav class="navbar">
+    <h2  class="title" >SUPPLY INVENTORY SYSTEM </h2>
+  </nav>
+    <h2  class="welcome" > W  E  L  C  O  M  E </h2>
+   
   <!----- Main Navigation--->
   <!----- Main layout----->
   <main>
   	<!-- main container-->
-    <div class="container">
+    <div class="container ">
     	<div class="row animated fadeIn" >
-        <div class="col-md-6" >
-          <img src="{% static 'media/photo.jpeg'%}" alt="" class="img-fluid rounded " width="100%" height="100%" >
+        <div class="col-md-1" >
         </div>
-        <div class="col-md-6" id="padd" >
+        <div class="col-md-6" >
+          <img src="{% static 'media/photo.jpg'%}" alt="" class="img" >
+        </div>
+        <div class="box col-md-4" id="padd" >
+          <label  id="label" for = "Username"> SIGN IN </label><br>
           <label  id="label1" for = "Username">Username</label><br>
           <input class="input" id="Username" ><br><br>
-          <label  id="label1" for = "Password">Password</label><br>
+          <label  id="label2" for = "Password">Password</label><br>
           <input type="Password" class="input" id="Password" ><br><br>
           <form action="mainpage/">
             <button id="loginbtn" >Log In</button>

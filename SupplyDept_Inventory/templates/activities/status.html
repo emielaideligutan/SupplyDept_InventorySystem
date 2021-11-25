@@ -8,7 +8,7 @@
 
   <!-- Start your project here--> 
   <header>
-    <div class="container">
+    <div class="">
       <div class="row cbanner "  >
         <div class="col-md-8" >
            <label  class="Banner "  >Department Of Supply</label>
@@ -22,174 +22,149 @@
       </div>
     </div>
   </header><br>
-   <div class="container">
+   <div class="">
       <div class="row "  >
         <div class="col-md-4" >
-          <form action="mainpage.html">
-            <button id="btn"  a>Back</button>
+          <form action="{% url 'Supplydept_mainpage' %}">
+            <button id="btn" data-mdb-toogle="tooltip" title="Back to home " >Back</button>
           </form>
         </div> 
         <div class="col-md-8">
 
            <img src="pic.png" alt="" class="img-fluid rounded " width="100%"  >
-      </form>
       </div>
     </div>
   <main> 
-    <div class="container">
+    <div class="">
       <hr class="line1">
       <h6>PER ITEM</h6><br><br>
       <div class="row">
       <div class="col-md-12" >
-          <form action="/action_page.php" method="get">
-          <label for="item">Choose your browser from the list:</label>
-          <input list="items" name="item" id="item">
-          <datalist id="items">
-            <option value="pencil">
-            <option value="marker">
-            <option value="bondpaper">
-            <option value="ballpen">
-          </datalist>
-          <input type="submit">
-          </form>
-        <label  for ="choose">SORT BY</label>
+          <form action="" method="post">
+        <!--<label  for ="choose">SORT BY</label>
           <select class =dropd  >
           <option value=BET-COET>  Alphabetical </option>
           <option value=BET-ET>  Descending </option>
           <option value=BET-ET>  Ascending </option>
-        </select>
-        <button  id="btn">SORT</button>
-        <button  id="btn">SEARCH</button>
-        <input type="dep" name="Sdepartment" id="Sdep" >
-          
-        <table id="t01" class="table1">
+        </select>-->
+        <button  name="sort"id="Sort" title="Sort the Items in Order">SORT</button>
+        <label for="item">Item</label>
+          <input list="items" name="item" id="item">
+          <datalist id="items">
+            <option value="Long Brown Expanded Folder">
+            <option value="Scotch Tape">
+            <option value="Short Bondpaper">
+            <option value="Long bondpaper">
+            <option value="White Board Marker(blue)">
+            <option value="White Board Marker(black)">
+            <option value="Glue">
+            <option value="Brown Envelope">
+            <option value="Staple Wire(big)">
+            <option value="Pencil Sharpener">
+          </datalist>
+        <button name="search" id="srch">SEARCH</button>
+
+        <button id="btn" name="reload" data-mdb-toogle="tooltip" title="Choose and Refresh the item of Department" >Refresh</button>
+          </form>
+        <form style="text-align: center;" method="post">
+       <div class="col-md-12" style="width:1000px; height:350px; overflow:auto;">
+         <table id="t01" class="table1" cellspacing="0" cellpadding="1" border="1" width="300" >
+        <!--<table id="t01" class="table1" >-->
               <tr>
                 <th>Items</th>
+                <th>Remainning Quantity</th>
                 <th>Unit</th>
-                <th>Quantity</th>
-                <th>Remainning</th>
-                <th>Percentage</th>
               </tr>
               <tr>
                 <td></td>
                 <td></td>
-                <td></td>
-                <td></td>
-                <td></td>               
+                <td></td>             
+              </tr>
+              <!--<tr>
+                <td>b item</td>
+                <td>new times</td>
+                <td>news</td>             
               </tr>
               <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>               
-              </tr> 
+                <td>c item</td>
+                <td>new times</td>
+                <td>news</td>             
+              </tr>
               <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>               
-              </tr> 
+                <td>d item</td>
+                <td>new times</td>
+                <td>news</td>             
+              </tr>
               <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>               
-              </tr>  
+                <td>e item</td>
+                <td>new times</td>
+                <td>news</td>             
+              </tr>
+              <tr>
+                <td>a item</td>
+                <td>new times</td>
+                <td>news</td>             
+              </tr>
+              <tr>
+                <td>f item</td>
+                <td>new times</td>
+                <td>news</td>             
+              </tr>-->
           </table>  
           </div>
         </div>
 
       </div><br><br>
-
-      <div class="container">
+      </form>
+      <div class="">
       <hr class="line1">
+    
       <h6>PER DEPARTMENT</h6><br><br>
-      <label  for ="choose" class="nah" >Choose Department</label>
-          <select id ="choose ">
-            <option value=OCS - CASHIER SERVICES>  OCS - CASHIER SERVICES </option>
-            <option value=OES - EXTENSION SERVICEST>  OES - EXTENSION SERVICES </option>
-            <option value=OGS - GUIDANCE SERVICES>  OGS - GUIDANCE SERVICES </option>
-            <option value=OGS - OHR - HUMAN RESOURCES>  OHR - HUMAN RESOURCES </option>
-            <option value=OHS - HEALTH SERVICES>  OHS - HEALTH SERVICES </option>
-            <option value=OIT - INFORMATION TECHNOLOGY>  OIT - INFORMATION TECHNOLOGY </option>
-            <option value=OSP - JOB PLACEMENT>  OSP - JOB PLACEMENT </option>
-            <option value=OPR - PROCUREMENT>  OPR - PROCUREMENT </option>
-            <option value=ORE - RESEARCH AND EXTENSION> ORE - RESEARCH AND EXTENSION </option>
-            <option value=ORM - RECORD MANAGEMENT>  ORM - RECORD MANAGEMENT </option>
-            <option value=ORS - RESEARCH SERVICES>  ORS - RESEARCH SERVICES </option>
-            <option value=BOSA - STUDENT AFFAIRS>  OSA - STUDENT AFFAIRS </option>
-            <option value=BOSH - SECURITY HOUSE>  OSH - SECURITY HOUSE</option>
-            <option value=DCG - DOCUMENT CONTROL GUIDE>  DCG - DOCUMENT CONTROL GUIDE </option>
-            <option value=DID - INDUSTRIAL EDUCATION>  DID - INDUSTRIAL EDUCATION </option>
-            <option value=DES - ENGINEERING TECHNOLOGY>  DES - ENGINEERING TECHNOLOGY </option>
-            <option value=DLA - LIBERAL ARTS>  DLA - LIBERAL ARTS </option>
-            <option value=DMS - MATH AND SCIENCE>  DMS - MATH AND SCIENCE </option>
-            <option value=DPECS - PHYSICAL , EDUCATION, CULTURAL, SPORTS>  DPECS - PHYSICAL , EDUCATION, CULTURAL, SPORTS </option>
-            <option value=BETEEAP - EXPANDED TERTIARY EDUCATION EQUIVALENCY AND ACCREDITATION>  ETEEAP - EXPANDED TERTIARY EDUCATION EQUIVALENCY AND ACCREDITATION </option>
-            <option value=GAD - GENDER AND DEVELOPMENT>  GAD - GENDER AND DEVELOPMENT </option>
-            <option value=NSTP - NATIONAL SERVICE TRAINING PROGRAM>  IDO - INFRASTRUCTURE DEVELOPMENT OFFICE</option>NSTP - NATIONAL SERVICE TRAINING PROGRAM </option>
-            <option value=OAA - ACADEMIC AFFAIRS>  OAA - ACADEMIC AFFAIRS </option>
-            <option value=BOAC ACCOUNTING CAMPUS>  OAC ACCOUNTING CAMPUS</option>
-            <option value=OAD - ADMISSION>  OAD - ADMISSION</option>
-            <option value=OAF - ADMIN AND FINANCE>  OAF - ADMIN AND FINANCE</option>
-            <option value=OAS - ADMIN SERVICES>  OAS - ADMIN SERVICES</option>
-            <option value=OAX - AUXILIARY>  OAX - AUXILIARY</option>
-            <option value=OBA - BIDS AND AWARDS>  OBA - BIDS AND AWARDS</option>
-            <option value=OBD - BUDGET DEVELOPMENT> OBD - BUDGET DEVELOPMENT/option>
-            <option value=OCD - CAMPUS DIRECTOR>  OCD - CAMPUS DIRECTOR</option>
-            <option value=OAL - ALUMNI>  OOAL - ALUMNI</option>
-            <option value=OCL - CAMPUS LIBRARY>OCL - CAMPUS LIBRARY</option>
-            <option value=OCP - CAMPUS PLANNING> OCP - CAMPUS PLANNING</option>
-            <option value=OOCR - CAMPUS REGISTRAL> OCR - CAMPUS REGISTRAL</option>
-          </select><br><br>
-      <div class="row">
-      <div class="col-md-4">
-        <table id="t01" class="table1">
-              <tr>
-              <th>Items</th>
-              </tr>
-              <tr>
-                <td></td>
-              </tr>
-              <tr>
-                <td></td>
-              </tr>
-              <tr>
-                <td></td>
-              </tr>
-              <tr>
-                <td></td>
-              </tr>
-        </table>
-      </div>
-      <div class="col-md-4" id="ab"><br>
-            <input  type="Number" name="inputQ" id="Quantity" maxlength="2" placeholder="Quantity" max="20" min="0" ><br><br>
-            <button id="btn1">ADD</button><br><br>
-            <button id="btn1">UNDO</button><br><br>
-      </div>
-      <div class="col-md-4">
-        <table id="t01" class="table1">
-              <tr>
-                <th>Department Items</th>
-              </tr>
-              <tr>
-                <td></td>
-              </tr>
-              <tr>
-                <td></td>
-              </tr>
-              <tr>
-                <td></td>
-              </tr>
-              <tr>
-                <td></td>
-              </tr>
-        </table>
-      </div>
-      </div><br><br><br>      
+
+        <form style="text-align: center;" method="post">
+            <label  for ="dep" class="nah" >Choose Department</label>
+            <select id="deps" name="choice" class=dropd>
+            <option value=OCS_CASHIER_SERVICES>OCS(CASHIER-SERVICES)</option>
+            <option value=OES_EXTENSION_SERVICES>OES(EXTENSION-SERVICES)</option>
+            <option value=OGS_GUIDANCE_SERVICES>OGS(GUIDANCE-SERVICES)</option>
+            <option value=OHR_HUMAN_RESOURCES>OHR(HUMAN-RESOURCES)</option>
+            <option value=OHS_HEALTH_SERVICES>OHS(HEALTH-SERVICES)</option>
+            <option value=OIT_INFORMATION_TECHNOLOGY>OIT(INFORMATION-TECHNOLOGY)</option>
+            <option value=OSP_JOB_PLACEMENT>OSP(JOB-PLACEMENT)</option>
+            <option value=OPR_PROCUREMENT>OPR(PROCUREMENT)</option>
+            <option value=ORE_RESEARCH_AND_EXTENSION>ORE(RESEARCH-AND-EXTENSION)</option>
+            <option value=ORM_RECORD_MANAGEMENT>ORM(RECORD-MANAGEMENT)</option>
+            <option value=ORS_RESEARCH_SERVICES>ORS(RESEARCH-SERVICES)</option>
+            <option value=OSA_STUDENT_AFFAIRS>OSA(STUDENT-AFFAIRS)</option>
+            <option value=OSH_SECURITY_HOUSE>OSH(SECURITY-HOUSE)</option>
+            <option value=DCG_DOCUMENT_CONTROL_GUIDE>DCG(DOCUMENT-CONTROL-GUIDE)</option>
+            <option value=DID_INDUSTRIAL_EDUCATION>DID(INDUSTRIAL-EDUCATION)</option>
+            <option value=DES_ENGINEERING_TECHNOLOGY>DES(ENGINEERING-TECHNOLOGY)</option>
+            <option value=DLA_LIBERAL_ARTS>DLA(LIBERAL-ARTS)</option>
+            <option value=DMS_MATH_AND_SCIENCE>DMS(MATH-AND-SCIENCE)</option>
+            <option value=DPECS_PHYSICAL_EDUCATION_CULTURAL_SPORTS>DPECS(PHYSICAL,EDUCATION,CULTURAL,SPORTS)</option>
+            <option value=BETEEAP_EXPANDED_TERTIARY_EDUCATION_EQUIVALENCY_AND_ACCREDITATION>BETEEAP(EXPANDED-TERTIARY-EDUCATION-EQUIVALENCY-AND-ACCREDITATION)</option>
+            <option value=GAD_GENDER_AND_DEVELOPMENT>GAD(GENDER-AND-DEVELOPMENT)</option>
+            <option value=IDO_INFRASTRUCTURE_DEVELOPMENT_OFFICE>IDO(INFRASTRUCTURE-DEVELOPMENT-OFFICE)</option>
+            <option value=NSTP_NATIONAL_SERVICE_TRAINING_PROGRAM>NSTP(NATIONAL-SERVICE-TRAINING-PROGRAM)</option>
+            <option value=OAA_ACADEMIC_AFFAIRS>OAA(ACADEMIC-AFFAIRS)</option>
+            <option value=OAC_ACCOUNTING_CAMPUS>OAC(ACCOUNTING-CAMPUS)</option>
+            <option value=OAD_ADMISSION>OAD(ADMISSION)</option>
+            <option value=OAF_ADMIN_AND_FINANCE>OAF(ADMIN-AND-FINANCE)</option>
+            <option value=OAL_ALUMNI>OAL(ALUMNI)</option>
+            <option value=OAS_ADMIN_SERVICES>OAS(ADMIN-SERVICES)</option>
+            <option value=OAX_AUXILIARY>OAX(AUXILIARY)</option>
+            <option value=OBA_BIDS_AND_AWARDS>OBA(BIDS-AND-AWARDS)</option>
+            <option value=OBD_BUDGET_DEVELOPMENT>OBD(BUDGET-DEVELOPMENT)</option>
+            <option value=OCD_CAMPUS_DIRECTOR>OCD(CAMPUS-DIRECTOR)</option>
+            <option value=OCL_CAMPUS_LIBRARY>OCL(CAMPUS-LIBRARY)</option>
+            <option value=OCP_CAMPUS_PLANNING>OCP(CAMPUS-PLANNING)</option>
+            <option value=OCR_CAMPUS_REGISTRAR>OCR(CAMPUS-REGISTRAR)</option>
+            </select>
+            <br><br>
+            <button id="btn" name="refresh" data-mdb-toogle="tooltip" title="Choose and update the item of the choosen Department" >Update Limit</button>
+            <br><br><br><br>
+
   </main>
 
   <!-- End your project here-->
