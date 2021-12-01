@@ -1,0 +1,115 @@
+{% extends 'activities/login.html'%}
+{%load static%}
+
+{% block content%}
+  <link rel="stylesheet" href="{%static 'css/status.css'%}">
+
+<body>
+
+  <!-- Start your project here--> 
+  <header>
+    <div class="">
+      <div class="row cbanner "  >
+        <div class="col-md-8" >
+           <label  class="Banner "  >Department Of Supply</label>
+        </div> 
+        <div class="col-md-2 ">
+           <label   ></label>
+        </div> 
+        <div class="col-md-2 ">
+           <label  class="bn "  >CONTACT</label>
+        </div> 
+      </div>
+    </div>
+  </header><br>
+   <div class="">
+      <div class="row "  >
+        <div class="col-md-2" >
+          <form action="{% url 'Supplydept_mainpage' %}">
+            <button id="btn" data-mdb-toogle="tooltip" title="Back to home " >Back</button><br><br>
+          </form>
+        </div> 
+        <div class="col-md-2">
+
+        </div>
+        <div class="col-md-8">
+      </div>
+    </div>
+    <div class="">
+      <div class="row "  >
+        <div class="col-md-4" >
+        </div> 
+        <div class="col-md-4" >
+          <h1 id="contactP">ALM </h1>
+          <h4 id="contactp">Inventory System</h4>
+        </div> 
+        <div class="col-md-4">
+      
+          
+      </div>
+    </div><br><br><br>
+    <div class="">
+      <div class="row "  >
+        <div class="col-md-1" >
+        </div> 
+        <div class="col-md-3" >
+          <img src="{%static 'media/wendel.jpeg'%}" alt="" class="img-fluid rounded " width="50%" height="50%"  ><br>
+          <h6>Front And Back End Developer</h6>   
+        </div> 
+        <div class="col-md-8">
+          <h3>Alvero Wendel</h3>
+          <h5> Student of Technological University of the  Philippines Cavite</h5>
+          <h5> wendelpatalalvero@gmail.com</h5>
+          <h5> 09753789929</h5>
+        </div>
+      </div>
+    </div><br><br><br>
+    <hr class="line1"><br>
+    <div class="">
+      <div class="row "  >
+        <div class="col-md-1" >
+        </div> 
+        <div class="col-md-3" >
+          <img src="{%static 'media/emie.jpg'%}" alt="" class="img-fluid rounded " width="50%" height="50%"  ><br>
+          <h6>Front End Developer</h6>   
+        </div> 
+        <div class="col-md-8">
+          <h3>Emie Laide Ligutan</h3>
+          <h5> Student of Technological University of the  Philippines Cavite</h5>
+          <h5>ligutanemie@gmail.com</h5>
+          <h5>09563210866</h5>
+        </div>
+      </div>
+    </div><br><br><br>
+    <hr class="line1"><br>
+    <div class="">
+      <div class="row "  >
+        <div class="col-md-1" >
+        </div> 
+        <div class="col-md-3" >
+          <img src="{%static 'media/reymie.jpg'%}" alt="" class="img-fluid rounded " width="50%" height="50%"  ><br>
+          <h6>Front End Developer</h6>   
+        </div> 
+        <div class="col-md-8">
+          <h3>Reymie Madera</h3>
+          <h5> Student of Technological University of the  Philippines Cavite</h5>
+          <h5>reymiemadera16@gmail.com</h5>
+          <h5>09095930914</h5>
+        </div>
+      </div>
+    </div>
+  <main> 
+
+
+  </main>
+
+  <!-- End your project here-->
+
+  <!-- jQuery -->
+
+  <!-- Your custom scripts (optional) -->
+  <script type="text/javascript"></script>
+
+</body>
+</html>
+{% endblock%}
