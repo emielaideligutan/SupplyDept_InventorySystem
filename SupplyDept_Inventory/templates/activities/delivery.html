@@ -29,15 +29,18 @@
       </form><br><br><br>
       <div class="row "    >
         <div  class="col-md-4 " >
-          <label class="label1" id="ITEM" for = "item">ITEM:</label><br>
-          <input id="item" class="input1" ><br><br>
-          <label  class="label1" id="UNIT" for = "unit">UNIT:</label><br>
-          <input id="unit" class="input1" ><br><br>
-          <label  class="label1" id="QUAN" for = "unit">QUANTITY:</label><br>
-          <input id="quan" class="input1" ><br><br>
-          <label  class="label1" id="DES" for = "unit">DESCRIPTION:</label><br>
-          <input id="des" class="input1" ><br><br><br>
-          <button id="add" >ADD</button>
+          <form action = "" method = "POST">
+          {% csrf_token %}
+            <label class="item_label1" id="ITEM" for = "item">ITEM:</label><br>
+            <input type="text" required autocomplete="off" name = "delivery_item_name"><br><br>
+            <label  class="unit_label1" id="UNIT" for = "unit">UNIT:</label><br>
+            <input type="text" required autocomplete="off" name = "delivery_unit"><br><br>
+            <label  class="quantity_label1" id="QUAN" for = "quantity">QUANTITY:</label><br>
+            <input type="text" required autocomplete="off" name = "delivery_quantity"><br><br>
+            <label  class="description_label1" id="DES" for = "description">DESCRIPTION:</label><br>
+            <input type="text" required autocomplete="off" name = "delivery_description"><br><br><br>
+            <button id="add" >ADD</button>
+          </form>
         </div> 
         <div class="col-md-8 ">
           <table id="t01" class="table1">
