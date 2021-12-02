@@ -28,7 +28,7 @@ def __str__(self):
 
 
 class deliveryrecords(models.Model):
-<<<<<<< HEAD
+
     delivery_item_name = models.CharField(max_length=50, verbose_name='delivery_item_name')
     delivery_unit = models.CharField(max_length=50, verbose_name='delivery_unit')
     delivery_quantity = models.CharField(max_length=50, verbose_name='delivery_quantity')
@@ -38,24 +38,15 @@ class deliveryrecords(models.Model):
 
     class Meta:
         db_table = ('deliveryrecords')
-=======
-    ItemName = models.CharField(max_length=50, verbose_name='item name')
-    Unit = models.CharField(max_length=50, verbose_name='unit')
-    Quantity = models.CharField(max_length=50, verbose_name='quantity')
-    current_date = models.DateField(max_length=50, verbose_name='current date')
-    current_time = models.TimeField(max_length=50, verbose_name='current time')
-    class Meta:
-        db_table = "deliveryrecords"
->>>>>>> 16e2ac97c6a3ef6d2db1dcf252562ca73cedbb78
-
+        
 def __str__(self):
     return self.ItemName
-
-
+    
 class mainstorage(models.Model):
     ItemName = models.CharField(max_length=50, verbose_name='item name')
     Unit = models.CharField(max_length=50, verbose_name='unit')
     Quantity = models.CharField(max_length=50, verbose_name='quantity')
+
     class Meta:
         db_table = "mainstorage"
 
