@@ -38,7 +38,11 @@ class deliveryrecords(models.Model):
 
     class Meta:
         db_table = ('deliveryrecords')
+<<<<<<< HEAD
         
+=======
+
+>>>>>>> fd48b37fd1a6e711790c32a6d7fcad839ddabe45
 def __str__(self):
     return self.ItemName
     
