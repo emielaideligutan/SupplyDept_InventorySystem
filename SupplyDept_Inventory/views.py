@@ -4,7 +4,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from SupplyDept_Inventory.models import deliveryrecords
 #from . import forms
 
-from SupplyDept_Inventory.models import deliveryrecords
+from SupplyDept_Inventory.models import deliveryrecords, mainstorage
 
 def login(request):
     return render(request, 'activities/login.html')
@@ -26,6 +26,11 @@ def delivery(request):
            save_delivery_record.delivery_unit = request.POST.get('delivery_unit')
            save_delivery_record.delivery_quantity = request.POST.get('delivery_quantity')
            save_delivery_record.save()
+           save_main_storage = mainstorage()
+           save_main_storage.ItemName = request.POST.get('delivery_item_name')
+           save_main_storage.Quantity = request.POST.get('delivery_quantity')
+           save_main_storage.Unit = request.POST.get('delivery_unit')
+           save_main_storage.save()
 
            return render (request, 'activities/delivery.html')
 

@@ -38,18 +38,14 @@ class deliveryrecords(models.Model):
 
     class Meta:
         db_table = ('deliveryrecords')
-<<<<<<< HEAD
-        
-=======
 
->>>>>>> fd48b37fd1a6e711790c32a6d7fcad839ddabe45
 def __str__(self):
     return self.ItemName
     
 class mainstorage(models.Model):
-    ItemName = models.CharField(max_length=50, verbose_name='item name')
-    Unit = models.CharField(max_length=50, verbose_name='unit')
-    Quantity = models.CharField(max_length=50, verbose_name='quantity')
+    ItemName = models.CharField(max_length=50, verbose_name='ItemName')
+    Unit = models.CharField(max_length=50, verbose_name='Unit')
+    Quantity = models.CharField(max_length=50, verbose_name='Quantity')
 
     class Meta:
         db_table = "mainstorage"
