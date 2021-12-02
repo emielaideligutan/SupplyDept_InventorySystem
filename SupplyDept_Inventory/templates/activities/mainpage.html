@@ -4,31 +4,42 @@
 {% block content%}
 
   <link rel="stylesheet" href="{% static 'css/mainpcss.css'%}">
+</head>
 
 <body>
-  <nav class="navbar">
-    <label  class="Banner "> Supply Inventory System</label>
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link button" id="popup" data-mdb-toogle="tooltip" title="Change your Username And Password " href="#">Account Setting</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" id="loginbtn" data-mdb-toogle="tooltip" title="Check The record of your data in per Department and  Item " href="status.html">Status</a>
-        </li>
-      </ul>
-  </nav>
+  <header>
+    <div class="">
+      <div class="row cbanner"  >
+        <div class="col-md-8" >
+           <label  class="Banner "  >Department Of Supply</label>
+        </div> 
+        <div class="col-md-2"  >
+          <form action="">
+            <a  id="popup"  class="button" data-mdb-toogle="tooltip" title="Change your Username And Password " >Account Setting</a>
+          </form>
+           
+        </div>
+        <div class="col-md-2" >
+          <form action=''>
+            <a href="{% url 'Supplydept_status' %}" id="loginbtn" data-mdb-toogle="tooltip" title="Check The record of your data in per Department and  Item ">Status</a> 
+          </form>
+        </div>
+      </div>
+    </div>
+     
+  </header><br>
   <!-- Start your project here-->
 
   <main>
       <div class="row" >
         <div class="col-md-4" >
           <img src="{%static 'media/delivery.jpeg'%}" alt="" id="deliveryimg" class="img-fluid rounded "><br><br> 
-            <form action="delivery.html">
+            <form action="{% url 'Supplydept_delivery' %}">
               <button id="Deliverybtn" data-mdb-toogle="tooltip" title="Record your delivered items and supplys "> DELIVERY </button>
             </form> 
             <br><br><br>
             <img src="{%static 'media/withdraw.jpeg'%}" alt="" id="withdrawimg" class="img-fluid rounded "><br><br> 
-            <form action="withdraw.html">
+            <form action="{% url 'Supplydept_withdraw' %}">
               <button id="withdrawbtn" data-mdb-toogle="tooltip" title="Withdraw an items in your supply"> WITHDRAW </button>
             </form> 
         </div>
@@ -36,8 +47,8 @@
           <img src="{%static 'media/tupc.jpeg'%}" alt="" id="image" class="img-fluid rounded " width="100%" height="100%"  >   
         </div>
         <div class="col-md-1">
-          <form action="">
-            <a id="Logout" data-mdb-toogle="tooltip" title="sign out your Account">Log out</a>
+          <form action="{% url 'Supplydept_login' %}">
+            <button id="Logout" data-mdb-toogle="tooltip" title="sign out your Account">Log Out</button>
         </div>
       </div>   
   </main>
@@ -45,10 +56,10 @@
     <div id="bgc" >
       <div class="row">
         <div class="col-md-8" ><br>
-          <label id="companyname">AAM</label><br>
-          <a id="aboutbtn">About</a><br>
-          <a id="contactbtn">Contact us</a><br><br>
-          <label id="companyname1">&#169; 2020 AAM. All Right Reserve</label>
+          <label id="companyname">ALM</label><br>
+          <a href="{% url 'Supplydept_about' %}" id="aboutbtn">About</a><br>
+          <a href="{% url 'Supplydept_contact' %}" id="contactbtn">Contact us</a><br><br>
+          <label id="companyname1">&#169; 2020 ALM. All Right Reserve</label>
         </div>
         <div class="col-md-4"  ><br>
           <label id="footerlabel">Technological University of the Philippines</label>
@@ -56,99 +67,7 @@
       </div>
     </div>
   </footer>
-  <div id="About-modal" class="bg-modal">
-    <div  class="container">
-      <div class="row"  >
-      <div class="col-md-2">
-      </div>
-      <div class="col-md-8">
-        <div class="modal-content" >
-        <div class="close1">+</div>
-        <form >
-        <h5  id="aboutbg"  >ABOUT</h5><br>
-        <p id="pg">This Inventory system (website) was create to  speed up and streamline the process of data management and monitoring ,  Also created by the students of Technological University of the  Philippines cavite as a fulfillment for the subject Data-Structure/Web-App . And also this website will be used by the Supply Department of the TUPC. </p>
-        </form>
-      </div>  
-      <div class="col-md-2">
-       </div>
-    </div>
-    </div>
-   </div>   
-</div>
-<div id="contact-modal" class="bg-modal1" >
-    <div  class="container">
-      <div class="row"  >
-      <div class="col-md-2">
-      </div>
-      <div class="col-md-8" >
-        <div class="modal-content">
-        <div class="close2">+</div>
-        
-        <h5 id="contactbg">Contact Us</h5>
-        <h2 id="contactP">AAM</h2>
-        <label>Alberto, Alvero, Madera</label><br><br><br>
-        <img src="img/airo.jpg" alt="pic" class="img-fluid rounded" style="text-align: center;" height="20%" >
-        <form  >
-        <hr class="line1">
-        <label >Alberto, Airo James</label><br>
-        <label>
-          Back End Developer
-        </label>
-        <label>
-          Student of Technological University of the  Philippines Cavite
-        </label><br>
-        <label>
-          09235933267
-        </label><br>
-        <label>
-          airojamesalberto@gmail.com
-        </label>
-        <hr class="line1">
-        </form>
-        <img src="img/wendel.jpeg" alt="pic" class="img-fluid rounded" style="text-align: center;" height="20%" >
-        <form>
-               <hr class="line1">
-        <label >Alvero, Wendel</label><br>
-        <label>
-          Front End Developer
-        </label>
-        <label>
-          Student of Technological University of the  Philippines Cavite
-        </label><br>
-        <label>
-          09753789929
-        </label><br>
-        <label>
-          wendelpatalalvero@gmail.com
-        </label>
-        <hr class="line1">
-        </form>
-        <img src="img/reymie.jpg" alt="pic" class="img-fluid rounded" style="text-align: center;" height="20%" >
-        <form>
-               <hr class="line1">
-        <label >Madera, Reymie</label><br>
-        <label>
-          Front End Developer
-        </label>
-        <label>
-          Student of Technological University of the  Philippines Cavite
-        </label><br>
-        <label>
-          09095930914
-        </label><br>
-        <label>
-          reymiebmadera16@gmail.com
-        </label>
-        <hr class="line1">
-        </form>
-      </div>  
-      <div class="col-md-2">
-      </div>
-    </div>
-    </div>
-   </div> 
-</div>
-<div id="logout-modal" class="bg-modal">
+  <div id="logout-modal" class="bg-modal">
     <div  class="container">
       <div class="row"  >
       <div class="col-md-2">
@@ -158,12 +77,8 @@
         <div class="close3">+</div>
         <form >
         <h2  id="aboutbg"  >ARE YOU SURE YOU WANT TO SIGN OUT?</h2><br>
-
-        <input type="button"  onclick="login.html" >YES<br>
-        
-        
-        <input type="button" >NO
-        
+        <input type="button"  onclick="login.html" >YES<br>   
+        <input type="button" >NO    
       </div>  
       <div class="col-md-2">
        </div>

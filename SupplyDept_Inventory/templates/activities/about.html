@@ -1,0 +1,62 @@
+{% extends 'activities/login.html'%}
+{%load static%}
+
+{% block content%}
+  <link rel="stylesheet" href="{%static 'css/status.css'%}">
+
+<body>
+
+  <!-- Start your project here--> 
+  <header>
+    <div class="">
+      <div class="row cbanner "  >
+        <div class="col-md-8" >
+           <label  class="Banner "  >Department Of Supply</label>
+        </div> 
+        <div class="col-md-2 ">
+           <label   ></label>
+        </div> 
+        <div class="col-md-2 ">
+           <label  class="bn "  >ABOUT</label>
+        </div> 
+      </div>
+    </div>
+  </header><br>
+   <div class="">
+      <div class="row "  >
+        <div class="col-md-4" >
+          <form action="{% url 'Supplydept_mainpage' %}">
+            <button id="btn" data-mdb-toogle="tooltip" title="Back to home " >Back</button><br><br>
+          </form>
+        </div> 
+        <div class="col-md-8">
+      </div>
+    </div>
+    <div class="">
+      <div class="row "  >
+        <div class="col-md-1" >
+        </div> 
+        <div class="col-md-3" >
+          <h5  id="aboutbg"  >ALM INVENTORY SYSTEM</h5><br>
+
+        </div> 
+        <div class="col-md-8">
+          <p id="pg">This Inventory system (website) was create to  speed up and streamline the process of data management and monitoring ,  Also created by the students of Technological University of the  Philippines cavite as a fulfillment for the subject Data-Structure/Web-App/Elective1/Elective2 . And also this website will be used by the Supply Department of the TUPC. </p>
+
+      </div>
+    </div>
+  <main> 
+
+
+  </main>
+
+  <!-- End your project here-->
+
+  <!-- jQuery -->
+
+  <!-- Your custom scripts (optional) -->
+  <script type="text/javascript"></script>
+
+</body>
+</html>
+{% endblock%}

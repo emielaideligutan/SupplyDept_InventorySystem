@@ -1,0 +1,245 @@
+{% extends 'activities/login.html'%}
+{%load static%}
+
+{% block content%}
+  <link rel="stylesheet" href="{% static 'css/tempwithdraw.css'%}">
+
+<body>
+
+  <!-- Start your project here--> 
+
+    <div class="container">
+      <div class="row cbanner"  >
+        <div class="col-md-8" >
+           <label  class="Banner "  >DEPARTMENT OF SUPPLY</label>
+        </div> 
+        <div class="col-md-2 ">
+           <label   ></label>
+        </div> 
+        <div class="col-md-2 ">
+           <label  class="bn "  >WITHDRAW</label>
+        </div> 
+      </div>
+    </div>
+  </header><br>
+  <main>
+    <div class="container">
+      <form action="{% url 'Supplydept_mainpage' %}" >
+        <button id="btn" data-mdb-toogle="tooltip" title="Back to choice of Department " >BACK</button>
+      </form>
+      
+      <form style="text-align: center;" method="post">
+      <h3></h3>
+      <br>
+      <br><br>
+      <div class="container">
+      <div class="row "    >
+
+        <div class="col-md-12 " style="width:600px; height:350px; overflow:auto;">
+         <table id="t01" class="table1" cellspacing="0" cellpadding="1" border="1" width="300" >
+        <!--<div  class="col-md-12 " >
+          
+          <table id="t01" class="table1">-->
+              <tr>
+                <th>AVAILABLE ITEMS</th>
+                <th>REMAINING</th>
+                <th>UNIT</th>
+              </tr>
+              
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                
+              </tr>
+          
+          </table><br><br>
+          </div> 
+      </div><br><br>
+      </div>
+            <label for="item">ITEMS/DESRIPTION</label><br>
+            <input list="items" name="item" id="item" placeholder="Input an item...." style="text-align: center;"><br>
+            <datalist id="items" name="itemddrop">
+              <option value="Long Brown Expanded Folder">
+              <option value="Scotch Tape">
+              <option value="Short Bondpaper">
+              <option value="Long bondpaper">
+              <option value="White Board Marker(blue)">
+              <option value="White Board Marker(black)">
+              <option value="Glue">
+              <option value="Brow Envelope">
+              <option value="Staple Wire(big)">
+              <option value="Pencil Sharpener">
+            </datalist><br>
+            <label for="unit">UNIT</label><br>
+            <input list="units" name="unit" id="unit">
+            <datalist id="units">
+              <option value="Pcs">
+              <option value="Ream">
+              <option value="bottle">
+              <option value="Bundle">
+              <option value="Box">
+            </datalist><br><br>
+            <input type="number" name="quan" id="WithdrawQuantity" style="text-align: center; " placeholder="Quantity"><br><br>
+
+            <button id="btn" name="Withdraw" data-mdb-toogle="tooltip" title="Withdraw an item" >WITHDRAW</button>
+            <!--<input type="button" value="WITHDRAW" id="btn" onclick="withdraw()"/><br>-->
+          </form>
+          
+        <!--</div> 
+      </div><br><br><br><br>
+    </div>-->
+      <div class="container">
+      <div class="row">
+        <div class="col-md-12 " style="width:600px; height:350px; overflow:auto;">
+         <table id="t02" class="table1" cellspacing="0" cellpadding="1" border="1" width="300" >
+        <!--<div  class="col-md-12 " >
+          <table id="t02" class="table1">-->
+              <tr>
+                <th>DEPARTMENT</th>
+                <th>ITEMS</th>
+                <th>UNIT</th>
+                <th>QUANTITY</th>
+                <th>DATE</th>
+                <th>TIME</th>
+                <th>ACTIONS</th>
+              </tr>
+              
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>
+                  <a href=""id="del">Delete</a>
+                </td>
+              </tr>
+             
+              
+              
+          </table>  
+        </div> 
+      </div>     
+    </div> 
+  </main>
+  <footer id="footerpadding">
+    <div  class="container">
+      <div class="row" id="bgc" >
+        <div class="col-md-8"  ><br>
+          <label id="companyname">ALM</label><br>
+          <a id="aboutbtn">About</a><br>
+          <a id="contactbtn">Contact us</a><br><br>
+          <label id="companyname1">&#169; 2020 ALM. All Right Reserve</label>
+        </div>
+        <div class="col-md-4" ><br>
+          <label id="footerlabel">Technological University of the Philippines</label>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <div id="About-modal" class="bg-modal">
+    <div  class="container">
+      <div class="row"  >
+      <div class="col-md-2">
+      </div>
+      <div class="col-md-8">
+        <div class="modal-content" >
+        <div class="close1">+</div>
+        <form >
+        <h5  id="aboutbg" style="text-align: center;" >ABOUT</h5><br>
+        <p style="text-align: center;">This Inventory system (website) was create to  speed up and streamline the process of data management and monitoring ,  Also created by the students of Technological University of the  Philippines cavite as a fulfillment for the subject Data-Structure/Web-App . And also this website will be used by the Supply Department of the TUPC. </p>
+        </form>
+      </div>  
+      <div class="col-md-2">
+      
+       </div>
+    </div>
+    </div>
+   </div>   
+</div>
+<div id="contact-modal" class="bg-modal1" >
+    <div  class="container">
+      <div class="row"  >
+      <div class="col-md-2">
+      </div>
+      <div class="col-md-8" >
+        <div class="modal-content">
+        <div class="close2">+</div>
+        
+        <h5 id="contactbg">Contact Us</h5>
+        <h2 id="contactP">AAM</h2>
+        <label>Alberto, Alvero, Madera</label><br><br><br>
+        <img src="img/airo.jpg" alt="pic" class="img-fluid rounded" style="text-align: center;" height="20%" >
+        <form  >
+        <hr class="line1">
+        <label >Alberto, Airo James</label><br>
+        <label>
+          Back End Developer
+        </label>
+        <label>
+          Student of Technological University of the  Philippines Cavite
+        </label><br>
+        <label>
+          09235933267
+        </label><br>
+        <label>
+          airojamesalberto@gmail.com
+        </label>
+        <hr class="line1">
+        </form><br><br>
+        <img src="img/wendel.jpeg" alt="pic" class="img-fluid rounded" style="text-align: center;" height="20%" >
+        <form>
+               <hr class="line1">
+        <label >Alvero, Wendel</label><br>
+        <label>
+          Front End Developer
+        </label>
+        <label>
+          Student of Technological University of the  Philippines Cavite
+        </label><br>
+        <label>
+          09753789929
+        </label><br>
+        <label>
+          wendelpatalalvero@gmail.com
+        </label>
+        <hr class="line1">
+        </form><br><br>
+        <img src="img/reymie.jpg" alt="pic" class="img-fluid rounded" style="text-align: center;" height="20%" >
+        <form>
+               <hr class="line1">
+        <label >Madera, Reymie</label><br>
+        <label>
+          Front End Developer
+        </label>
+        <label>
+          Student of Technological University of the  Philippines Cavite
+        </label><br>
+        <label>
+          09095930914
+        </label><br>
+        <label>
+          reymiebmadera16@gmail.com
+        </label>
+        <hr class="line1">
+        </form>
+      </div>  
+      <div class="col-md-2">
+      </div>
+    </div>
+    </div>
+   </div> 
+</div>
+  <!-- End your project here-->
+
+  <!-- jQuery -->
+
+  <!-- Your custom scripts (optional) -->
+  <script type="text/javascript"></script>
+  <script type="text/javascript" src="withdrawjs.js"></script>
+
+</body>
+</html>
+{% endblock%}
