@@ -52,16 +52,17 @@
                 <th>Date</th>
                 <th>Time</th>
               </tr>
+              {% for x in information %}
               <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td>{{x.delivery_item_name}}</td>
+                <td>{{x.Description}}</td>
+                <td>{{x.delivery_unit}}</td>
+                <td>{{x.delivery_quantity}}</td>
+                <td>{{x.Remaining}}</td>
+                <td>{{x.current_date}}</td>
+                <td>{{x.current_time}}</td>
               </tr> 
-              
+              {% endfor %}
           </table>  
               </div> 
             </div>

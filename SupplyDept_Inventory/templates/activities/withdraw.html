@@ -88,12 +88,13 @@
                 <th>REMAINING</th>
                 <th>UNIT</th>
               </tr>
+              {% for x in information %}
               <tr>
-                <td>itemname</td>
-                <td>quantity</td>
-                <td>unit</td>
-                
+                <td>{{x.delivery_item_name}}</td>
+                <td>{{x.delivery_quantity}}</td>
+                <td>{{x.delivery_unit}}</td> 
               </tr> 
+              {% endfor %}
           </table><br><br>
           
 
