@@ -69,4 +69,7 @@ def tempwithdraw(request):
 def status(request):
     return render(request, 'activities/status.html')
 
+def statusupdate(request):
+    return render(request, 'activities/statusupdate.html')
+
 
