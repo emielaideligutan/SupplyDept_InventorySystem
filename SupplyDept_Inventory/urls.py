@@ -10,6 +10,7 @@ urlpatterns = [
     path('about/', views.about, name='Supplydept_about'),
     path('contact/', views.contact, name='Supplydept_contact'),
     path('tempwithdraw/', views.tempwithdraw, name='Supplydept_tempwithdraw'),
+    path('statusupdate/', views.statusupdate, name= 'Supplydept_statusupdate'),
 
 
 
