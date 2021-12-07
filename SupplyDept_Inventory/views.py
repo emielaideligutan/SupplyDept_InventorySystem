@@ -72,4 +72,8 @@ def status(request):
 def statusupdate(request):
     return render(request, 'activities/statusupdate.html')
 
+def statuslimit(request,):
+
+    return render(request,'activities/statusupdate.html')
+
 
