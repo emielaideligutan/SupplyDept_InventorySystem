@@ -11,7 +11,7 @@ urlpatterns = [
     path('contact/', views.contact, name='Supplydept_contact'),
     path('tempwithdraw/', views.tempwithdraw, name='Supplydept_tempwithdraw'),
     path('statusupdate/', views.statusupdate, name= 'Supplydept_statusupdate'),
-
+    path('statuslimit/', views.statuslimit, name= 'Supplydept_statuslimit'),
 
 
 ]
