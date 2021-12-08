@@ -37,13 +37,18 @@ def delivery(request):
                 updating = int(information1.Quantity) + int(request.POST.get('delivery_quantity'))
                 update_mainstorage = mainstorage()
                 update_delivery_record = deliveryrecords()
+                update_mainstorage.ItemName = request.POST.get('delivery_item_name')
+                update_mainstorage.Unit = request.POST.get('delivery_unit')
+                update_mainstorage.Quantity = updating
+                mainstorage.objects.filter(ItemName = request.POST.get('delivery_item_name')).delete()
+                update_mainstorage.save()
+                information2 = mainstorage.objects.get(ItemName = request.POST.get('delivery_item_name'))
                 update_delivery_record.delivery_item_name = request.POST.get('delivery_item_name')
+                update_delivery_record.delivery_description = request.POST.get('delivery_description')
                 update_delivery_record.delivery_unit = request.POST.get('delivery_unit')
                 update_delivery_record.delivery_quantity = request.POST.get('delivery_quantity')
+                update_delivery_record.delivery_remaining = information2.Quantity
                 update_delivery_record.save()
-                
-                update_mainstorage.Quantity = updating                
-                update_mainstorage.save()
 
    
             elif mainstorage.objects.filter(ItemName = request.POST.get('delivery_item_name')).exists() == False:
@@ -51,6 +56,7 @@ def delivery(request):
                 save_delivery_record.delivery_item_name = request.POST.get('delivery_item_name')
                 save_delivery_record.delivery_unit = request.POST.get('delivery_unit')
                 save_delivery_record.delivery_quantity = request.POST.get('delivery_quantity')
+                save_delivery_record.delivery_remaining = 0
                 save_delivery_record.save()
                 save_main_storage = mainstorage()
                 save_main_storage.ItemName = request.POST.get('delivery_item_name')
@@ -66,7 +72,6 @@ def delivery(request):
         'information' : information,
         }
     return render (request, 'activities/delivery.html', context)
-
 def withdraw(request):
     return render(request, 'activities/withdraw.html')
 
