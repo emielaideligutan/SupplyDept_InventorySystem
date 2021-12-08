@@ -31,7 +31,9 @@ class deliveryrecords(models.Model):
 
     delivery_item_name = models.CharField(max_length=50, verbose_name='delivery_item_name')
     delivery_unit = models.CharField(max_length=50, verbose_name='delivery_unit')
+    delivery_description = models.CharField(max_length=50, verbose_name='delivery_description')
     delivery_quantity = models.CharField(max_length=50, verbose_name='delivery_quantity')
+    delivery_remaining = models.CharField(max_length=50, verbose_name='delivery_remaining')
     current_date = models.DateField(default=date.today, verbose_name= 'delivery_current_date')
     current_time = models.TimeField(default=timezone.now, verbose_name= 'delivery_current_date')
     #current_time = models.CharField(max_length=50, verbose_name='delivery_current_time')
