@@ -73,11 +73,50 @@ def delivery(request):
         'information' : information,
         }
     return render (request, 'activities/delivery.html', context)
+
 def withdraw(request):
-    return render(request, 'activities/withdraw.html')
+    information = mainstorage.objects.all()
+    if 'ItemName' in request.POST:
+        text = request.POST['ItemName']
+        if text == '':
+            information = []
+        else:
+            print('none')
+    
+    context = {
+        'information' : information,
+        }
+    return render (request, 'activities/withdraw.html', context)
 
 def tempwithdraw(request):
     return render(request, 'activities/tempwithdraw.html')
 
 def status(request):
-    return render(request, 'activities/status.html')
+    information = mainstorage.objects.all()
+    if 'ItemName' in request.POST:
+        text = request.POST['ItemName']
+        if text == '':
+            information = []
+        else:
+            print('none')
+    
+    context = {
+        'information' : information,
+        }
+    return render (request, 'activities/status.html', context)
+
+
+def changestatus(request, pk):
+    data = mainstorage.objects.get(id=pk)
+    information = mainstorage(instance=data)
+    form = mainstorage()
+    if request.method == 'POST':
+        form = mainstorage(request.POST, instance=data)
+        if form.is_valid():
+            return redirect('/status')
+
+    context = {
+        'information' : information,
+        }
+    return render (request, 'activities/status.html', context)
+

@@ -5,23 +5,37 @@
   <link rel="stylesheet" href="{%static 'css/status.css'%}">
 </head>
 
-<body>
+<style>
+  .navbar{
+	  background-color: maroon;
+  }
+  .navbar-brand{
+	  align-items: left;
+  }
+  .title{
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 20px;
+    font-family: cursive;
+    font-size: 40px;
+    color: whitesmoke;
+  }
+  #statusbtn{
+    padding-right:10%;
+    font-size: 30px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color:white;
+  }
+</style>
 
+<body>
   <!-- Start your project here--> 
   <header>
-    <div class="">
-      <div class="row cbanner "  >
-        <div class="col-md-8" >
-           <label  class="Banner "  >Department Of Supply</label>
-        </div> 
-        <div class="col-md-2 ">
-           <label   ></label>
-        </div> 
-        <div class="col-md-2 ">
-           <label  class="bn "  >Status</label>
-        </div> 
-      </div>
-    </div>
+    <nav class="navbar">
+          <h2  class="title" >SUPPLY INVENTORY SYSTEM </h2>
+          <label  id="statusbtn"  >STATUS</label>
+    </nav>
+ 
   </header><br>
 
    <div class="">
@@ -75,14 +89,16 @@
             <!--<table id="t01" class="table1" >-->
                   <tr>
                     <th>Items</th>
-                    <th>Remainning Quantity</th>
+                    <th>Remaining Quantity</th>
                     <th>Unit</th>
                   </tr>
+                  {% for x in information %}
                   <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>             
+                    <td>{{x.ItemName}}</td>
+                    <td>{{x.Quantity}}</td>
+                    <td>{{x.Unit}}</td>             
                   </tr>
+                  {% endfor %}
                   <!--<tr>
                     <td>b item</td>
                     <td>new times</td>

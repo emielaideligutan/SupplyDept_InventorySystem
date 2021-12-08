@@ -1,14 +1,16 @@
-
-
-.Banner{
-	padding-left: 20px;
-	padding-right: 70px;
-	color:white;
-	font-size: 40px;
-	font-family: cursive;
-}
-.cbanner{
+.navbar{
 	background-color: maroon;
+}
+.navbar-brand{
+	align-items: left;
+}
+.title{
+	padding-top: 15px;
+	padding-bottom: 15px;
+	padding-left: 20px;
+	font-family: cursive;
+	font-size: 40px;
+	color: whitesmoke;
 }
 
 #image{
@@ -18,8 +20,6 @@
 	border: 1px solid black;
 }
 #deliveryimg{
-	padding-left: 20%;
-	padding-left: 20px;
 	height: 30%;
 	width: 50%;
 	border: 0.5px solid black;
@@ -79,7 +79,6 @@
 }
 
 #popup{
-	padding-top: 10px;
 	text-align: left;
 	font-size: 14px;
 	color: white;
@@ -115,46 +114,50 @@
 	background-color: #222222;
 }
 #footerlabel{
+	font-family:monospace;
 	color: white;
 }
 #footerpadding{
 	padding-top: 200px;
 }
 #aboutbtn{
-	padding-left: 10px;
+	padding-left: 40px;
 	border-radius: 8px;
 	border: 1px solid #222222;
 	background-color: #222222;
 	color: white;
 	font-size: 15px;
-	font: arial;
+	font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
 }
 #aboutbtn:hover{
 	color: gray;
 }
 
 #contactbtn{
-	padding-left: 10px;
+	padding-left: 40px;
 	border-radius: 8px;
 	border: 1px solid #222222;
 	background-color: #222222;
 	color: white;
 	font-size: 15px;
-	font: arial;
+	font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
 }
+
 #contactbtn:hover{
 
 	color: gray;
 
 }
 #companyname{
-	padding-left: 10px;
+	padding-left: 40px;
 	font: arial;
-	font-size: 25px;
+	font-size: 30px;
 	color: white;
 	background-color: #222222;
+	font-family:fantasy;
 }
 #companyname1{
+	padding-left: 20px;
 	font: arial;
 	font-size: 15px;
 	color: white;
