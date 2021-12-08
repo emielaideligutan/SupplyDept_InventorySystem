@@ -1,0 +1,134 @@
+{% extends 'activities/login.html'%}
+{%load static%}
+
+{% block content%}
+  <link rel="stylesheet" href="{%static 'css/statuslimit.css'%}">
+
+<body>
+
+  <!-- Start your project here--> 
+  <header>
+    <header>
+      <div class="container">
+        <div class="row cbanner "  >
+          <div class="col-md-8" >
+             <label  class="Banner "  >Department Of Supply</label>
+          </div> 
+          <div class="col-md-2 ">
+             <label   ></label>
+          </div> 
+          <div class="col-md-2 ">
+             <label  class="bn "  >Status Limit</label>
+          </div> 
+        </div>
+      </div>
+    </header><br>
+     <div class="container">
+        <div class="row "  >
+          <div class="col-md-4" >
+            
+          </div> 
+          <div class="col-md-8">
+  
+            
+        </div>
+      </div>
+    <main> 
+      <div class="container">
+        
+        <div class="container">
+        <hr class="line1">
+        <form action="{% url 'Supplydept_status' %}">
+          <button id="btn" data-mdb-toogle="tooltip" title="Back to home " >Back</button>
+        </form>
+        <h6>PER DEPARTMENT</h6><br><br>
+  
+          <form style="text-align: center;" action="" method="post">
+              <h3></h3>
+              <br><br>
+        <div class="row">
+  
+        <div class="col-md-4 " style="width:600px; height:350px; overflow:auto;">
+        <table id="t02" class="table1" cellspacing="0" cellpadding="1" border="1" width="300" >
+        <!--<div class="col-md-4">
+          <table id="t02" class="table1">-->
+                <tr>
+                <th>Available Item in main storage</th>
+                <th data-mdb-toogle="tooltip" title="Quantity " >Qty</th>
+                <th>UNIT</th>
+                </tr>
+                
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <!--<td><button id="add" name="addtodept" data-mdb-toogle="tooltip" title="Add an items" >ADD-></button></td>-->
+                </tr>
+               
+          </table>
+        </div>
+        <div class="col-md-4" id="ab" style="text-align: center;"><br>
+              <!--<input  type="Number" name="inputQ" id="Quantity" maxlength="2" placeholder="Quantity" max="20" min="0" ><br><br>-->
+              <label for="item">ITEMS/DESRIPTION</label><br>
+              <input list="items" name="item" id="item">
+              <datalist id="items">
+                <option value="Long Brown Expanded Folder">
+                <option value="Scotch Tape">
+                <option value="Short Bondpaper">
+                <option value="Long bondpaper">
+                <option value="White Board Marker(blue)">
+                <option value="White Board Marker(black)">
+                <option value="Glue">
+                <option value="Brown Envelope">
+                <option value="Staple Wire(big)">
+                <option value="Pencil Sharpener">
+              </datalist><br><br>
+              <label for="unit">UNIT</label><br>
+              <input list="units" name="unit" id="unit">
+              <datalist id="units">
+                <option value="Pcs">
+                <option value="Ream">
+                <option value="bottle">
+                <option value="Bundle">
+                <option value="Box">
+              </datalist><br><br>
+              <label  class="label1" id="QUAN" for = "quan"  >QUANTITY:</label><br>
+            <input type="number" name="quan" id="quan" class="input1" style="text-align: center;" min="0"><br><br>
+              <button id="btn1" name="addtodept" data-mdb-toogle="tooltip" title="Add an items">ADD  ></button><br><br>
+              
+        </div>
+  
+        <div class="col-md-4 " style="width:600px; height:350px; overflow:auto;">
+        <table id="t02" class="table1" cellspacing="0" cellpadding="1" border="1" width="300" >
+        <!--<div class="col-md-4">
+          <table id="t02" class="table1">-->
+                <tr>
+                  <th>Available Item in this Department</th>
+                  <th data-mdb-toogle="tooltip" title="Quantity " >Qty</th>
+                  <th>UNIT</th>
+                  <th>Action</th>
+                </tr>
+               
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td><a href="{% url 'Supplydept_statusupdate' %}"id="edit">Edit</td>
+                </tr>
+          </table>
+          </form><br><br><br>
+        </div>
+        </div><br><br><br>      
+    </main>
+  
+
+  <!-- End your project here-->
+
+  <!-- jQuery -->
+
+  <!-- Your custom scripts (optional) -->
+  <script type="text/javascript"></script>
+
+</body>
+</html>
+{% endblock%}

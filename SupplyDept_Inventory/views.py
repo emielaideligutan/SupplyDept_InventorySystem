@@ -18,7 +18,7 @@ def about(request):
 def contact(request):
     return render(request, 'activities/contact.html')
     
-def delivery(request, pk):
+def delivery(request):
     information = deliveryrecords.objects.all()
     if 'delivery_item_name' in request.POST:
         text = request.POST['delivery_item_name']
@@ -28,8 +28,10 @@ def delivery(request, pk):
             print('none')
 
     if request.method == "POST":
+
         if request.POST.get('delivery_item_name') and request.POST.get('delivery_unit') and request.POST.get('delivery_quantity'):
-            if mainstorage.objects.filter.get(ItemName = request.POST.get('delivery_item_name')).exist() == True:
+
+            if mainstorage.objects.filter(ItemName = request.POST.get('delivery_item_name')).exists() == True:
                 
                 information1 = mainstorage.objects.get(ItemName = request.POST.get('delivery_item_name'))
                 updating = int(information1.Quantity) + int(request.POST.get('delivery_quantity'))
@@ -44,7 +46,7 @@ def delivery(request, pk):
                 update_mainstorage.save()
 
    
-            elif mainstorage.objects.filter(ItemName = request.POST.get('delivery_item_name')).exist() == False:
+            elif mainstorage.objects.filter(ItemName = request.POST.get('delivery_item_name')).exists() == False:
                 save_delivery_record = deliveryrecords()
                 save_delivery_record.delivery_item_name = request.POST.get('delivery_item_name')
                 save_delivery_record.delivery_unit = request.POST.get('delivery_unit')
@@ -73,5 +75,3 @@ def tempwithdraw(request):
 
 def status(request):
     return render(request, 'activities/status.html')
-
-
