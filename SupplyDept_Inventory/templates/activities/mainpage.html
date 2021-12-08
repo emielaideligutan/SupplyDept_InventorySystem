@@ -6,6 +6,12 @@
   <link rel="stylesheet" href="{% static 'css/mainpcss.css'%}">
 </head>
 <style>
+  .navbar{
+	background-color: maroon;
+  }
+  .navbar-brand{
+    align-items: left;
+  } 
   #Logout{
     font-size: 15px;
 	  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -35,16 +41,16 @@
 <body>
   <header>
     <nav class="navbar">
-          <h2  class="title" >SUPPLY INVENTORY SYSTEM </h2>
+          <h2  class="title" style="color: #dddddd;" >SUPPLY INVENTORY SYSTEM </h2>
           <ul>
             <li> 
               <form action="">
-                <a  id="popup"  class="button" data-mdb-toogle="tooltip" title="Change your Username And Password " >Account Setting</a>
+                <a  id="popup"  class="button" data-mdb-toogle="tooltip" title="Change your Username And Password " style="color: #dddddd;" >Account Setting</a>
               </form>
             </li>
             <li>
               <form action=''>
-                <a href="{% url 'Supplydept_status' %}" id="loginbtn" data-mdb-toogle="tooltip" title="Check The record of your data in per Department and  Item ">Status</a> 
+                <a href="{% url 'Supplydept_status' %}" id="loginbtn" data-mdb-toogle="tooltip" title="Check The record of your data in per Department and  Item " style="color: #dddddd;">Status</a> 
               </form>
             </li>
           </ul>    
