@@ -55,6 +55,7 @@ def delivery(request):
                 save_delivery_record = deliveryrecords()
                 save_delivery_record.delivery_item_name = request.POST.get('delivery_item_name')
                 save_delivery_record.delivery_unit = request.POST.get('delivery_unit')
+                save_delivery_record.delivery_description = request.POST.get('delivery_description')
                 save_delivery_record.delivery_quantity = request.POST.get('delivery_quantity')
                 save_delivery_record.delivery_remaining = 0
                 save_delivery_record.save()
