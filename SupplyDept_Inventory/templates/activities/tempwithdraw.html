@@ -28,7 +28,7 @@
         <button id="btn" data-mdb-toogle="tooltip" title="Back to choice of Department " >BACK</button>
       </form>
       
-      <form style="text-align: center;" method="post">
+      <form style="text-align: center;">
       <h3></h3>
       <br>
       <br><br>
@@ -57,33 +57,36 @@
           </div> 
       </div><br><br>
       </div>
-            <label for="item">ITEMS/DESRIPTION</label><br>
-            <input list="items" name="item" id="item" placeholder="Input an item...." style="text-align: center;"><br>
-            <datalist id="items" name="itemddrop">
-              <option value="Long Brown Expanded Folder">
-              <option value="Scotch Tape">
-              <option value="Short Bondpaper">
-              <option value="Long bondpaper">
-              <option value="White Board Marker(blue)">
-              <option value="White Board Marker(black)">
-              <option value="Glue">
-              <option value="Brow Envelope">
-              <option value="Staple Wire(big)">
-              <option value="Pencil Sharpener">
-            </datalist><br>
-            <label for="unit">UNIT</label><br>
-            <input list="units" name="unit" id="unit">
-            <datalist id="units">
-              <option value="Pcs">
-              <option value="Ream">
-              <option value="bottle">
-              <option value="Bundle">
-              <option value="Box">
-            </datalist><br><br>
-            <input type="number" name="quan" id="WithdrawQuantity" style="text-align: center; " placeholder="Quantity"><br><br>
+          <form action = "" method = "POST">
+            {% csrf_token %}
+              <label for="item">ITEMS/DESRIPTION</label><br>
+              <input list="items" name="withdraw_item_name" id="item" placeholder="Input an item...." style="text-align: center;"><br>
+              <datalist id="items" name="itemddrop">
+                <option value="Long Brown Expanded Folder">
+                <option value="Scotch Tape">
+                <option value="Short Bondpaper">
+                <option value="Long bondpaper">
+                <option value="White Board Marker(blue)">
+                <option value="White Board Marker(black)">
+                <option value="Glue">
+                <option value="Brow Envelope">
+                <option value="Staple Wire(big)">
+                <option value="Pencil Sharpener">
+              </datalist><br>
+              <label for="unit">UNIT</label><br>
+              <input list="units" name="withdraw_unit" id="withdraw_unit">
+              <datalist id="units">
+                <option value="Pcs">
+                <option value="Ream">
+                <option value="bottle">
+                <option value="Bundle">
+                <option value="Box">
+              </datalist><br><br>
+              <input type="number" name="Withdraw_quantity" id="Withdraw_quantity" style="text-align: center; " placeholder="Quantity"><br><br>
 
-            <button id="btn" name="Withdraw" data-mdb-toogle="tooltip" title="Withdraw an item" >WITHDRAW</button>
-            <!--<input type="button" value="WITHDRAW" id="btn" onclick="withdraw()"/><br>-->
+              <button id="btn" name="Withdraw" data-mdb-toogle="tooltip" title="Withdraw an item" >WITHDRAW</button>
+              <!--<input type="button" value="WITHDRAW" id="btn" onclick="withdraw()"/><br>-->
+            </form>
           </form>
           
         <!--</div> 

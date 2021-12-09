@@ -15,17 +15,16 @@ def __str__(self):
 
 class withdrawrecords(models.Model):
 
-    ItemName = models.CharField(max_length=50, verbose_name='item name')
-    Unit = models.CharField(max_length=50, verbose_name='unit')
-    Quantity = models.CharField(max_length=50, verbose_name='quantity')
-    current_date = models.DateField(max_length=50, verbose_name='current date')
-    current_time = models.TimeField(max_length=50, verbose_name='current time')
+    withdraw_item_name = models.CharField(max_length=50, verbose_name='withdraw__item_name')
+    withdraw_unit = models.CharField(max_length=50, verbose_name='withdraw_unit')
+    withdraw_quantity = models.CharField(max_length=50, verbose_name='withdraw_quantity')
+    current_date = models.DateField(max_length=50, verbose_name='withdraw_current_date')
+    current_time = models.TimeField(max_length=50, verbose_name='withdarw_current_time')
     class Meta:
         db_table = "withdrawrecords"
 
 def __str__(self):
     return self.ItemName
-
 
 class deliveryrecords(models.Model):
 
