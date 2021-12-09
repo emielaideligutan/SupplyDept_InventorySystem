@@ -26,26 +26,65 @@
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color:white;
   }
+#btn{
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    border-radius: 8px;
+    border: 2px solid maroon;
+    background-color: white; 
+    color: maroon;
+  }
+#btn:hover{
+    border-radius: 8px;
+    border: 2px solid maroon;
+    background-color: white; 
+    color: red;
+  }	
+#btn1{
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    border-radius: 8px;
+    border: 2px solid maroon;
+    background-color: maroon; 
+    color: white;
+  }
+#btn1:hover{
+    border-radius: 8px;
+    border: 2px solid maroon;
+    background-color: white; 
+    color: maroon;
+  }
+th{
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 30px;
+  }
+td{
+    font-family:cursive;
+  }
+h2{
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 40px;
+}
+  #dept{
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-size: 20px;
+  }
 </style>
 <body>
   <header>
     <nav class="navbar">
           <h2  class="title" >SUPPLY INVENTORY SYSTEM </h2>
           <label  id="withbtn"  >WITHDRAW</label>
-    </nav>
- 
-</header><br>
+    </nav>  
+  </header><br>
 <main>
-  <div class="continer">
+  <div class="container">
     <div class="">
       <form action="{% url 'Supplydept_mainpage' %}">
         <button id="btn" data-mdb-toogle="tooltip" title="Back to home " >BACK</button>
       </form>
-    
-      
+    <br><br>
       <form style="text-align: center;" method="POST">
       {% csrf_token %}
-            <label  for ="dep" class="nah" >Choose Department</label>
+            <label  id ="dept" for ="dep" class="nah" >Choose Department</label>
             <select id="deps" name="choice" class=dropd>
             <option value=OCS_CASHIER_SERVICES>OCS(CASHIER-SERVICES)</option>
             <option value=OES_EXTENSION_SERVICES>OES(EXTENSION-SERVICES)</option>
@@ -87,7 +126,7 @@
           
 
     <!--<button id="btn" name="refresh" data-mdb-toogle="tooltip" title="Choose and Refresh the item of Department" >Refresh</button>-->
-      <button id="btn" name="to_withdraw" data-mdb-toogle="tooltip" title="Choose and Refresh the item of Department" >Select</button>
+      <button id="btn1" name="to_withdraw" data-mdb-toogle="tooltip" title="Choose and Refresh the item of Department" >Select</button>
       <br>
       <br><br>
       <h2>MAIN STORAGE</h2>
@@ -112,14 +151,11 @@
               </tr> 
               {% endfor %}
           </table><br><br>
-          
-
-          </form>
-          
         </div> 
       </div><br><br><br><br>
     </div>
     <h2>WITHDRAW RECORDS</h2>
+    <hr class="line1">
       <div class="">
       <div class="row ">
         <div class="col-md-12 " style="width:600px; height:350px; overflow:auto;">
@@ -146,41 +182,12 @@
                   <a href=""id="del">Delete</a>
                 </td>
             </tr>
-
-              <!--<tr>
-                <td>new item</td>
-                <td>new item</td>
-                <td>new item</td>
-                <td>new item</td>
-                <td>new item</td>
-                <td>new item</td>
-                <td>new item</td>
-              </tr>
-              <tr>
-                <td>new item</td>
-                <td>new item</td>
-                <td>new item</td>
-                <td>new item</td>
-                <td>new item</td>
-                <td>new item</td>
-                <td>new item</td>
-              </tr>
-              <tr>
-                <td>new item</td>
-                <td>new item</td>
-                <td>new item</td>
-                <td>new item</td>
-                <td>new item</td>
-                <td>new item</td>
-                <td>new item</td>
-              </tr>-->
-                
-              
           </table>  
         </div> 
       </div>     
     </div> 
   </div>
+</form>
 </main>
 <
   <!-- End your project here-->

@@ -4,43 +4,75 @@
 {% block content%}
   <link rel="stylesheet" href="{% static 'css/delivery.css'%}">
 </head>
-
+<style>
+  .navbar{
+	  background-color: maroon;
+  }
+  .navbar-brand{
+	  align-items: left;
+  }
+  .title{
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 20px;
+    font-family: cursive;
+    font-size: 40px;
+    color: whitesmoke;
+  }
+  #deliverybtn{
+    padding-right:10%;
+    font-size: 30px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color:white;
+  }
+  .label2{
+	  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+  #btn{
+    font-family:Georgia, 'Times New Roman', Times, serif;
+  }
+  #add{
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    width: 58%;
+  }
+  th{
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 30px;
+  }
+  td{
+    font-family:cursive;
+  }
+</style>
 <body>
 
   <!-- Start your project here--> 
   <header>
-      <div class="row cbanner"  >
-        <div class="col-md-8" >
-           <label  class="Banner "  >Department Of Supply</label>
-        </div> 
-        <div class="col-md-2 ">
-           <label   ></label>
-        </div> 
-        <div class="col-md-2 ">
-           <label  class="bn "  >Delivery</label>
-        </div> 
-      </div>
+    <nav class="navbar">
+          <h2  class="title" >SUPPLY INVENTORY SYSTEM </h2>
+          <label  id="deliverybtn"  >DELIVERY</label>
+    </nav>
+ 
   </header><br>
   <main>
     <div class="container">
-      <form action="mainpage.html">
-        <button id="btn" a>Back</button>
-      </form><br><br><br>
-      <div class="row "    >
-        <div  class="col-md-4 " >
-          <form action = "" method = "POST">
-          {% csrf_token %}
-            <label class="item_label1" id="ITEM" for = "item">ITEM:</label><br>
-            <input type="text" required autocomplete="off" name = "delivery_item_name"><br><br>
-            <label  class="unit_label1" id="UNIT" for = "unit">UNIT:</label><br>
-            <input type="text" required autocomplete="off" name = "delivery_unit"><br><br>
-            <label  class="quantity_label1" id="QUAN" for = "quantity">QUANTITY:</label><br>
-            <input type="text" required autocomplete="off" name = "delivery_quantity"><br><br>
-            <label  class="description_label1" id="DES" for = "description">DESCRIPTION:</label><br>
-            <input type="text" required autocomplete="off" name = "delivery_description"><br><br><br>
-            <button id="add" href="{% static 'css/delivery.css'%}">ADD</button>
-          </form>
-        </div> 
+        <form action="{% url 'Supplydept_mainpage'%}">
+          <button id="btn" href="" >Back</button>
+        </form><br><br><br>
+        <div class="row"  id="box"  >
+          <div  class="col-md-4 " >
+            <form action = "" method = "POST">
+            {% csrf_token %}
+              <label class="label2" id="ITEM" for = "item">ITEM:</label><br>
+              <input type="text" required autocomplete="off" name = "delivery_item_name"><br><br>
+              <label  class="label2" id="UNIT" for = "unit">UNIT:</label><br>
+              <input type="text" required autocomplete="off" name = "delivery_unit"><br><br>
+              <label  class="label2" id="QUAN" for = "quantity">QUANTITY:</label><br>
+              <input type="text" required autocomplete="off" name = "delivery_quantity"><br><br>
+              <label  class="label2" id="DES" for = "description">DESCRIPTION:</label><br>
+              <input type="text" required autocomplete="off" name = "delivery_description"><br><br>
+              <button id="add" href="{% url 'Supplydept_delivery'%}">ADD</button>
+            </form>
+          </div> 
         <div class="col-md-8 ">
           <table id="t01" class="table1">
               <tr>
@@ -70,6 +102,7 @@
         </div> 
       </div>
     </div>
+    <br><br><br><br>
   </main>
 
   <!-- End your project here-->

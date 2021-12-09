@@ -24,7 +24,7 @@ class withdrawrecords(models.Model):
         db_table = "withdrawrecords"
 
 def __str__(self):
-    return self.ItemName
+    return self.withdraw_item_name
 
 class deliveryrecords(models.Model):
 
@@ -41,7 +41,7 @@ class deliveryrecords(models.Model):
         db_table = ('deliveryrecords')
 
 def __str__(self):
-    return self.ItemName
+    return self.delivery_item_name
     
 class mainstorage(models.Model):
     ItemName = models.CharField(max_length=50, verbose_name='ItemName')

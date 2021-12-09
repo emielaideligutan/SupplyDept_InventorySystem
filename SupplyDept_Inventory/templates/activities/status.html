@@ -26,6 +26,34 @@
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color:white;
   }
+  #label{
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    padding-left: 20px;
+  }
+  #item{
+    padding-left: 20px;
+  }
+  #btn{
+    font-family:Georgia, 'Times New Roman', Times, serif;
+  }
+  #srch{
+    font-family:Georgia, 'Times New Roman', Times, serif;
+  }
+  #lbl{
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 20px;
+  }
+  #dept{
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-size: 20px;
+  }
+  th{
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 30px;
+  }
+  td{
+    font-family:cursive;
+  }
 </style>
 
 <body>
@@ -46,26 +74,18 @@
           </form>
         </div> 
         <div class="col-md-8">
-
            <img src="pic.png" alt="" class="img-fluid rounded " width="100%"  >
       </div>
     </div>
   <main> 
     <hr class="line1">
     <div class="container">
-      <h6>PER ITEM</h6><br><br>
+      <br><br>
       <div class="row">
         <div class="col-md-12" >
           <form action="" method="POST">
           {% csrf_token %}
-            <!--<label  for ="choose">SORT BY</label>
-              <select class =dropd  >
-              <option value=BET-COET>  Alphabetical </option>
-              <option value=BET-ET>  Descending </option>
-              <option value=BET-ET>  Ascending </option>
-            </select>-->
-            <button  name="sort"id="Sort" title="Sort the Items in Order">SORT</button>
-            <label for="item">Item</label>
+            <label id="label" for="item">Item</label>
               <input list="items" name="item" id="item">
               <datalist id="items">
                 <option value="Long Brown Expanded Folder">
@@ -83,7 +103,7 @@
 
             <button id="btn" name="reload" data-mdb-toogle="tooltip" title="Choose and Refresh the item of Department" >Refresh</button>
           </form>
-
+        <br>
           <form style="text-align: center;" method="post">
           <div class="col-md-12">
             <table id="t01" class="table1" cellspacing="0" cellpadding="1" border="1" width="300" >
@@ -100,36 +120,6 @@
                     <td>{{x.Unit}}</td>             
                   </tr>
                   {% endfor %}
-                  <!--<tr>
-                    <td>b item</td>
-                    <td>new times</td>
-                    <td>news</td>             
-                  </tr>
-                  <tr>
-                    <td>c item</td>
-                    <td>new times</td>
-                    <td>news</td>             
-                  </tr>
-                  <tr>
-                    <td>d item</td>
-                    <td>new times</td>
-                    <td>news</td>             
-                  </tr>
-                  <tr>
-                    <td>e item</td>
-                    <td>new times</td>
-                    <td>news</td>             
-                  </tr>
-                  <tr>
-                    <td>a item</td>
-                    <td>new times</td>
-                    <td>news</td>             
-                  </tr>
-                  <tr>
-                    <td>f item</td>
-                    <td>new times</td>
-                    <td>news</td>             
-                  </tr>-->
             </table>
           </form>  
         </div>
@@ -140,9 +130,10 @@
 <hr class="line1">
 
   <div class="container">
-    <h6>PER DEPARTMENT</h6><br><br>
+    <h6 id="lbl">PER DEPARTMENT</h6><br><br>
+    {% csrf_token %}
       <form style="text-align: center;" method="post">
-          <label  for ="dep" class="nah" >Choose Department</label>
+          <label  id="dept" for ="dep" class="nah" >Choose Department</label>
           <select id="deps" name="choice" class=dropd>
           <option value=OCS_CASHIER_SERVICES>OCS(CASHIER-SERVICES)</option>
           <option value=OES_EXTENSION_SERVICES>OES(EXTENSION-SERVICES)</option>

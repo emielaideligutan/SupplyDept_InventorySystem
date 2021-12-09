@@ -48,20 +48,7 @@
 	color: white;
 	background-color: #222222;
 }
-#btn{
-	background-color: white;
-	color: white;
-	border-radius: 8px;
-	border: 1px solid maroon;
-	background-color: maroon;
-}
-#btn:hover{
-	background-color: white;
-	color: maroon;
-	border-radius: 8px;
-	border: 1px solid maroon;
-	background-color: white;
-}
+
 table {
   width:100%;
 }

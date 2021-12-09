@@ -1,13 +1,4 @@
-.Banner{
-	text-align: left;
-	padding-right: 70px;
-	color: white;
-	width: 100%;
-	font-size: 25px;
-}
-.cbanner{
-	background-color: maroon;
-}
+
 .bn{
 	color: white;
 	font-size: 20px;
@@ -15,14 +6,12 @@
 #bgc{
 	background-color: #222222;
 }
-#footerlabel{
-	color: white;
-}
+
 #footerpadding{
 	padding-top: 250px;
 }
 #aboutbtn{
-	padding-left: 10px;
+	padding-left: 20px;
 	border-radius: 8px;
 	border: 1px solid #222222;
 	background-color: #222222;
@@ -48,32 +37,6 @@
 
 	color: gray;
 
-}
-#companyname{
-	font: arial;
-	font-size: 25px;
-	color: white;
-	background-color: #222222;
-}
-#companyname1{
-	font: arial;
-	font-size: 15px;
-	color: white;
-	background-color: #222222;
-}
-#btn{
-	background-color: white;
-	color: white;
-	border-radius: 8px;
-	border: 1px solid maroon;
-	background-color: maroon;
-}
-#btn:hover{
-	background-color: white;
-	color: maroon;
-	border-radius: 8px;
-	border: 1px solid maroon;
-	background-color: white;
 }
 #btn1{
 	background-color: white;
@@ -140,78 +103,6 @@ th, td {
 	border: 1px solid black;
 	background-color: grey;
 }
-.dropd{
-  background-color:#f2e6e6;
-  color: maroon;
-
-}
-.bg-modal{
-	width: 100%;
-	height: 150%;
-	background-color: rgba(0, 0, 0, 0.7);
-	position: absolute;
-	top: 0;
-	display: none;
-
-}
-.bg-modal1{
-	width: 100%;
-	height: 450%;
-	background-color: rgba(0, 0, 0, 0.7);
-	position: absolute;
-	top: 0;
-	display: none;
-
-}
-.modal-content{
-	display: none;
-	background-color: white;
-	border-radius: 4px;
-	padding: 20px;
-	position: relative;
-	text-align: center;
-}
-.close{
-	position: absolute;
-	top: 0;
-	right: 14px;
-	transform: rotate(45deg);
-	cursor: pointer;
-}
-.close1{
-	position: absolute;
-	top: 0;
-	right: 14px;
-	transform: rotate(45deg);
-	cursor: pointer;
-}
-.close2{
-	position: absolute;
-	top: 0;
-	right: 14px;
-	transform: rotate(45deg);
-	cursor: pointer;
-}
-#aboutbg{
-	background-color: maroon;
-	color:white;
-	text-align: center;
-	justify-content: center;
-
-}
-#contactbg{
-	background-color: maroon;
-	color:white;
-	text-align: center;
-	justify-content: center;
-}
 .line1{
 	border-top: 3px solid maroon;
-}
-.contactBG{
-
-	background-color: white;
-	border-radius: 4px;
-
-	text-align: center;
 }

@@ -28,11 +28,8 @@ def delivery(request):
             print('none')
 
     if request.method == "POST":
-
         if request.POST.get('delivery_item_name') and request.POST.get('delivery_unit') and request.POST.get('delivery_quantity'):
-
             if mainstorage.objects.filter(ItemName = request.POST.get('delivery_item_name')).exists() == True:
-                
                 information1 = mainstorage.objects.get(ItemName = request.POST.get('delivery_item_name'))
                 updating = int(information1.Quantity) + int(request.POST.get('delivery_quantity'))
                 update_mainstorage = mainstorage()
@@ -89,13 +86,18 @@ def withdraw(request):
     return render (request, 'activities/withdraw.html', context)
 
 def tempwithdraw(request):
+    information = mainstorage.objects.all()
+    if 'ItemName' in request.POST:
+        text = request.POST['ItemName']
+        if text == '':
+            information = []
+        else:
+            print('none')
+    
 
     if request.method == "POST":
-
         if request.POST.get('withdraw_item_name') and request.POST.get('withdraw_unit') and request.POST.get('withdraw_quantity'):
-
             if mainstorage.objects.filter(ItemName = request.POST.get('withdraw_item_name')).exists() == True:
-                
                 information1 = mainstorage.objects.get(ItemName = request.POST.get('withdraw_item_name'))
                 updating = int(information1.Quantity) - int(request.POST.get('withdraw_quantity'))
                 update_mainstorage = mainstorage()
@@ -109,10 +111,13 @@ def tempwithdraw(request):
                 update_withdraw_record.withdraw_unit = request.POST.get('delivery_unit')
                 update_withdraw_record.withdraw_quantity = request.POST.get('delivery_quantity')
                 update_withdraw_record.save()
-
             else: 
                 return render(request, 'activities/tempwithdraw.html')
-    return render(request, 'activities/tempwithdraw.html')
+
+    context = {
+        'information' : information,
+        }
+    return render (request, 'activities/tempwithdraw.html', context)
 
 def status(request):
     information = mainstorage.objects.all()
@@ -122,11 +127,12 @@ def status(request):
             information = []
         else:
             print('none')
-    
+
     context = {
         'information' : information,
         }
     return render (request, 'activities/status.html', context)
+
 
 
 def changestatus(request, pk):
@@ -137,7 +143,6 @@ def changestatus(request, pk):
         form = mainstorage(request.POST, instance=data)
         if form.is_valid():
             return redirect('/status')
-
     context = {
         'information' : information,
         }
