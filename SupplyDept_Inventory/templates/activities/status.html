@@ -132,7 +132,7 @@
   <div class="container">
     <h6 id="lbl">PER DEPARTMENT</h6><br><br>
     {% csrf_token %}
-      <form style="text-align: center;" method="post">
+      <form href="{% url 'Supplydept_statuslimit' %}"  style="text-align: center;" method="post">
           <label  id="dept" for ="dep" class="nah" >Choose Department</label>
           <select id="deps" name="choice" class=dropd>
           <option value=OCS_CASHIER_SERVICES>OCS(CASHIER-SERVICES)</option>
@@ -173,8 +173,9 @@
           <option value=OCR_CAMPUS_REGISTRAR>OCR(CAMPUS-REGISTRAR)</option>
           </select>
           <br><br>
-          <button id="btn" name="refresh" data-mdb-toogle="tooltip" title="Choose and update the item of the choosen Department" href="{% url 'Supplydept_statuslimit' %}">Update Limit</button>
+          <button id="btn" name="refresh" data-mdb-toogle="tooltip" title="Choose and update the item of the choosen Department" >Update Limit</button>
           <br><br><br><br>
+	  </form>
   </div>
   </main>
 
