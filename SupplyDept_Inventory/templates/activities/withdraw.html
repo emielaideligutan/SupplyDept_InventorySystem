@@ -82,7 +82,7 @@ h2{
         <button id="btn" data-mdb-toogle="tooltip" title="Back to home " >BACK</button>
       </form>
     <br><br>
-      <form style="text-align: center;" method="POST">
+      <form style="text-align: center;" action = "{% url 'Supplydept_tempwithdraw' %}" method="POST">
       {% csrf_token %}
             <label  id ="dept" for ="dep" class="nah" >Choose Department</label>
             <select id="deps" name="choice" class=dropd>
