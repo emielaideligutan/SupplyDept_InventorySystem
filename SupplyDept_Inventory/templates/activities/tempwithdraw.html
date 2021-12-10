@@ -101,7 +101,7 @@ td{
           <form action = "" method = "POST">
             {% csrf_token %}
               <label id="lbl" for="item">ITEMS/DESRIPTION</label><br>
-              <input list="items" name="withdraw_item_name"  placeholder="Input an item...." style="text-align: center;"><br>
+              <input list="items" name="withdraw_item_name"  id = "item" placeholder="Input an item...." style="text-align: center;"><br>
               <datalist id="items" name="itemddrop">
                 <option value="Long Brown Expanded Folder">
                 <option value="Scotch Tape">
@@ -115,7 +115,7 @@ td{
                 <option value="Pencil Sharpener">
               </datalist><br>
               <label id="lbl" for="unit">UNIT</label><br>
-              <input list="units" name="withdraw_unit" >
+              <input list="units" name="withdraw_unit" id = "item">
               <datalist id="units">
                 <option value="Pcs">
                 <option value="Ream">
@@ -123,7 +123,7 @@ td{
                 <option value="Bundle">
                 <option value="Box">
               </datalist><br><br>
-              <input type="number" name="withdraw_quantity" href="{% url 'Supplydept_tempwithdraw'%}"style="text-align: center; " placeholder="Quantity"><br><br>
+              <input type="number" name="withdraw_quantity" id = "item" href="{% url 'Supplydept_tempwithdraw'%}"style="text-align: center; " placeholder="Quantity"><br><br>
 
               <button id="btn1" name="Withdraw" data-mdb-toogle="tooltip" title="Withdraw an item" >WITHDRAW</button>
               <!--<input type="button" value="WITHDRAW" id="btn" onclick="withdraw()"/><br>-->

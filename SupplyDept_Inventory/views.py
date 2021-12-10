@@ -29,8 +29,8 @@ def delivery(request):
 
     if request.method == "POST":
         if request.POST.get('delivery_item_name') and request.POST.get('delivery_unit') and request.POST.get('delivery_quantity'):
-            if mainstorage.objects.filter(ItemName = request.POST.get('delivery_item_name')).exists() == True:
-                information1 = mainstorage.objects.get(ItemName = request.POST.get('delivery_item_name'))
+            information1 = mainstorage.objects.get(ItemName = request.POST.get('delivery_item_name'))
+            if mainstorage.objects.filter(ItemName = request.POST.get('delivery_item_name')).exists() == True and information1.Unit == request.POST.get('delivery_unit'):
                 updating = int(information1.Quantity) + int(request.POST.get('delivery_quantity'))
                 update_mainstorage = mainstorage()
                 update_delivery_record = deliveryrecords()
@@ -48,7 +48,7 @@ def delivery(request):
                 update_delivery_record.save()
 
    
-            elif mainstorage.objects.filter(ItemName = request.POST.get('delivery_item_name')).exists() == False:
+            elif mainstorage.objects.filter(ItemName = request.POST.get('delivery_item_name')).exists() == False or information1.Unit != request.POST.get('delivery_unit'):
                 save_delivery_record = deliveryrecords()
                 save_delivery_record.delivery_item_name = request.POST.get('delivery_item_name')
                 save_delivery_record.delivery_unit = request.POST.get('delivery_unit')
@@ -87,6 +87,7 @@ def withdraw(request):
     return render (request, 'activities/withdraw.html', context)
 
 def tempwithdraw(request):
+    print('supplydept')
     information = mainstorage.objects.all()
     if 'ItemName' in request.POST:
         text = request.POST['ItemName']
@@ -95,8 +96,8 @@ def tempwithdraw(request):
         else:
             print('none')
     
-
     if request.method == "POST":
+
         if request.POST.get('withdraw_item_name') and request.POST.get('withdraw_unit') and request.POST.get('withdraw_quantity'):
             if mainstorage.objects.filter(ItemName = request.POST.get('withdraw_item_name')).exists() == True:
                 information1 = mainstorage.objects.get(ItemName = request.POST.get('withdraw_item_name'))
