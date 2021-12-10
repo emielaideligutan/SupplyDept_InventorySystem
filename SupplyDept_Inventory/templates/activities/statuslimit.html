@@ -43,8 +43,7 @@
         </form>
         <h6>PER DEPARTMENT</h6><br><br>
   
-          <form style="text-align: center;" action="" method="POST">
-          {% csrf_token %}
+          <form style="text-align: center;" action="" method="post">
               <h3></h3>
               <br><br>
         <div class="row">
@@ -58,13 +57,14 @@
                 <th data-mdb-toogle="tooltip" title="Quantity " >Qty</th>
                 <th>UNIT</th>
                 </tr>
-                
+                {% for x in information %}
                 <tr>
-                  <td></td>
-                  <td></td>
-                  <td></td>
+                  <td>{{x.ItemName}}</td>
+                  <td>{{x.Quantity}}</td>
+                  <td>{{x.Unit}}</td>
                   <!--<td><button id="add" name="addtodept" data-mdb-toogle="tooltip" title="Add an items" >ADD-></button></td>-->
                 </tr>
+                {% endfor %}
                
           </table>
         </div>
