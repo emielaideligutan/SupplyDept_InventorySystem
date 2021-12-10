@@ -70,6 +70,7 @@ def delivery(request):
         'information' : information,
         }
     return render (request, 'activities/delivery.html', context)
+    
 
 def withdraw(request):
     information = mainstorage.objects.all()
@@ -107,9 +108,9 @@ def tempwithdraw(request):
                 update_mainstorage.Quantity = updating
                 mainstorage.objects.filter(ItemName = request.POST.get('withdraw_item_name')).delete()
                 update_mainstorage.save()
-                update_withdraw_record.withdraw_item_name = request.POST.get('delivery_item_name')
-                update_withdraw_record.withdraw_unit = request.POST.get('delivery_unit')
-                update_withdraw_record.withdraw_quantity = request.POST.get('delivery_quantity')
+                update_withdraw_record.withdraw_item_name = request.POST.get('withdraw_item_name')
+                update_withdraw_record.withdraw_unit = request.POST.get('withdraw_unit')
+                update_withdraw_record.withdraw_quantity = request.POST.get('withdraw_quantity')
                 update_withdraw_record.save()
             else: 
                 return render(request, 'activities/tempwithdraw.html')
