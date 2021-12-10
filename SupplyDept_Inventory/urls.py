@@ -10,6 +10,6 @@ urlpatterns = [
     path('statuslimit/', views.statuslimit, name='Supplydept_statuslimit'),
     path('about/', views.about, name='Supplydept_about'),
     path('contact/', views.contact, name='Supplydept_contact'),
-    path('tempwithdraw/', views.tempwithdraw, name='Supplydept_tempwithdraw'),
+    path('withdraw/tempwithdraw/', views.tempwithdraw, name='Supplydept_tempwithdraw'),
 
 ]

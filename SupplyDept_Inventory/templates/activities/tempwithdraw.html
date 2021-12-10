@@ -40,6 +40,7 @@
   }	
 #btn1{
   font-family:Georgia, 'Times New Roman', Times, serif;
+  width: 31%;
 }
 th{
   font-family:Verdana, Geneva, Tahoma, sans-serif;
@@ -49,11 +50,15 @@ td{
   font-family:cursive;
 }
 #lbl{
+  text-align: center;
   font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   font-size: 20p;
 }
 #item{
   font-family:'Times New Roman', Times, serif;
+}
+#draw{
+  padding-left: 40%;
 }
 </style>
 <body>
@@ -98,36 +103,39 @@ td{
           </div> 
       </div><br><br>
       </div>
-          <form action = "" method = "POST">
-            {% csrf_token %}
-              <label id="lbl" for="item">ITEMS/DESRIPTION</label><br>
-              <input list="items" name="withdraw_item_name"  id = "item" placeholder="Input an item...." style="text-align: center;"><br>
-              <datalist id="items" name="itemddrop">
-                <option value="Long Brown Expanded Folder">
-                <option value="Scotch Tape">
-                <option value="Short Bondpaper">
-                <option value="Long bondpaper">
-                <option value="White Board Marker(blue)">
-                <option value="White Board Marker(black)">
-                <option value="Glue">
-                <option value="Brow Envelope">
-                <option value="Staple Wire(big)">
-                <option value="Pencil Sharpener">
-              </datalist><br>
-              <label id="lbl" for="unit">UNIT</label><br>
-              <input list="units" name="withdraw_unit" id = "item">
-              <datalist id="units">
-                <option value="Pcs">
-                <option value="Ream">
-                <option value="bottle">
-                <option value="Bundle">
-                <option value="Box">
-              </datalist><br><br>
-              <input type="number" name="withdraw_quantity" id = "item" href="{% url 'Supplydept_tempwithdraw'%}"style="text-align: center; " placeholder="Quantity"><br><br>
+      </form>
 
-              <button id="btn1" name="Withdraw" data-mdb-toogle="tooltip" title="Withdraw an item" >WITHDRAW</button>
-              <!--<input type="button" value="WITHDRAW" id="btn" onclick="withdraw()"/><br>-->
-          </form>
+      <!--nilipat ko yung form from sa taas, papunta diteyyy-->
+      <form action = "{% url 'Supplydept_tempwithdraw' %}" method = "POST">
+        <div class="container" id="draw">
+        {% csrf_token %}
+          <label id="lbl" for="item">ITEMS/DESRIPTION</label><br>
+          <input list="items" name="withdraw_item_name" id="item" placeholder="Input an item...." style="text-align: center;"><br>
+          <datalist id="items" >
+            <option value="Long Brown Expanded Folder">
+            <option value="Scotch Tape">
+            <option value="Short Bondpaper">
+            <option value="Long bondpaper">
+            <option value="White Board Marker(blue)">
+            <option value="White Board Marker(black)">
+            <option value="Glue">
+            <option value="Brow Envelope">
+            <option value="Staple Wire(big)">
+            <option value="Pencil Sharpener">
+          </datalist><br>
+          <label id="lbl" for="unit">UNIT</label><br>
+          <input list="units" name="withdraw_unit" id="item">
+          <datalist id="units" >
+            <option value="Pcs">
+            <option value="Ream">
+            <option value="bottle">
+            <option value="Bundle">
+            <option value="Box">
+          </datalist><br><br>
+          <input type="number" name="withdraw_quantity" id="item" style="text-align: center; " placeholder="Quantity"><br><br>
+          <input type="submit" id="btn1" class = "button" value="WITHDRAW" name="Withdraw" data-mdb-toogle="tooltip" title="Withdraw an item">
+        </div>
+      </form>
           <br><br>
 
       <div class="container">
@@ -166,7 +174,6 @@ td{
 
   <!-- Your custom scripts (optional) -->
   <script type="text/javascript"></script>
-  <script type="text/javascript" src="withdrawjs.js"></script>
 
 </body>
 </html>

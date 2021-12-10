@@ -3,8 +3,9 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpResponseRedirect
 from SupplyDept_Inventory.models import deliveryrecords
 #from . import forms
+from .models import *
 
-from SupplyDept_Inventory.models import deliveryrecords, mainstorage, withdrawrecords
+#from SupplyDept_Inventory.models import deliveryrecords, mainstorage, withdrawrecords
 
 def login(request):
     return render(request, 'activities/login.html')
@@ -29,7 +30,7 @@ def delivery(request):
 
     if request.method == "POST":
         if request.POST.get('delivery_item_name') and request.POST.get('delivery_unit') and request.POST.get('delivery_quantity'):
-            if mainstorage.objects.filter(ItemName = request.POST.get('delivery_item_name')).exists() == True and mainstorage.objects.get(ItemName = request.POST.get('delivery_item_name')).Unit == request.POST.get('delivery_unit'):
+            if mainstorage.objects.filter(ItemName = request.POST.get('delivery_item_name')).exists() == True:
                 information1 = mainstorage.objects.get(ItemName = request.POST.get('delivery_item_name'))
                 updating = int(information1.Quantity) + int(request.POST.get('delivery_quantity'))
                 update_mainstorage = mainstorage()
@@ -48,7 +49,7 @@ def delivery(request):
                 update_delivery_record.save()
 
    
-            elif mainstorage.objects.filter(ItemName = request.POST.get('delivery_item_name')).exists() == False or mainstorage.objects.get(ItemName = request.POST.get('delivery_item_name')).Unit != request.POST.get('delivery_unit'):
+            elif mainstorage.objects.filter(ItemName = request.POST.get('delivery_item_name')).exists() == False:
                 save_delivery_record = deliveryrecords()
                 save_delivery_record.delivery_item_name = request.POST.get('delivery_item_name')
                 save_delivery_record.delivery_unit = request.POST.get('delivery_unit')
@@ -70,7 +71,6 @@ def delivery(request):
         'information' : information,
         }
     return render (request, 'activities/delivery.html', context)
-    
 
 def withdraw(request):
     information = mainstorage.objects.all()
@@ -87,7 +87,6 @@ def withdraw(request):
     return render (request, 'activities/withdraw.html', context)
 
 def tempwithdraw(request):
-    print('supplydept')
     information = mainstorage.objects.all()
     if 'ItemName' in request.POST:
         text = request.POST['ItemName']
@@ -96,25 +95,15 @@ def tempwithdraw(request):
         else:
             print('none')
     
-    if request.method == "POST":
 
-        if request.POST.get('withdraw_item_name') and request.POST.get('withdraw_unit') and request.POST.get('withdraw_quantity'):
-            if mainstorage.objects.filter(ItemName = request.POST.get('withdraw_item_name')).exists() == True:
-                information1 = mainstorage.objects.get(ItemName = request.POST.get('withdraw_item_name'))
-                updating = int(information1.Quantity) - int(request.POST.get('withdraw_quantity'))
-                update_mainstorage = mainstorage()
-                update_withdraw_record = withdrawrecords()
-                update_mainstorage.ItemName = request.POST.get('withdraw_item_name')
-                update_mainstorage.Unit = request.POST.get('withdraw_unit')
-                update_mainstorage.Quantity = updating
-                mainstorage.objects.filter(ItemName = request.POST.get('withdraw_item_name')).delete()
-                update_mainstorage.save()
-                update_withdraw_record.withdraw_item_name = request.POST.get('withdraw_item_name')
-                update_withdraw_record.withdraw_unit = request.POST.get('withdraw_unit')
-                update_withdraw_record.withdraw_quantity = request.POST.get('withdraw_quantity')
-                update_withdraw_record.save()
-            else: 
-                return render(request, 'activities/tempwithdraw.html')
+    if request.method == "POST":
+        if  request.POST.get('withdraw_item_name') and request.POST.get('withdraw_unit') and request.POST.get('withdraw_quantity'):
+            saverecord = withdrawrecords()
+            saverecord.withdraw_item_name = request.POST.get('withdraw_item_name')
+            saverecord.withdraw_unit = request.POST.get('withdraw_unit')
+            saverecord.withdraw_quantity = request.POST.get('withdraw_quantity')
+            saverecord.save()
+            return redirect (request.path)
 
     context = {
         'information' : information,
@@ -136,20 +125,5 @@ def status(request):
     return render (request, 'activities/status.html', context)
 
 
-
-def changestatus(request, pk):
-    data = mainstorage.objects.get(id=pk)
-    information = mainstorage(instance=data)
-    form = mainstorage()
-    if request.method == 'POST':
-        form = mainstorage(request.POST, instance=data)
-        if form.is_valid():
-            return redirect('/status')
-    context = {
-        'information' : information,
-        }
-    return render (request, 'activities/status.html', context)
-
 def statuslimit(request):
     return render(request, 'activities/statuslimit.html')
-
