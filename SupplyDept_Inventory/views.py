@@ -81,20 +81,30 @@ def withdraw(request):
         else:
             print('none')
     
+    information1 = withdrawrecords.objects.all()
+    if 'withdraw_item_name' in request.POST:
+        text = request.POST['withdraw_item_name']
+        if text == '':
+            information1 = []
+        else:
+            print('none')
+    
     context = {
         'information' : information,
+        'information1' : information1,
         }
     return render (request, 'activities/withdraw.html', context)
 
+
 def tempwithdraw(request):
-    information = mainstorage.objects.all()
-    if 'ItemName' in request.POST:
-        text = request.POST['ItemName']
+    information = withdrawrecords.objects.all()
+    if 'withdraw_item_name' in request.POST:
+        text = request.POST['withdraw_item_name']
         if text == '':
             information = []
         else:
             print('none')
-    
+
 
     if request.method == "POST":
         if  request.POST.get('withdraw_item_name') and request.POST.get('withdraw_unit') and request.POST.get('withdraw_quantity'):

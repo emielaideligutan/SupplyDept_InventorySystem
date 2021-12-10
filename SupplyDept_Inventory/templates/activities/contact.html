@@ -2,27 +2,73 @@
 {%load static%}
 
 {% block content%}
-  <link rel="stylesheet" href="{%static 'css/status.css'%}">
-
+<style>
+  .navbar{
+	background-color: maroon;
+  }
+.navbar-brand{
+    align-items: left;
+  } 
+.title{
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 20px;
+    font-family: cursive;
+    font-size: 40px;
+    color: whitesmoke;
+  }
+#abtbtn{
+    padding-right:10%;
+    font-size: 30px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color:white;
+  }
+#btn{
+  font-family:Georgia, 'Times New Roman', Times, serif;
+  border-radius: 8px;
+  border: 2px solid maroon;
+  background-color: white; 
+  color: maroon;
+}
+#btn:hover{
+  border-radius: 8px;
+  border: 2px solid maroon;
+  background-color: white; 
+  color: red;
+}	
+#about{
+    text-align: center;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 40px;
+  }
+.line1{
+	border-top: 3px solid maroon;
+}
+h6{
+  font-family: fantasy;
+  font-size: 15px;
+}
+h3{
+  font-family: monospace;
+  font-size: 40px;
+}
+h4{
+  font-family: monospace;
+  font-size: 20px;
+}
+h5{
+  font-family: monospace;
+}
+</style>
 <body>
-
   <!-- Start your project here--> 
   <header>
-    <div class="">
-      <div class="row cbanner "  >
-        <div class="col-md-8" >
-           <label  class="Banner "  >Department Of Supply</label>
-        </div> 
-        <div class="col-md-2 ">
-           <label   ></label>
-        </div> 
-        <div class="col-md-2 ">
-           <label  class="bn "  >CONTACT</label>
-        </div> 
-      </div>
-    </div>
+    <nav class="navbar">
+          <h2  class="title" >SUPPLY INVENTORY SYSTEM </h2>
+          <label  id="abtbtn"  >CONTACT</label>
+    </nav>
   </header><br>
-   <div class="">
+   <div class="container">
       <div class="row "  >
         <div class="col-md-2" >
           <form action="{% url 'Supplydept_mainpage' %}">
@@ -36,16 +82,11 @@
       </div>
     </div>
     <div class="">
-      <div class="row "  >
-        <div class="col-md-4" >
-        </div> 
-        <div class="col-md-4" >
-          <h1 id="contactP">ALM </h1>
-          <h4 id="contactp">Inventory System</h4>
+      <div class=""  >
+        <div class="" >
+          <h4 id="about"> ALM Inventory System</h4>
         </div> 
         <div class="col-md-4">
-      
-          
       </div>
     </div><br><br><br>
     <div class="">
@@ -53,14 +94,16 @@
         <div class="col-md-1" >
         </div> 
         <div class="col-md-3" >
-          <img src="{%static 'media/wendel.jpeg'%}" alt="" class="img-fluid rounded " width="50%" height="50%"  ><br>
+          <img src="{%static 'media/wendel.jpeg'%}" alt="" class="img-fluid rounded " width="70%" height="50%"  ><br>
+          <br>
           <h6>Front And Back End Developer</h6>   
         </div> 
         <div class="col-md-8">
-          <h3>Alvero Wendel</h3>
-          <h5> Student of Technological University of the  Philippines Cavite</h5>
-          <h5> wendelpatalalvero@gmail.com</h5>
-          <h5> 09753789929</h5>
+          <h3>Wendel Alvero</h3>
+          <br>
+          <h4> Student of Technological University of the  Philippines Cavite</h5>
+          <h5> email: wendelpatalalvero@gmail.com</h5>
+          <h5> contact no.: 09753789929</h5>
         </div>
       </div>
     </div><br><br><br>
@@ -70,14 +113,16 @@
         <div class="col-md-1" >
         </div> 
         <div class="col-md-3" >
-          <img src="{%static 'media/emie.jpg'%}" alt="" class="img-fluid rounded " width="50%" height="50%"  ><br>
+          <img src="{%static 'media/emie.jpg'%}" alt="" class="img-fluid rounded " width="60%" height="50%"  ><br>
+          <br>
           <h6>Front and Back End Developer</h6>   
         </div> 
         <div class="col-md-8">
           <h3>Emie Laide Ligutan</h3>
-          <h5> Student of Technological University of the  Philippines Cavite</h5>
-          <h5>ligutanemie@gmail.com</h5>
-          <h5>09563210866</h5>
+          <br>
+          <h4> Student of Technological University of the  Philippines Cavite</h5>
+          <h5> email: ligutanemie@gmail.com</h5>
+          <h5> contact no.: 09563210866</h5>
         </div>
       </div>
     </div><br><br><br>
@@ -87,17 +132,20 @@
         <div class="col-md-1" >
         </div> 
         <div class="col-md-3" >
-          <img src="{%static 'media/reymie.jpg'%}" alt="" class="img-fluid rounded " width="50%" height="50%"  ><br>
-          <h6>Front End Developer</h6>   
+          <img src="{%static 'media/reymie.jpg'%}" alt="" class="img-fluid rounded " width="70%" height="50%"  ><br>
+          <br>
+          <h6>Front and Back End Developer</h6>   
         </div> 
         <div class="col-md-8">
           <h3>Reymie Madera</h3>
-          <h5> Student of Technological University of the  Philippines Cavite</h5>
-          <h5>reymiemadera16@gmail.com</h5>
-          <h5>09095930914</h5>
+          <br>
+          <h4> Student of Technological University of the  Philippines Cavite</h5>
+          <h5> email: reymiemadera16@gmail.com</h5>
+          <h5> contact no.: 09095930914</h5>
         </div>
       </div>
     </div>
+    <br><br><br><br><br>
   <main> 
 
 

@@ -58,7 +58,7 @@ td{
   font-family:'Times New Roman', Times, serif;
 }
 #draw{
-  padding-left: 40%;
+  padding-left: 35%;
 }
 </style>
 <body>
@@ -79,29 +79,7 @@ td{
       <h3></h3>
       <br>
       <br><br>
-      <div class="container">
-      <div class="row "    >
-
-        <div class="col-md-12 " style="width:600px; height:350px; overflow:auto;">
-         <table id="t01" class="table1" cellspacing="0" cellpadding="1" border="1" width="300" >
-        <!--<div  class="col-md-12 " >
-          
-          <table id="t01" class="table1">-->
-              <tr>
-                <th>AVAILABLE ITEMS</th>
-                <th>REMAINING</th>
-                <th>UNIT</th>
-              </tr>
-              {% for x in information %}
-              <tr>
-                <td>{{x.ItemName}}</td>
-                <td>{{x.Quantity}}</td>
-                <td>{{x.Unit}}</td>
-              </tr>
-              {% endfor %}
-          </table><br><br>
-          </div> 
-      </div><br><br>
+   
       </div>
       </form>
 
@@ -151,17 +129,19 @@ td{
                 <th>TIME</th>
                 <th>ACTIONS</th>
               </tr>  
+              {% for x in information %}
               <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td>{{x.Department}}</td>
+                <td>{{x.withdraw_item_name}}</td>
+                <td>{{x.withdraw_unit}}</td>
+                <td>{{x.withdraw_quantity}}</td>
+                <td>{{x.current_date}}</td>
+                <td>{{x.current_time}}</td>
                 <td>
-                  <a href=""id="del">Delete</a>
+                  <a href="" name="delete" id="del">Delete</a>
                 </td>
               </tr>
+              {% endfor %}
           </table>  
         </div> 
       </div>     
