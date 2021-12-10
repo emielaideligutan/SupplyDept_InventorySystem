@@ -98,12 +98,21 @@ def tempwithdraw(request):
 
     if request.method == "POST":
         if  request.POST.get('withdraw_item_name') and request.POST.get('withdraw_unit') and request.POST.get('withdraw_quantity'):
-            saverecord = withdrawrecords()
-            saverecord.withdraw_item_name = request.POST.get('withdraw_item_name')
-            saverecord.withdraw_unit = request.POST.get('withdraw_unit')
-            saverecord.withdraw_quantity = request.POST.get('withdraw_quantity')
-            saverecord.save()
-            return redirect (request.path)
+            if mainstorage.objects.filter(ItemName = request.POST.get('withdraw_item_name')).exists() == True:
+                information1 = mainstorage.objects.get(ItemName = request.POST.get('withdraw_item_name'))
+                updating = int(information1.Quantity) - int(request.POST.get('withdraw_quantity'))
+                saverecord = withdrawrecords()
+                update_mainstorage = mainstorage()
+                update_mainstorage.ItemName = request.POST.get('withdraw_item_name')
+                update_mainstorage.Unit = request.POST.get('withdraw_unit')
+                update_mainstorage.Quantity = updating
+                mainstorage.objects.filter(ItemName = request.POST.get('withdraw_item_name')).delete()
+                update_mainstorage.save()
+                saverecord.withdraw_item_name = request.POST.get('withdraw_item_name')
+                saverecord.withdraw_unit = request.POST.get('withdraw_unit')
+                saverecord.withdraw_quantity = request.POST.get('withdraw_quantity')
+                saverecord.save()
+                return redirect (request.path)
 
     context = {
         'information' : information,
