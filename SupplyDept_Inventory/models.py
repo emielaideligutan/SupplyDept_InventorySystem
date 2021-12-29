@@ -43,6 +43,21 @@ class deliveryrecords(models.Model):
 def __str__(self):
     return self.delivery_item_name
     
+class limitrecords(models.Model):
+
+    limit_item_name = models.CharField(max_length=50, verbose_name='limit_item_name')
+    limit_quantity = models.CharField(max_length=50, verbose_name='limit_quantity')
+    limit_unit = models.CharField(max_length=50, verbose_name='limit_unit')
+    limit_department = models.CharField(max_length=50, verbose_name='limit_department')
+    
+    #current_time = models.CharField(max_length=50, verbose_name='delivery_current_time')
+
+    class Meta:
+        db_table = ('limitrecords')
+
+def __str__(self):
+    return self.limit_item_name
+
 class mainstorage(models.Model):
     ItemName = models.CharField(max_length=50, verbose_name='ItemName')
     Unit = models.CharField(max_length=50, verbose_name='Unit')

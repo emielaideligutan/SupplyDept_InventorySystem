@@ -1,9 +1,13 @@
 #from django import forms
+from django.db.models.query import QuerySet
 from django.shortcuts import render, redirect
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect, response
 from SupplyDept_Inventory.models import deliveryrecords
 #from . import forms
-from .models import *
+from .models import *\
+
+
+
 
 #from SupplyDept_Inventory.models import deliveryrecords, mainstorage, withdrawrecords
 
@@ -108,20 +112,21 @@ def tempwithdraw(request):
 
     if request.method == "POST":
         if  request.POST.get('withdraw_item_name') and request.POST.get('withdraw_unit') and request.POST.get('withdraw_quantity'):
-            if mainstorage.objects.filter(ItemName = request.POST.get('withdraw_item_name')).exists() == True:
-                information1 = mainstorage.objects.get(ItemName = request.POST.get('withdraw_item_name'))
+            if limitrecords.objects.filter(ItemName = request.POST.get('withdraw_item_name')).exists() == True:
+                information1 = limitrecords.objects.get(ItemName = request.POST.get('withdraw_item_name'))
                 updating = int(information1.Quantity) - int(request.POST.get('withdraw_quantity'))
                 saverecord = withdrawrecords()
-                update_mainstorage = mainstorage()
+                update_mainstorage = limitrecords()
                 update_mainstorage.ItemName = request.POST.get('withdraw_item_name')
                 update_mainstorage.Unit = request.POST.get('withdraw_unit')
                 update_mainstorage.Quantity = updating
-                mainstorage.objects.filter(ItemName = request.POST.get('withdraw_item_name')).delete()
+                limitrecords.objects.filter(ItemName = request.POST.get('withdraw_item_name')).delete()
                 update_mainstorage.save()
                 saverecord.withdraw_item_name = request.POST.get('withdraw_item_name')
                 saverecord.withdraw_unit = request.POST.get('withdraw_unit')
                 saverecord.withdraw_quantity = request.POST.get('withdraw_quantity')
                 saverecord.save()
+            
                 return redirect (request.path)
 
     context = {
@@ -137,12 +142,63 @@ def status(request):
             information = []
         else:
             print('none')
+    
+
 
     context = {
         'information' : information,
+
         }
+
     return render (request, 'activities/status.html', context)
 
 
+
 def statuslimit(request):
-    return render(request, 'activities/statuslimit.html')
+    information = mainstorage.objects.all()
+    if 'ItemName' in request.POST:
+        text = request.POST['ItemName']
+        if text == '':
+            information = []
+        else:
+            print('none')
+
+
+    limit = limitrecords.objects.all()
+    if 'limit_item_name' in request.POST:
+        text = request.POST['limit_item_name']
+        if text == '':
+            limit = []
+        else:
+            print('none')
+    
+
+
+    if request.method == "POST":
+        if  request.POST.get('limit_item_name') and request.POST.get('limit_unit') and request.POST.get('limit_quantity') and request.POST.get('limit_department'):
+            save_limit_record = limitrecords()
+            save_limit_record.limit_item_name = request.POST.get('limit_item_name')
+            save_limit_record.limit_unit = request.POST.get('limit_unit')
+            save_limit_record.limit_quantity = request.POST.get('limit_quantity')
+            save_limit_record.limit_department = request.POST.get('limit_department')
+            save_limit_record.save()
+            return redirect (request.path)
+
+    context = {
+        'information' : information,
+        'limit' : limit,
+     
+        }
+    return render(request, 'activities/statuslimit.html',context)
+
+def statusupdate(request):
+
+    return render(request, 'activities/statusupdate.html')
+
+def addaccnt(request):
+
+    return render(request, 'activities/addaccnt.html')
+
+def accntsettings(request):
+
+    return render(request, 'activities/accntsettings.html')

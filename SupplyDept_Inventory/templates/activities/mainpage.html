@@ -19,12 +19,12 @@
   }
   #popup{
     padding-top: 20%;
-    font-size: 20px;
+    font-size: 15px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   }
   #loginbtn{
-    padding-right: 20%;
-    font-size: 20px;
+    padding-right: 0%;
+    font-size: 15px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   }
   li{
@@ -45,7 +45,12 @@
           <ul>
             <li> 
               <form action="">
-                <a  id="popup"  class="button" data-mdb-toogle="tooltip" title="Change your Username And Password " style="color: #dddddd;" >Account Setting</a>
+                <a href="{% url 'Supplydept_accntsettings' %}"  id="popup"  class="button" data-mdb-toogle="tooltip" title="Change your Username And Password " style="color: #dddddd;" >Account Setting</a>
+              </form>
+            </li>
+            <li>
+              <form action=''>
+                <a href="{% url 'Supplydept_addaccnt' %}" id="loginbtn" data-mdb-toogle="tooltip" title="For adding of Account " style="color: #dddddd;">Add Account</a> 
               </form>
             </li>
             <li>

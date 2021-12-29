@@ -63,7 +63,20 @@
             <form action = "" method = "POST">
             {% csrf_token %}
               <label class="label2" id="ITEM" for = "item">ITEM:</label><br>
-              <input type="text" required autocomplete="off" name = "delivery_item_name"><br><br>
+              <input required autocomplete="off" list="items" name="delivery_item_name" id="item" placeholder="Input an item...." style="text-align: center;"><br>
+              <datalist id="items" >
+                <option value="Long Brown Expanded Folder">
+                <option value="Scotch Tape">
+                <option value="Short Bondpaper">
+                <option value="Long bondpaper">
+                <option value="White Board Marker(blue)">
+                <option value="White Board Marker(black)">
+                <option value="Glue">
+                <option value="Brow Envelope">
+                <option value="Staple Wire(big)">
+                <option value="Pencil Sharpener">
+              </datalist><br>
+           
               <label  class="label2" id="UNIT" for = "unit">UNIT:</label><br>
               <input type="text" required autocomplete="off" name = "delivery_unit"><br><br>
               <label  class="label2" id="QUAN" for = "quantity">QUANTITY:</label><br>
