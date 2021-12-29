@@ -4,7 +4,9 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpResponseRedirect, response
 from SupplyDept_Inventory.models import deliveryrecords
 #from . import forms
-from .models import *\
+from .models import *
+from django.contrib import messages
+from django.contrib.auth.models import User, auth
 
 
 
@@ -12,7 +14,18 @@ from .models import *\
 #from SupplyDept_Inventory.models import deliveryrecords, mainstorage, withdrawrecords
 
 def login(request):
-    return render(request, 'activities/login.html')
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        user = auth.authenticate(username=username, password=password)
+        if user is not None:
+            auth.login(request, user)
+            return redirect('/')
+        else:
+            messages.info(request, 'invalid credentials')
+            return redirect('login/')
+    else:
+        return render(request, 'activities/login.html')
 
 def mainpage(request):
     return render(request, 'activities/mainpage.html')
