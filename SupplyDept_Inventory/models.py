@@ -20,6 +20,7 @@ class withdrawrecords(models.Model):
     withdraw_quantity = models.CharField(max_length=50, verbose_name='withdraw_quantity')
     current_date = models.DateField(default=date.today, verbose_name='withdraw_current_date')
     current_time = models.TimeField(default=timezone.now, verbose_name='withdarw_current_time')
+    withdraw_department = models.CharField(max_length=50, verbose_name='withdraw_department')
     class Meta:
         db_table = "withdrawrecords"
 
@@ -62,6 +63,7 @@ class mainstorage(models.Model):
     ItemName = models.CharField(max_length=50, verbose_name='ItemName')
     Unit = models.CharField(max_length=50, verbose_name='Unit')
     Quantity = models.CharField(max_length=50, verbose_name='Quantity')
+    Remaining = models.CharField(max_length=50, verbose_name='Remaining')
 
     class Meta:
         db_table = "mainstorage"

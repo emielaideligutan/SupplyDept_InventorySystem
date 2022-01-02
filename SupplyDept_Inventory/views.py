@@ -126,23 +126,40 @@ def tempwithdraw(request):
 
 
     if request.method == "POST":
-        if  request.POST.get('withdraw_item_name') and request.POST.get('withdraw_unit') and request.POST.get('withdraw_quantity'):
-            if limitrecords.objects.filter(ItemName = request.POST.get('withdraw_item_name')).exists() == True:
-                information1 = limitrecords.objects.get(ItemName = request.POST.get('withdraw_item_name'))
-                updating = int(information1.Quantity) - int(request.POST.get('withdraw_quantity'))
-                saverecord = withdrawrecords()
-                update_mainstorage = limitrecords()
-                update_mainstorage.ItemName = request.POST.get('withdraw_item_name')
-                update_mainstorage.Unit = request.POST.get('withdraw_unit')
-                update_mainstorage.Quantity = updating
-                limitrecords.objects.filter(ItemName = request.POST.get('withdraw_item_name')).delete()
-                update_mainstorage.save()
-                saverecord.withdraw_item_name = request.POST.get('withdraw_item_name')
-                saverecord.withdraw_unit = request.POST.get('withdraw_unit')
-                saverecord.withdraw_quantity = request.POST.get('withdraw_quantity')
-                saverecord.save()
-            
-                return redirect (request.path)
+        information = withdrawrecords.objects.all()
+    if 'withdraw_item_name' in request.POST:
+        text = request.POST['withdraw_item_name']
+        if text == '':
+            information = []
+        else:
+            print('none')
+
+
+    if request.method == "POST":
+        if  request.POST.get('withdraw_item_name') and request.POST.get('withdraw_unit') and request.POST.get('withdraw_quantity') and request.POST.get('withdraw_department'):
+            if mainstorage.objects.filter(ItemName = request.POST.get('withdraw_item_name')).exists() and limitrecords.objects.filter(limit_item_name = request.POST.get('withdraw_item_name')).exists() == True:
+                information1 = mainstorage.objects.get(ItemName = request.POST.get('withdraw_item_name'))
+                c1 = int(information1.Quantity)
+                c2 = int(request.POST.get('withdraw_quantity'))
+                c3 = c1 >= c2
+                if c3 == True: 
+                    updating = int(information1.Quantity) - int(request.POST.get('withdraw_quantity'))
+                    update_mainstorage = mainstorage()
+                    update_withdraw_record = withdrawrecords()
+                    update_mainstorage.ItemName = request.POST.get('withdraw_item_name')
+                    update_mainstorage.Unit = request.POST.get('withdraw_unit')
+                    update_mainstorage.Quantity = updating
+                    mainstorage.objects.filter(ItemName = request.POST.get('withdraw_item_name')).delete()
+                    update_mainstorage.save()
+                    update_withdraw_record.withdraw_item_name = request.POST.get('withdraw_item_name')
+                    update_withdraw_record.withdraw_department = request.POST.get('withdraw_department')
+                    update_withdraw_record.withdraw_unit = request.POST.get('withdraw_unit')
+                    update_withdraw_record.withdraw_quantity = request.POST.get('withdraw_quantity')
+                    update_withdraw_record.save()
+                    return redirect (request.path)
+                else:
+                    return redirect (request.path)
+                
 
     context = {
         'information' : information,

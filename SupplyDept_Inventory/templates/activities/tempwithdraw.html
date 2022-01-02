@@ -71,7 +71,7 @@ td{
   </header><br>
   <main>
     <div class="container">
-      <form action="{% url 'Supplydept_mainpage' %}" >
+      <form action="{% url 'Supplydept_withdraw' %}" >
         <button id="btn" data-mdb-toogle="tooltip" title="Back to choice of Department " >BACK</button>
       </form>
       
@@ -88,8 +88,8 @@ td{
         <div class="container" id="draw">
         {% csrf_token %}
           <label id="lbl" for="item">ITEMS/DESRIPTION</label><br>
-          <input list="items" name="withdraw_item_name" id="item" placeholder="Input an item...." style="text-align: center;"><br>
-          <datalist id="items" >
+          <input required autocomplete="off"  list="items" name="withdraw_item_name" id="item" placeholder="Input an item...." style="text-align: center;"><br>
+          <datalist  id="items" >
             <option value="Long Brown Expanded Folder">
             <option value="Scotch Tape">
             <option value="Short Bondpaper">
@@ -102,7 +102,7 @@ td{
             <option value="Pencil Sharpener">
           </datalist><br>
           <label id="lbl" for="unit">UNIT</label><br>
-          <input list="units" name="withdraw_unit" id="item">
+          <input required autocomplete="off" list="units" name="withdraw_unit" id="item">
           <datalist id="units" >
             <option value="Pcs">
             <option value="Ream">
@@ -110,7 +110,46 @@ td{
             <option value="Bundle">
             <option value="Box">
           </datalist><br><br>
-          <input type="number" name="withdraw_quantity" id="item" style="text-align: center; " placeholder="Quantity"><br><br>
+          <input required autocomplete="off" type="number" name="withdraw_quantity" id="item" style="text-align: center; " placeholder="Quantity"><br><br>
+          <label  class="label2" id="DEP" for = "withdraw_department">DEPARTMENT:</label><br>
+              <input required autocomplete="off" list="depart" name="withdraw_department" id="item" placeholder="Choose a Department...." style="text-align: center;"><br>
+              <datalist id="depart" >
+                <option value="OCS_CASHIER_SERVICES">
+                <option value="OES_EXTENSION_SERVICES">
+                <option value="OGS_GUIDANCE_SERVICES">
+                <option value="OHR_HUMAN_RESOURCES">
+                <option value="OHS_HEALTH_SERVICES">
+                <option value="OIT_INFORMATION_TECHNOLOGY">
+                <option value="OSP_JOB_PLACEMENT">
+                <option value="OPR_PROCUREMENT">
+                <option value="ORE_RESEARCH_AND_EXTENSION">
+                <option value="ORS_RESEARCH_SERVICES">
+                <option value="OSA_STUDENT_AFFAIRS">
+                <option value="OSH_SECURITY_HOUSE">
+                <option value="DCG_DOCUMENT_CONTROL_GUIDE">
+                <option value="DID_INDUSTRIAL_EDUCATION">
+                <option value="DES_ENGINEERING_TECHNOLOGY">
+                <option value="DLA_LIBERAL_ARTS">
+                <option value="DMS_MATH_AND_SCIENCE">
+                <option value="DPECS_PHYSICAL_EDUCATION_CULTURAL_SPORTS">
+                <option value="BETEEAP_EXPANDED_TERTIARY_EDUCATION_EQUIVALENCY_AND_ACCREDITATION">
+                <option value="GAD_GENDER_AND_DEVELOPMENT">
+                <option value="IDO_INFRASTRUCTURE_DEVELOPMENT_OFFICE">
+                <option value="NSTP_NATIONAL_SERVICE_TRAINING_PROGRAM">
+                <option value="OAA_ACADEMIC_AFFAIRS">
+                <option value="OAC_ACCOUNTING_CAMPUS">
+                <option value="OAD_ADMISSION">
+                <option value="OAF_ADMIN_AND_FINANCE">
+                <option value="OAL_ALUMNI">
+                <option value="OAS_ADMIN_SERVICES">
+                <option value="OAX_AUXILIARY">
+                <option value="OBA_BIDS_AND_AWARDS">
+                <option value="OBD_BUDGET_DEVELOPMENT">
+                <option value="OCD_CAMPUS_DIRECTOR">
+                <option value="OCL_CAMPUS_LIBRARY">
+                <option value="OCP_CAMPUS_PLANNING">
+                <option value="OCR_CAMPUS_REGISTRAR">
+              </datalist><br><br>
           <input type="submit" id="btn1" class = "button" value="WITHDRAW" name="Withdraw" data-mdb-toogle="tooltip" title="Withdraw an item">
         </div>
       </form>
@@ -131,7 +170,7 @@ td{
               </tr>  
               {% for x in information %}
               <tr>
-                <td>{{x.Department}}</td>
+                <td>{{x.withdraw_department}}</td>
                 <td>{{x.withdraw_item_name}}</td>
                 <td>{{x.withdraw_unit}}</td>
                 <td>{{x.withdraw_quantity}}</td>
