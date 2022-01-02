@@ -36,6 +36,7 @@
   <main>
   	<!-- main container-->
     <form action="login" method="POST">
+    {% csrf_token %}
     <div class="container ">
     	<div class="row animated fadeIn" >
         <div class="col-md-1" >
@@ -49,8 +50,8 @@
             <label  id="label1" for = "Username">Username</label><br>
             <input class="input" id="Username" name ='username' ><br><br>
             <label  id="label2" for = "Password">Password</label><br>
-            <input type="Password" class="input" id="Password" name ='password' ><br><br>
-            <form action="admin/">
+            <input type="Password" class="input" id="Password" name ='pass' ><br><br>
+            <form action="">
               <button id="loginbtn" >Log In</button>
           </div>
         </form>

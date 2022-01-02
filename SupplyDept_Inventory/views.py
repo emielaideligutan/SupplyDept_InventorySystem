@@ -6,26 +6,28 @@ from SupplyDept_Inventory.models import deliveryrecords
 #from . import forms
 from .models import *
 from django.contrib import messages
-from django.contrib.auth.models import User, auth
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
+
+
 
 
 
 
 #from SupplyDept_Inventory.models import deliveryrecords, mainstorage, withdrawrecords
 
-def login(request):
+def adminlogin(request):
     if request.method == 'POST':
-        username = request.POST['username']
-        password = request.POST['password']
-        user = auth.authenticate(username=username, password=password)
-        if user is not None:
-            auth.login(request, user)
-            return redirect('/')
+        username = request.POST.get('username')
+        password = request.POST.get('pass')
+        user = authenticate(request, username=username, password=password)
+        if user is not None and user.is_superuser:
+            login(request, user)
+            return redirect('mainpage')
         else:
             messages.info(request, 'invalid credentials')
-            return redirect('login/')
-    else:
-        return render(request, 'activities/login.html')
+    context={}
+    return render(request, 'activities/login.html')
 
 def mainpage(request):
     return render(request, 'activities/mainpage.html')
