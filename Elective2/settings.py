@@ -24,6 +24,7 @@ SECRET_KEY = 'django-insecure-v_i%_n*c1^xodeta388bcl6^!^brce8k6vi+2a0w6un)n-w5^6
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 ALLOWED_HOSTS = []
 
@@ -39,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_filters',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -136,3 +138,13 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+from django.contrib.messages import constants as messages
+
+MESSAGE_TAGS = {
+    messages.DEBUG: 'alert-info',
+    messages.INFO: 'alert-info',
+    messages.SUCCESS: 'alert-success',
+    messages.WARNING: 'alert-warning',
+    messages.ERROR: 'alert-danger',
+}

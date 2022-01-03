@@ -1,7 +1,6 @@
 {% extends 'activities/login.html'%}
-{%load static%}
-
 {% block content%}
+
 <style>
   .navbar{
 	background-color: maroon;
@@ -74,49 +73,59 @@
     </nav>
   </header><br>
 
-   <div class="container">
-      <div class="row "  >
-        <div class="col-md-4" >
-          <form action="{% url 'Supplydept_mainpage' %}">
-            <button id="btn" data-mdb-toogle="tooltip" title="Back to home "  style="font-family: cursive;" >Back</button><br><br>
-          </form>
-        </div> 
-
-        <div class="col-md-8">
-      </div>
-    </div>
-    <br>
-    <div class="container ">
-    	<div class="row animated fadeIn" >
-        <div class="col-md-4" >
-        </div>
-      <div class="box col-md-5" id="padd" >
-        <label  id="label" for = "Username"> ADD ACCOUNT </label><br>
-        <label  id="label1" for = "Username">Username</label><br>
-        <input class="input" id="Username" ><br><br>
-        <label  id="label2" for = "Password">Password</label><br>
-        <input type="Password" class="input" id="Password" ><br><br>
-        <label  id="label2" for = "Password">Re-Enter Password</label><br>
-        <input type="Password" class="input" id="Password" ><br><br>
-        <form action="mainpage/">
-          <button id="btn" >Add Account</button>
+  <div class="container">
+    <div class="row "  >
+      <div class="col-md-4" >
+        <form action="{% url 'Supplydept_mainpage' %}">
+          <button id="btn" data-mdb-toogle="tooltip" title="Back to home "  style="font-family: cursive;" >Back</button><br><br>
         </form>
-      </div>
+      </div> 
+
+      <div class="col-md-8">
     </div>
+  </div>
+  <br>
+  <div class="container ">
+    <div class="row animated fadeIn" >
+      <div class="col-md-4" >
+      </div>
+  <div class="box col-md-5" id="padd" >
+      <label  id="label" for = "Username"> ADD ACCOUNT </label><br><br>
+  <div class = "content-section">
+    <form method = "POST">
+      {% csrf_token %}
+      
+      <div class= "field">
+        <label id="label1">Username: </label>
+        {{form.username}}
+        <span class = "fas fa-user"></span>
+      </div><br>
 
-    <br><br><br><br>
-  <main> 
+      <div class= "field">
+        <label id="label2">Password: </label>
+        {{form.password1}}
+        <span class = "fas fa-lock"></span>
+      </div><br>
+  
+      <div class= "field">
+        <label id="label2">Retype Password: </label>
+        {{form.password2}}
+        <span class = "fas fa-redo"></span>
+      </div><br>
+      
+      {% if messages %}
+      {% for message in messages %}
+      <div class= "alert alert-success" role="alert">
+        {{ message }}
+      </div>
+      {% endfor %}
+      {% endif %}
+      
+      <div class= "form-group">
+        <button id="btn" type="submit" data-mdb-toogle="tooltip">Add Account</button>
+      </div>
+    </form>
+  </div>
+  </div>
 
-
-  </main>
-
-  <!-- End your project here-->
-
-  <!-- jQuery -->
-
-  <!-- Your custom scripts (optional) -->
-  <script type="text/javascript"></script>
-
-</body>
-</html>
 {% endblock%}

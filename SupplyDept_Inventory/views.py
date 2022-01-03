@@ -8,13 +8,20 @@ from .models import *
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.forms import UserCreationForm
 
-
-
-
-
-
-#from SupplyDept_Inventory.models import deliveryrecords, mainstorage, withdrawrecords
+def addaccnt(request):
+    form = UserCreationForm()
+    if request.method == "POST":
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Your account is succesfully added')
+            return redirect('Supplydept_login')
+    context = {
+        'form':form
+    }
+    return render(request, 'activities/addaccnt.html', {'form': form})
 
 def adminlogin(request):
     if request.method == 'POST':
@@ -23,9 +30,15 @@ def adminlogin(request):
         user = authenticate(request, username=username, password=password)
         if user is not None and user.is_superuser:
             login(request, user)
+            #messages.success(request, 'Welcome!')
             return redirect('Supplydept_mainpage')
+
+        elif user is not None and user.is_active:
+            login(request, user)
+            return redirect('Supplydept_mainpage')
+
         else:
-            messages.info(request, 'invalid credentials')
+            messages.error(request, 'Invalid Credentials')
     context={}
     return render(request, 'activities/login.html')
 
@@ -226,10 +239,6 @@ def statuslimit(request):
 def statusupdate(request):
 
     return render(request, 'activities/statusupdate.html')
-
-def addaccnt(request):
-
-    return render(request, 'activities/addaccnt.html')
 
 def accntsettings(request):
 

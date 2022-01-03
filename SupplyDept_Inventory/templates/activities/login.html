@@ -51,6 +51,13 @@
             <input class="input" id="Username" name ='username' ><br><br>
             <label  id="label2" for = "Password">Password</label><br>
             <input type="Password" class="input" id="Password" name ='pass' ><br><br>
+            {% if messages %}
+            {% for message in messages %}
+            <div class= "alert alert-danger" role="alert">
+              {{ message }}
+            </div>
+            {% endfor %}
+            {% endif %}
             <form action="">
               <button id="loginbtn" >Log In</button>
           </div>
@@ -72,6 +79,13 @@
   <!-- jQuery -->
   <!-- Your custom scripts (optional) -->
   <script type="text/javascript"></script>
+  <script>
+    setTimeout(function(){
+      if ($('msg').length > 0){
+        $('msg').remove();
+      }
+    }, 2000)
+  </script>
   {% endblock%}
   
 
