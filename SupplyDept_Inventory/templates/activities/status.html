@@ -47,6 +47,21 @@
     font-family:Georgia, 'Times New Roman', Times, serif;
     font-size: 20px;
   }
+  #search{
+	  background-color: maroon;
+	  color: white;
+	  border-radius: 8px;
+	  border: 1px solid maroon;
+  }
+  #search:hover{
+	  background-color: white;
+	  color: maroon;
+	  border-radius: 8px;
+	  border: 1px solid maroon;
+  }
+  #items{
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  }
   th{
     font-family:Verdana, Geneva, Tahoma, sans-serif;
     font-size: 30px;
@@ -83,15 +98,22 @@
       <br><br>
       <div class="row">
         <div class="col-md-12" >
-          <form method="get">
-          
-         
-            <input type="submit" value="Search" name="">
-            
-          </form>   
-        <br>
-          <form style="text-align: center;" method="post">
-          <div class="col-md-12">
+          <form method="POST" style="text-align: center;">
+          {% csrf_token %}
+              <select  id="items" name="search_item_name" >
+                <option>Long Brown Expanded Folder</option>
+                <option>Scotch Tape</option>
+                <option>Short Bondpaper</option>
+                <option>Long bondpaper</option>
+                <option>White Board Marker(blue)</option>
+                <option>White Board Marker(black)</option>
+                <option>Glue</option>
+                <option>Brow Envelope</option>
+                <option>Staple Wire(big)</option>
+                <option>Pencil Sharpener</option>
+                </select><br><br>
+            <input id ="search" type="submit" value="Search" name="">
+        <br><br>
             <table id="t01" class="table1" cellspacing="0" cellpadding="1" border="1" width="300" >
             <!--<table id="t01" class="table1" >-->
                   <tr>
@@ -105,9 +127,7 @@
                     <td>{{x.Quantity}}</td>
                     <td>{{x.Unit}}</td> 
                   </tr> 
-                  {% endfor %}
-           
-                  
+              {% endfor %}      
             </table>
           </form>  
         </div>

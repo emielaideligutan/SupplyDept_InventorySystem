@@ -2,11 +2,10 @@
 {%load static%}
 
 {% block content%}
-  <link rel="stylesheet" href="{% static 'css/withdraw.css'%}">
+  <link rel="stylesheet" href="{% static 'css/tempwithdraw.css'%}">
 </head>
-  <!-- Start your project here--> 
-  <style>
- .navbar{
+<style>
+.navbar{
 	background-color: maroon;
 }
 .navbar-brand{
@@ -27,107 +26,221 @@
     color:white;
   }
 #btn{
-    font-family:Georgia, 'Times New Roman', Times, serif;
-    border-radius: 8px;
-    border: 2px solid maroon;
-    background-color: white; 
-    color: maroon;
+  font-family:Georgia, 'Times New Roman', Times, serif;
+	border-radius: 8px;
+	border: 2px solid maroon;
+	background-color: white; 
+	color: maroon;
   }
 #btn:hover{
-    border-radius: 8px;
-    border: 2px solid maroon;
-    background-color: white; 
-    color: red;
+	border-radius: 8px;
+	border: 2px solid maroon;
+	background-color: white; 
+	color: red;
   }	
 #btn1{
-    font-family:Georgia, 'Times New Roman', Times, serif;
-    border-radius: 8px;
-    border: 2px solid maroon;
-    background-color: maroon; 
-    color: white;
-  }
-#btn1:hover{
-    border-radius: 8px;
-    border: 2px solid maroon;
-    background-color: white; 
-    color: maroon;
-  }
-th{
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 30px;
-  }
-td{
-    font-family:cursive;
-  }
-h2{
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 40px;
+  font-family:Georgia, 'Times New Roman', Times, serif;
+  width: 31%;
 }
-  #dept{
-    font-family:Georgia, 'Times New Roman', Times, serif;
-    font-size: 20px;
+th{
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 30px;
+}
+td{
+  font-family:cursive;
+}
+#lbl{
+  text-align: center;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 20p;
+}
+#item{
+  font-family:'Times New Roman', Times, serif;
+}
+#draw{
+  padding-left: 35%;
+}
+#dept{
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 20px;
+}
+#depart{
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   }
+#add{
+	background-color: maroon;
+	color: white;
+	border-radius: 8px;
+	border: 1px solid maroon;
+}
+#add:hover{
+	background-color: white;
+	color: maroon;
+	border-radius: 8px;
+	border: 1px solid maroon;
+}
+#add1{
+	background-color: maroon;
+	color: white;
+	border-radius: 8px;
+	border: 1px solid maroon;
+  width: 200px;
+}
+#add1:hover{
+	background-color: white;
+	color: maroon;
+	border-radius: 8px;
+	border: 1px solid maroon;
+}
+
 </style>
 <body>
+  <!-- Start your project here--> 
   <header>
     <nav class="navbar">
           <h2  class="title" >SUPPLY INVENTORY SYSTEM </h2>
           <label  id="withbtn"  >WITHDRAW</label>
     </nav>  
   </header><br>
-<main>
-  <div class="container">
-    <div class="">
-      <form action="{% url 'Supplydept_mainpage' %}">
-        <button id="btn" data-mdb-toogle="tooltip" title="Back to home " >BACK</button>
-      </form>
-    <br><br>
-      
-      <form style="text-align: center;" action = "{% url 'Supplydept_tempwithdraw' %}" method="POST">
-      {% csrf_token %}
-      <label >Withdraw an item</label><br>
-          
-
-    <!--<button id="btn" name="refresh" data-mdb-toogle="tooltip" title="Choose and Refresh the item of Department" >Refresh</button>-->
-      <button id="btn1" name="to_withdraw" data-mdb-toogle="tooltip" title="Withdraw an item" >Select</button>
+  <main>
+    {% for msg in messages %}
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+      <strong></strong> {{msg}}
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    {% endfor %}
+    <form action="{% url 'Supplydept_mainpage' %}" >
+      <button id="btn" data-mdb-toogle="tooltip" title="Back to choice of Department " >BACK</button>
+    </form>
+    <hr class="line1">
+    <form style="text-align: center;">
+      <h3></h3>
       <br>
       <br><br>
-      <h2>MAIN STORAGE</h2>
-      <hr class="line1">
-      <div class="">
-      <div class="row">
-        <div class="col-md-12 " style="width:600px; height:350px; overflow:auto;">
-        <table id="t01" class="table1" cellspacing="0" cellpadding="1" border="1" width="300" >
-        <!--<div  class="col-md-12 " >
+    </form>
+      <div class="container" class="col-md-12" style="text-align: center;">
+        <form method="GET" >
+        {% csrf_token %}
+            <label id="dept" for="depart">Choose your deparment:</label><br>
+            <select  id="depart" name="search_department" >
+              <option>OCS_CASHIER_SERVICES</option>
+              <option>OES_EXTENSION_SERVICES</option>
+              <option>OGS_GUIDANCE_SERVICES</option>
+              <option>OHR_HUMAN_RESOURCES</option>
+              <option>OHS_HEALTH_SERVICES</option>
+              <option>OIT_INFORMATION_TECHNOLOGY</option>
+              <option>OSP_JOB_PLACEMENT</option>
+              <option>OPR_PROCUREMENT</option>
+              <option>ORE_RESEARCH_AND_EXTENSION</option>
+              <option>ORS_RESEARCH_SERVICES</option>
+              <option>OSA_STUDENT_AFFAIRS</option>
+              <option>OSH_SECURITY_HOUSE</option>
+              <option>DCG_DOCUMENT_CONTROL_GUIDE</option>
+              <option>DID_INDUSTRIAL_EDUCATION</option>
+              <option>DES_ENGINEERING_TECHNOLOGY</option>
+              <option>DLA_LIBERAL_ARTS</option>
+              <option>DMS_MATH_AND_SCIENCE</option>
+              <option>DPECS_PHYSICAL_EDUCATION_CULTURAL_SPORTS</option>
+              <option>BETEEAP_EXPANDED_TERTIARY_EDUCATION_EQUIVALENCY_AND_ACCREDITATION</option>
+              <option>GAD_GENDER_AND_DEVELOPMENT</option>
+              <option>IDO_INFRASTRUCTURE_DEVELOPMENT_OFFICE</option>
+              <option>NSTP_NATIONAL_SERVICE_TRAINING_PROGRAM</option>
+              <option>OAA_ACADEMIC_AFFAIRS</option>
+              <option>OAC_ACCOUNTING_CAMPUS</option>
+              <option>OAD_ADMISSION</option>
+              <option>OAF_ADMIN_AND_FINANCE</option>
+              <option>OAL_ALUMNI</option>
+              <option>OAS_ADMIN_SERVICES</option>
+              <option>OAX_AUXILIARY</option>
+              <option>OBA_BIDS_AND_AWARDS</option>
+              <option>OBD_BUDGET_DEVELOPMENT</option>
+              <option>OCD_CAMPUS_DIRECTOR</option>
+              <option>OCL_CAMPUS_LIBRARY</option>
+              <option>OCP_CAMPUS_PLANNING</option>
+              <option>OCR_CAMPUS_REGISTRAR</option>
+            </select><br><br>
+            <input id="add"type="submit" value="Search" name="" ><br>
+          </form>
+      <br><br>
+      <div class="col-md-12 " >
+        <table id="t02" class="table1" cellspacing="0" cellpadding="1" border="1"  >
+             <tr>
+               <th>ID</th>
+               <th>DEPARTMENT</th>
+               <th>ITEMS</th>
+               <th>UNIT</th>
+               <th>QUANTITY</th>   
+             </tr>  
+             {% for a in limit %}
+             <tr>
+               <td>{{a.limit_id}}</td>
+               <td>{{a.limit_department}}</td>
+               <td>{{a.limit_item_name}}</td>
+               <td>{{a.limit_unit}}</td>
+               <td>{{a.limit_quantity}}</td>
+             </tr>
+             {% endfor %}
+         </table>  
+       </div> 
           
-          <table id="t01" class="table1">-->
+      </div><br><br><br>
+      <!--nilipat ko yung form from sa taas, papunta diteyyy-->
+      <div class="container">
+        <div class="row">
+          <div class="container" id="draw" >
+            <form action = "{% url 'Supplydept_withdraw' %}" method = "GET">
+              {% csrf_token %}
+              <label id="lbl" for="item"> ID </label><br>
+              <input required autocomplete="off" name="withdraw_id" id="item" style="text-align: center; " placeholder="input id"><br><br>
+              <label id="lbl" for="item" >WITHDRAW QUANTITY</label><br>
+              <input required autocomplete="off"  name="withdraw_quantity" id="item" style="text-align: center; " placeholder="input withdraw quantity"><br><br>
+              <button type="submit" id="add1" style="text-align: center; " href="{% url 'Supplydept_withdraw'%}"> WITHDRAW </button> <br><br><br>
+            </form>
+          </div>
+          <br>
+          <div class="col-md-12 " style="width:600px; height:350px; overflow:auto;">
+            <table id="t02" class="table1" cellspacing="0" cellpadding="1" border="1" width="300" >
               <tr>
-                <th>AVAILABLE ITEMS</th>
-                <th>REMAINING</th>
+                <th>DEPARTMENT</th>
+                <th>ITEMS</th>
                 <th>UNIT</th>
-              </tr>
+                <th>QUANTITY</th>
+                <th>DATE</th>
+
+              </tr>  
               {% for x in information %}
               <tr>
-                <td>{{x.ItemName}}</td>
-                <td>{{x.Quantity}}</td>
-                <td>{{x.Unit}}</td> 
-              </tr> 
+                <td>{{x.withdraw_department}}</td>
+                <td>{{x.withdraw_item_name}}</td>
+                <td>{{x.withdraw_unit}}</td>
+                <td>{{x.withdraw_quantity}}</td>
+                <td>{{x.current_date}}</td>
+              </tr>
               {% endfor %}
-          </table><br><br>
-        </div> 
-      </div><br><br><br><br>
-    </div>
-  </div>
-</form>
-</main>
-<
+            </table>  
+          </div> 
+        </div>
+      </div>
+    
+
+
+      <br><br>
+
+      <div class="">
+      <div class="row">
+
+      </div>     
+    </div> 
+  </main>
+</div>
   <!-- End your project here-->
 
   <!-- jQuery -->
 
   <!-- Your custom scripts (optional) -->
   <script type="text/javascript"></script>
-  <script type="text/javascript" src="withdrawjs.js"></script>
 
 </body>
 </html>

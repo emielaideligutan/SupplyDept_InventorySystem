@@ -43,11 +43,6 @@
     <nav class="navbar">
           <h2  class="title" style="color: #dddddd;" >SUPPLY INVENTORY SYSTEM </h2>
           <ul>
-            <li> 
-              <form action="">
-                <a href="{% url 'Supplydept_accntsettings' %}"  id="popup"  class="button" data-mdb-toogle="tooltip" title="Change your Username And Password " style="color: #dddddd;" >Account Setting</a>
-              </form>
-            </li>
             <li>
               <form action=''>
                 <a href="{% url 'Supplydept_addaccnt' %}" id="loginbtn" data-mdb-toogle="tooltip" title="For adding of Account " style="color: #dddddd;">Add Account</a> 
@@ -88,7 +83,7 @@
           <img src="{%static 'media/tupc.jpeg'%}" alt="" id="image" class="img-fluid rounded " width="100%" height="100%"  >   
         </div>
         <div class="col-md-2">
-          <form action="{% url 'Supplydept_login' %}">
+          <form action="{% url 'Supplydept_logout' %}">
             <button id="Logout" data-mdb-toogle="tooltip" title="sign out your Account">Log Out</button>
           </form>
         </div>

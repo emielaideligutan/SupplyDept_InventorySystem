@@ -37,33 +37,33 @@
   	<!-- main container-->
     <form action="login" method="POST">
     {% csrf_token %}
-    <div class="container ">
-    	<div class="row animated fadeIn" >
-        <div class="col-md-1" >
-        </div>
-        <div class="col-md-6" >
-          <img src="{% static 'media/photo.jpg'%}" alt="" class="img" >
-        </div>
-      
-          <div class="box col-md-4" id="padd" >
-            <label  id="label" for = "User"> SIGN IN </label><br>
-            <label  id="label1" for = "Username">Username</label><br>
-            <input class="input" id="Username" name ='username' ><br><br>
-            <label  id="label2" for = "Password">Password</label><br>
-            <input type="Password" class="input" id="Password" name ='pass' ><br><br>
-            {% if messages %}
-            {% for message in messages %}
-            <div class= "alert alert-danger" role="alert">
-              {{ message }}
-            </div>
-            {% endfor %}
-            {% endif %}
-            <form action="">
-              <button id="loginbtn" >Log In</button>
+      <div class="container ">
+        <div class="row animated fadeIn" >
+          <div class="col-md-1" >
           </div>
-        </form>
+          <div class="col-md-6" >
+            <img src="{% static 'media/photo.jpg'%}" alt="" class="img" >
+          </div>
+        
+            <div class="box col-md-4" id="padd" >
+              <label  id="label" for = "User"> SIGN IN </label><br>
+              <label  id="label1" for = "Username">Username</label><br>
+              <input class="input" id="Username" name ='username' ><br><br>
+              <label  id="label2" for = "Password">Password</label><br>
+              <input type="Password" class="input" id="Password" name ='pass' ><br><br>
+              {% if messages %}
+              {% for message in messages %}
+              <div class= "alert alert-danger" role="alert">
+                {{ message }}
+              </div>
+              {% endfor %}
+              {% endif %}
+              <form action="">
+                <button id="loginbtn" >Log In</button>
+            </div>
+          </form>
+        </div>
       </div>
-    </div>
     </form>
     <!-- main container-->
   </main>
