@@ -1,0 +1,137 @@
+{% extends 'activities/login.html'%}
+{%load static%}
+
+{% block content%}
+  <link rel="stylesheet" href="{% static 'css/delivery.css'%}">
+</head>
+<style>
+  .navbar{
+	  background-color: maroon;
+  }
+  .navbar-brand{
+	  align-items: left;
+  }
+  .title{
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 20px;
+    font-family: cursive;
+    font-size: 40px;
+    color: whitesmoke;
+  }
+  #deliverybtn{
+    padding-right:10%;
+    font-size: 30px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color:white;
+  }
+  .label2{
+	  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+  #btn{
+    font-family:Georgia, 'Times New Roman', Times, serif;
+  }
+  #add{
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    width: 58%;
+  }
+  th{
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 30px;
+  }
+  td{
+    font-family:cursive;
+  }
+</style>
+<body>
+
+  <!-- Start your project here--> 
+  <header>
+    <nav class="navbar">
+          <h2  class="title" >SUPPLY INVENTORY SYSTEM </h2>
+          <label  id="deliverybtn"  >DELIVERY</label>
+    </nav>
+ 
+  </header><br>
+  <main>
+    <div class="container">
+        <form action="{% url 'Supplydept_mainpage'%}">
+          <button id="btn" href="" >Back</button>
+        </form><br><br><br>
+        {% for msg in messages %}
+          <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong></strong> {{msg}}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        {% endfor %}
+        <div class="row"  id="box"  >
+          <div  class="col-md-4 " >
+            <form action = "" method = "POST">
+            {% csrf_token %}
+              <label class="label2" id="ITEM" for = "item">ITEM:</label><br>
+              <input required autocomplete="off" list="items" name="delivery_item_name" id="item" placeholder="Input an item...." style="text-align: center;"><br>
+              <datalist id="items" >
+                <option value="Long Brown Expanded Folder">
+                <option value="Scotch Tape">
+                <option value="Short Bondpaper">
+                <option value="Long bondpaper">
+                <option value="White Board Marker(blue)">
+                <option value="White Board Marker(black)">
+                <option value="Glue">
+                <option value="Brow Envelope">
+                <option value="Staple Wire(big)">
+                <option value="Pencil Sharpener">
+              </datalist><br>
+           
+              <label  class="label2" id="UNIT" for = "unit">UNIT:</label><br>
+              <input type="text" required autocomplete="off" name = "delivery_unit"><br><br>
+              <label  class="label2" id="QUAN" for = "quantity">QUANTITY:</label><br>
+              <input type="text" required autocomplete="off" name = "delivery_quantity"><br><br>
+              <label  class="label2" id="DES" for = "description">DESCRIPTION:</label><br>
+              <input type="text" required autocomplete="off" name = "delivery_description"><br><br>
+              <button type="submit" id="add" href="{% url 'Supplydept_delivery'%}">ADD</button>
+            </form>
+          </div> 
+        <div class="col-md-8 ">
+          <table id="t01" class="table1">
+              <tr>
+                <th>Items</th>
+                <th>Description</th>
+                <th>Unit</th>
+                <th>Quantity</th>
+                <th>Remaining</th>
+                <th>Date</th>
+              </tr>
+              {% for x in information %}
+              <tr>
+                <td>{{x.delivery_item_name}}</td>
+                <td>{{x.delivery_description}}</td>
+                <td>{{x.delivery_unit}}</td>
+                <td>{{x.delivery_quantity}}</td>
+                <td>{{x.delivery_remaining}}</td>
+                <td>{{x.current_date}}</td>
+              </tr> 
+              {% endfor %}
+          </table>  
+              </div> 
+            </div>
+          </div>
+        </div> 
+      </div>
+    </div>
+    <br><br><br><br>
+  </main>
+
+  <!-- End your project here-->
+ 
+  <!-- jQuery -->
+
+  <!-- Your custom scripts (optional) -->
+  <script type="text/javascript"></script>
+  <script type="text/javascript" src="deliveryjs.js"></script>
+
+</body>
+</html>
+{% endblock%}
