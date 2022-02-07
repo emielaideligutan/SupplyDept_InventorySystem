@@ -17,7 +17,6 @@ def __str__(self):
 class withdrawrecords(models.Model):
 
     withdraw_item_name = models.CharField(max_length=50, verbose_name='withdraw__item_name')
-    withdraw_unit = models.CharField(max_length=50, verbose_name='withdraw_unit')
     withdraw_quantity = models.CharField(max_length=50, verbose_name='withdraw_quantity')
     current_date = models.DateField(default=date.today, verbose_name='withdraw_current_date')
     withdraw_department = models.CharField(max_length=50, verbose_name='withdraw_department')
@@ -30,7 +29,6 @@ def __str__(self):
 class deliveryrecords(models.Model):
 
     delivery_item_name = models.CharField(max_length=50, verbose_name='delivery_item_name')
-    delivery_unit = models.CharField(max_length=50, verbose_name='delivery_unit')
     delivery_description = models.CharField(max_length=50, verbose_name='delivery_description')
     delivery_quantity = models.CharField(max_length=50, verbose_name='delivery_quantity')
     delivery_remaining = models.CharField(max_length=50, verbose_name='delivery_remaining')
@@ -48,7 +46,6 @@ class limitrecords(models.Model):
     limit_id = models.AutoField(primary_key=True)
     limit_item_name = models.CharField(max_length=50, verbose_name='limit_item_name')
     limit_quantity = models.CharField(max_length=50, verbose_name='limit_quantity')
-    limit_unit = models.CharField(max_length=50, verbose_name='limit_unit')
     limit_department = models.CharField(max_length=50, verbose_name='limit_department')
     limit_code = models.CharField(max_length=50, verbose_name='limit_code')
     
@@ -62,7 +59,6 @@ def __str__(self):
 
 class mainstorage(models.Model):
     ItemName = models.CharField(max_length=50, verbose_name='ItemName')
-    Unit = models.CharField(max_length=50, verbose_name='Unit')
     Quantity = models.CharField(max_length=50, verbose_name='Quantity')
     Remaining = models.CharField(max_length=50, verbose_name='Remaining')
 

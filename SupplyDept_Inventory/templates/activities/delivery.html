@@ -73,27 +73,22 @@
               <label class="label2" id="ITEM" for = "item">ITEM:</label><br>
               <input required autocomplete="off" list="items" name="delivery_item_name" id="item" placeholder="Input an item...." style="text-align: center;"><br>
               <datalist id="items" >
-                <option value="Long Brown Expanded Folder">
-                <option value="Scotch Tape">
-                <option value="Short Bondpaper">
-                <option value="Long bondpaper">
-                <option value="White Board Marker(blue)">
-                <option value="White Board Marker(black)">
-                <option value="Glue">
-                <option value="Brow Envelope">
-                <option value="Staple Wire(big)">
-                <option value="Pencil Sharpener">
+                <option>Expanded Folder (Pcs)</option>
+                <option>Long Brown Envelope (Pcs)</option>
+                <option>Short Brown Envelope (Pcs)</option>
+                <option>Scotch Tape (Pcs)</option>
+                <option>Pencil Sharpener (Pcs)</option>
+                <option>Short Bondpaper (Ream) </option>
+                <option>Long bondpaper (Ream) </option>
+                <option>Staple Wire (Box)</option>
+                <option>Short Bondpaper (Box) </option>
+                <option>Long bondpaper (Box) </option>
+                <option>Blue White Board Marker (Box)</option>
+                <option>Black White Board Marker (Box)</option>
+                <option>Red White Board Marker (Box)</option>
+                <option>Glue (Box)</option>
               </datalist><br>
 
-              <label  class="label2" id="UNIT" for = "unit">UNIT:</label><br>
-              <input type="text" required autocomplete="off" list="unit" name = "delivery_unit"><br><br>
-              <datalist id="unit" >
-                <option value="Pcs">
-                <option value="Ream">
-                <option value="bottle">
-                <option value="Bundle">
-                <option value="Box">
-              </datalist>
               <label  class="label2" id="QUAN" for = "quantity">QUANTITY:</label><br>
               <input type="number" required autocomplete="off" name = "delivery_quantity"><br><br>
               <label  class="label2" id="DES" for = "description">DESCRIPTION:</label><br>
@@ -106,7 +101,6 @@
               <tr>
                 <th>Items</th>
                 <th>Description</th>
-                <th>Unit</th>
                 <th>Quantity</th>
                 <th>Remaining</th>
                 <th>Date</th>
@@ -115,7 +109,6 @@
               <tr>
                 <td>{{x.delivery_item_name}}</td>
                 <td>{{x.delivery_description}}</td>
-                <td>{{x.delivery_unit}}</td>
                 <td>{{x.delivery_quantity}}</td>
                 <td>{{x.delivery_remaining}}</td>
                 <td>{{x.current_date}}</td>

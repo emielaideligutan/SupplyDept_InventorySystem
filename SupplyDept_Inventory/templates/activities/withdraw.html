@@ -170,7 +170,6 @@ td{
                <th>ID</th>
                <th>DEPARTMENT</th>
                <th>ITEMS</th>
-               <th>UNIT</th>
                <th>QUANTITY</th>
              </tr>
              {% for a in limit %}
@@ -178,7 +177,6 @@ td{
                <td>{{a.limit_id}}</td>
                <td>{{a.limit_department}}</td>
                <td>{{a.limit_item_name}}</td>
-               <td>{{a.limit_unit}}</td>
                <td>{{a.limit_quantity}}</td>
              </tr>
              {% endfor %}
@@ -205,7 +203,6 @@ td{
               <tr>
                 <th>DEPARTMENT</th>
                 <th>ITEMS</th>
-                <th>UNIT</th>
                 <th>QUANTITY</th>
                 <th>DATE</th>
 
@@ -214,7 +211,6 @@ td{
               <tr>
                 <td>{{x.withdraw_department}}</td>
                 <td>{{x.withdraw_item_name}}</td>
-                <td>{{x.withdraw_unit}}</td>
                 <td>{{x.withdraw_quantity}}</td>
                 <td>{{x.current_date}}</td>
               </tr>

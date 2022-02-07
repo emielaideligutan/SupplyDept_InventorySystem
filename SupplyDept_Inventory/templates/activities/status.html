@@ -101,16 +101,20 @@
           <form method="POST" style="text-align: center;">
           {% csrf_token %}
               <select  id="items" name="search_item_name" >
-                <option>Long Brown Expanded Folder</option>
-                <option>Scotch Tape</option>
-                <option>Short Bondpaper</option>
-                <option>Long bondpaper</option>
-                <option>White Board Marker(blue)</option>
-                <option>White Board Marker(black)</option>
-                <option>Glue</option>
-                <option>Brow Envelope</option>
-                <option>Staple Wire(big)</option>
-                <option>Pencil Sharpener</option>
+                <option>Expanded Folder (Pcs)</option>
+                <option>Long Brown Envelope (Pcs)</option>
+                <option>Short Brown Envelope (Pcs)</option>
+                <option>Scotch Tape (Pcs)</option>
+                <option>Pencil Sharpener (Pcs)</option>
+                <option>Short Bondpaper (Ream) </option>
+                <option>Long bondpaper (Ream) </option>
+                <option>Staple Wire (Box)</option>
+                <option>Short Bondpaper (Box) </option>
+                <option>Long bondpaper (Box) </option>
+                <option>Blue White Board Marker (Box)</option>
+                <option>Black White Board Marker (Box)</option>
+                <option>Red White Board Marker (Box)</option>
+                <option>Glue (Box)</option>
                 </select><br><br>
             <input id ="search" type="submit" value="Search" name="">
         <br><br>
@@ -119,13 +123,11 @@
                   <tr>
                     <th>Items</th>
                     <th>Remaining Quantity</th>
-                    <th>Unit</th>
                   </tr>
                   {% for x in information %}
                   <tr>
                     <td>{{x.ItemName}}</td>
                     <td>{{x.Quantity}}</td>
-                    <td>{{x.Unit}}</td> 
                   </tr> 
               {% endfor %}      
             </table>

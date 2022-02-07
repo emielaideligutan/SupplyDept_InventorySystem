@@ -104,13 +104,11 @@ h9{
               <tr>
               <th>Available Item in main storage</th>
               <th data-mdb-toogle="tooltip" title="Quantity " >Qty</th>
-              <th>UNIT</th>
               </tr>
                 {% for x in information %}
                 <tr>
                   <td>{{x.ItemName}}</td>
                   <td>{{x.Quantity}}</td>
-                  <td>{{x.Unit}}</td>
                 </tr>
                 {% endfor %}
               </table>
@@ -137,26 +135,22 @@ h9{
               <label class="label2" id="ITEM" for = "item">ITEM:</label><br>
               <input required autocomplete="off" list="items" name="limit_item_name" id="item" placeholder="Input an item...." style="text-align: center;"><br>
               <datalist id="items" >
-                <option value="Long Brown Expanded Folder">
-                <option value="Scotch Tape">
-                <option value="Short Bondpaper">
-                <option value="Long bondpaper">
-                <option value="White Board Marker(blue)">
-                <option value="White Board Marker(black)">
-                <option value="Glue">
-                <option value="Brow Envelope">
-                <option value="Staple Wire(big)">
-                <option value="Pencil Sharpener">
+                <option>Expanded Folder (Pcs)</option>
+                <option>Long Brown Envelope (Pcs)</option>
+                <option>Short Brown Envelope (Pcs)</option>
+                <option>Scotch Tape (Pcs)</option>
+                <option>Pencil Sharpener (Pcs)</option>
+                <option>Short Bondpaper (Ream) </option>
+                <option>Long bondpaper (Ream) </option>
+                <option>Staple Wire (Box)</option>
+                <option>Short Bondpaper (Box) </option>
+                <option>Long bondpaper (Box) </option>
+                <option>Blue White Board Marker (Box)</option>
+                <option>Black White Board Marker (Box)</option>
+                <option>Red White Board Marker (Box)</option>
+                <option>Glue (Box)</option>
               </datalist><br>
-              <label  class="label2" id="UNIT" for = "unit">UNIT:</label><br>
-              <input required autocomplete="off" list="unit" name = "limit_unit" id="item" placeholder="" style="text-align: center;"><br><br>
-                <datalist id="unit" >
-                  <option value="Pcs">
-                  <option value="Ream">
-                  <option value="bottle">
-                  <option value="Bundle">
-                  <option value="Box">
-                </datalist>
+            
               <label  class="label2" id="QUAN" for = "quantity">QUANTITY:</label><br>
               <input type="number" required autocomplete="off" name = "limit_quantity"><br><br>
               <label  class="label2" id="DEP" for = "limit_department">DEPARTMENT:</label><br>
@@ -253,7 +247,6 @@ h9{
                   <th>ID</th>
                   <th>Available Item in this Department</th>
                   <th data-mdb-toogle="tooltip" title="Quantity " >Qty</th>
-                  <th>UNIT</th>
                   <th>DEPARTMENT</th>
                 </tr>
                 {% for a in sample %}
@@ -261,7 +254,6 @@ h9{
                   <td>{{a.limit_id}}</td>
                   <td>{{a.limit_item_name}}</td>
                   <td>{{a.limit_quantity}}</td>
-                  <td>{{a.limit_unit}}</td>
                   <td>{{a.limit_department}}</td>
                 </tr>
                 {% endfor %}
