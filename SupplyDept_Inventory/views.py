@@ -30,6 +30,7 @@ def addaccnt(request):
 
     else:
         return HttpResponse('You are not authorized to access this page')
+    
     context = {
         'form':form
     }
@@ -83,26 +84,43 @@ def delivery(request):
     if request.method == "POST":
         if request.POST.get('delivery_item_name') and request.POST.get('delivery_unit') and request.POST.get('delivery_quantity'):
             if mainstorage.objects.filter(ItemName = request.POST.get('delivery_item_name')).exists() == True:
-                information1 = mainstorage.objects.get(ItemName = request.POST.get('delivery_item_name'))
-                updating = int(information1.Quantity) + int(request.POST.get('delivery_quantity'))
-                update_mainstorage = mainstorage()
-                update_delivery_record = deliveryrecords()
-                update_mainstorage.ItemName = request.POST.get('delivery_item_name')
-                update_mainstorage.Unit = request.POST.get('delivery_unit')
-                update_mainstorage.Quantity = updating
-                mainstorage.objects.filter(ItemName = request.POST.get('delivery_item_name')).delete()
-                update_mainstorage.save()
-                information2 = mainstorage.objects.get(ItemName = request.POST.get('delivery_item_name'))
-                update_delivery_record.delivery_item_name = request.POST.get('delivery_item_name')
-                update_delivery_record.delivery_description = request.POST.get('delivery_description')
-                update_delivery_record.delivery_unit = request.POST.get('delivery_unit')
-                update_delivery_record.delivery_quantity = request.POST.get('delivery_quantity')
-                update_delivery_record.delivery_remaining = information2.Quantity
-                update_delivery_record.save()
-                messages.success(request, 'Item Successfully Added')
-                return redirect (request.path) 
+                if mainstorage.objects.get(ItemName = request.POST.get('delivery_item_name')).Unit == request.POST.get('delivery_unit'):
+                    information1 = mainstorage.objects.get(ItemName = request.POST.get('delivery_item_name'))
+                    updating = int(information1.Quantity) + int(request.POST.get('delivery_quantity'))
+                    update_mainstorage = mainstorage()
+                    update_delivery_record = deliveryrecords()
+                    update_mainstorage.ItemName = request.POST.get('delivery_item_name')
+                    update_mainstorage.Unit = request.POST.get('delivery_unit')
+                    update_mainstorage.Quantity = updating
+                    mainstorage.objects.filter(ItemName = request.POST.get('delivery_item_name')).delete()
+                    update_mainstorage.save()
+                    information2 = mainstorage.objects.get(ItemName = request.POST.get('delivery_item_name'))
+                    update_delivery_record.delivery_item_name = request.POST.get('delivery_item_name')
+                    update_delivery_record.delivery_description = request.POST.get('delivery_description')
+                    update_delivery_record.delivery_unit = request.POST.get('delivery_unit')
+                    update_delivery_record.delivery_quantity = request.POST.get('delivery_quantity')
+                    update_delivery_record.delivery_remaining = information2.Quantity
+                    update_delivery_record.save()
+                    messages.success(request, 'Item Successfully Added')
+                    return redirect (request.path)
+                
+                elif mainstorage.objects.get(ItemName = request.POST.get('delivery_item_name')).Unit != request.POST.get('delivery_unit'):
+                    save_delivery_record = deliveryrecords()
+                    save_delivery_record.delivery_item_name = request.POST.get('delivery_item_name')
+                    save_delivery_record.delivery_unit = request.POST.get('delivery_unit')
+                    save_delivery_record.delivery_description = request.POST.get('delivery_description')
+                    save_delivery_record.delivery_quantity = request.POST.get('delivery_quantity')
+                    save_delivery_record.delivery_remaining = 0
+                    save_delivery_record.save()
+                    save_main_storage = mainstorage()
+                    save_main_storage.ItemName = request.POST.get('delivery_item_name')
+                    save_main_storage.Quantity = request.POST.get('delivery_quantity')
+                    save_main_storage.Unit = request.POST.get('delivery_unit')
+                    save_main_storage.save()
+                    messages.success(request, 'Item Successfully Added')
+                    return redirect (request.path)
 
-   
+
             elif mainstorage.objects.filter(ItemName = request.POST.get('delivery_item_name')).exists() == False:
                 save_delivery_record = deliveryrecords()
                 save_delivery_record.delivery_item_name = request.POST.get('delivery_item_name')
@@ -117,7 +135,7 @@ def delivery(request):
                 save_main_storage.Unit = request.POST.get('delivery_unit')
                 save_main_storage.save()
                 messages.success(request, 'Item Successfully Added')
-                return redirect (request.path) 
+                return redirect (request.path)
             else:
                 return render (request, 'activities/delivery.html')
         else:
@@ -156,7 +174,7 @@ def withdraw(request):
         else:
             limit = limitrecords.objects.all()
 
-            
+
         if request.method == "GET":
                 if  request.GET.get('withdraw_quantity'):
                     if limitrecords.objects.filter(limit_id = request.GET.get('withdraw_id')).exists() == True:
@@ -168,7 +186,7 @@ def withdraw(request):
                         updatelimit.limit_quantity = int(limitrecords.objects.get(limit_id = request.GET.get('withdraw_id')).limit_quantity) - int(request.GET.get('withdraw_quantity'))
                         updatelimit.limit_department = limitrecords.objects.get(limit_id = request.GET.get('withdraw_id')).limit_department
                         updatewithdraw = withdrawrecords()
-                        updatewithdraw.withdraw_item_name = limitrecords.objects.get(limit_id = request.GET.get('withdraw_id')).limit_item_name   
+                        updatewithdraw.withdraw_item_name = limitrecords.objects.get(limit_id = request.GET.get('withdraw_id')).limit_item_name
                         updatewithdraw.withdraw_unit = limitrecords.objects.get(limit_id = request.GET.get('withdraw_id')).limit_unit
                         updatewithdraw.withdraw_quantity = request.GET.get('withdraw_quantity')
                         updatewithdraw.withdraw_department = limitrecords.objects.get(limit_id = request.GET.get('withdraw_id')).limit_department
@@ -176,19 +194,19 @@ def withdraw(request):
                         update_mainstorage.ItemName = limitrecords.objects.get(limit_id = request.GET.get('withdraw_id')).limit_item_name
                         update_mainstorage.Unit = limitrecords.objects.get(limit_id = request.GET.get('withdraw_id')).limit_unit
                         update_mainstorage.Quantity =int(information1.Quantity) - int(request.GET.get('withdraw_quantity'))
-                        if updatelimit.limit_quantity > 0:
+                        if updatelimit.limit_quantity >= 0:
                             updatelimit.save()
                             updatewithdraw.save()
                             mainstorage.objects.filter(ItemName = limitrecords.objects.get(limit_id = request.GET.get('withdraw_id')).limit_item_name).delete()
                             update_mainstorage.save()
-                        else: 
+                        else:
                             messages.error(request, 'not enough item')
                             return redirect (request.path)
                     else:
                         messages.error(request, 'invalid id')
                         return redirect (request.path)
-            
-               
+
+
         context = {
             'information' : information,
             'limit' : limit
@@ -207,9 +225,9 @@ def status(request):
                 information = []
             else:
                 print('none')
-            
+
             return render(request, 'activities/status.html')
-        
+
         if request.method == "POST":
             sitem = request.POST.get('search_item_name')
             information = mainstorage.objects.raw('select * from mainstorage where ItemName="'+sitem+'"')
@@ -217,8 +235,8 @@ def status(request):
                     'information' : information
                     }
         return render(request, 'activities/status.html',context)
-        
-            
+
+
     else:
         return HttpResponse('You are not authorized to access this page')
 
@@ -231,7 +249,7 @@ def statuslimit(request):
         if text == '':
             information = []
         else:
-            print('none')  
+            print('none')
 
     sample = limitrecords.objects.all()
     if 'limit_item_name' in request.POST:
@@ -239,14 +257,14 @@ def statuslimit(request):
         if text == '':
             sample = []
         else:
-            print('none')  
+            print('none')
 
     if 'search_department' in request.POST:
         search_department = request.POST['search_department']
         sample = limitrecords.objects.filter(limit_department=search_department)
     else:
         sample = limitrecords.objects.all()
-    
+
 
     if request.method == "POST":
             if  request.POST.get('limit_item_name') and request.POST.get('limit_unit') and request.POST.get('limit_quantity') and request.POST.get('limit_department') and request.POST.get('limit_id'):
@@ -262,7 +280,7 @@ def statuslimit(request):
 
 
                 elif limitrecords.objects.filter(limit_id = request.POST.get('limit_id')).exists() == True:
-                    if (request.POST.get('limit_item_name') == limitrecords.objects.get(limit_id = request.POST.get('limit_id')).limit_item_name) and (request.POST.get('limit_unit') == limitrecords.objects.get(limit_id = request.POST.get('limit_id')).limit_unit) and (request.POST.get('limit_department') == limitrecords.objects.get(limit_id = request.POST.get('limit_id')).limit_department):                       
+                    if (request.POST.get('limit_item_name') == limitrecords.objects.get(limit_id = request.POST.get('limit_id')).limit_item_name) and (request.POST.get('limit_unit') == limitrecords.objects.get(limit_id = request.POST.get('limit_id')).limit_unit) and (request.POST.get('limit_department') == limitrecords.objects.get(limit_id = request.POST.get('limit_id')).limit_department):
                         information1 = limitrecords.objects.get(limit_id = request.POST.get('limit_id'))
                         updatinglimit = int(information1.limit_quantity) + int(request.POST.get('limit_quantity'))
                         update_limit_record = limitrecords()
@@ -282,9 +300,9 @@ def statuslimit(request):
                 else:
                         messages.error(request, 'Something is wrong please try again')
                         return redirect (request.path)
-                        
-                    
-        
+
+
+
 
     context = {
         'information' : information,

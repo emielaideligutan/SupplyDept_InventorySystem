@@ -29,15 +29,15 @@
   font-family:Georgia, 'Times New Roman', Times, serif;
 	border-radius: 8px;
 	border: 2px solid maroon;
-	background-color: white; 
+	background-color: white;
 	color: maroon;
   }
 #btn:hover{
 	border-radius: 8px;
 	border: 2px solid maroon;
-	background-color: white; 
+	background-color: white;
 	color: red;
-  }	
+  }
 #btn1{
   font-family:Georgia, 'Times New Roman', Times, serif;
   width: 31%;
@@ -95,12 +95,12 @@ td{
 
 </style>
 <body>
-  <!-- Start your project here--> 
+  <!-- Start your project here-->
   <header>
     <nav class="navbar">
           <h2  class="title" >SUPPLY INVENTORY SYSTEM </h2>
           <label  id="withbtn"  >WITHDRAW</label>
-    </nav>  
+    </nav>
   </header><br>
   <main>
     {% for msg in messages %}
@@ -171,8 +171,8 @@ td{
                <th>DEPARTMENT</th>
                <th>ITEMS</th>
                <th>UNIT</th>
-               <th>QUANTITY</th>   
-             </tr>  
+               <th>QUANTITY</th>
+             </tr>
              {% for a in limit %}
              <tr>
                <td>{{a.limit_id}}</td>
@@ -182,9 +182,9 @@ td{
                <td>{{a.limit_quantity}}</td>
              </tr>
              {% endfor %}
-         </table>  
-       </div> 
-          
+         </table>
+       </div>
+
       </div><br><br><br>
       <!--nilipat ko yung form from sa taas, papunta diteyyy-->
       <div class="container">
@@ -193,9 +193,9 @@ td{
             <form action = "{% url 'Supplydept_withdraw' %}" method = "GET">
               {% csrf_token %}
               <label id="lbl" for="item"> ID </label><br>
-              <input required autocomplete="off" name="withdraw_id" id="item" style="text-align: center; " placeholder="input id"><br><br>
+              <input type="number" required autocomplete="off" name="withdraw_id" id="item" style="text-align: center; " placeholder="input id"><br><br>
               <label id="lbl" for="item" >WITHDRAW QUANTITY</label><br>
-              <input required autocomplete="off"  name="withdraw_quantity" id="item" style="text-align: center; " placeholder="input withdraw quantity"><br><br>
+              <input type="number" required autocomplete="off"  name="withdraw_quantity" id="item" style="text-align: center; " placeholder="input withdraw quantity"><br><br>
               <button type="submit" id="add1" style="text-align: center; " href="{% url 'Supplydept_withdraw'%}"> WITHDRAW </button> <br><br><br>
             </form>
           </div>
@@ -209,7 +209,7 @@ td{
                 <th>QUANTITY</th>
                 <th>DATE</th>
 
-              </tr>  
+              </tr>
               {% for x in information %}
               <tr>
                 <td>{{x.withdraw_department}}</td>
@@ -219,11 +219,11 @@ td{
                 <td>{{x.current_date}}</td>
               </tr>
               {% endfor %}
-            </table>  
-          </div> 
+            </table>
+          </div>
         </div>
       </div>
-    
+
 
 
       <br><br>
@@ -231,8 +231,8 @@ td{
       <div class="">
       <div class="row">
 
-      </div>     
-    </div> 
+      </div>
+    </div>
   </main>
 </div>
   <!-- End your project here-->

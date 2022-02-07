@@ -72,14 +72,14 @@ h9{
 </style>
 <body>
 
-  <!-- Start your project here--> 
+  <!-- Start your project here-->
   <header>
     <nav class="navbar">
         <h2  class="title" >SUPPLY INVENTORY SYSTEM </h2>
         <label  id="withbtn"  >STATUS LIMIT</label>
-    </nav>  
+    </nav>
   </header><br>
-  <main> 
+  <main>
     <form action="{% url 'Supplydept_status' %}">
       <button id="btn" data-mdb-toogle="tooltip" title="Back to home " >Back</button>
     </form>
@@ -97,7 +97,7 @@ h9{
         <h6 id="dept">PER DEPARTMENT</h6><br><br><br>
         <form style="text-align: center;" action="" method="post">
           <h3></h3>
-          <br><br> 
+          <br><br>
         <form method="post">
           <div class="col-md-12" style="width:900px; height:350px; overflow:auto;">
             <table id="t01" class="table1" cellspacing="0" cellpadding="1" border="1" width="300" >
@@ -110,7 +110,7 @@ h9{
                 <tr>
                   <td>{{x.ItemName}}</td>
                   <td>{{x.Quantity}}</td>
-                  <td>{{x.Unit}}</td>             
+                  <td>{{x.Unit}}</td>
                 </tr>
                 {% endfor %}
               </table>
@@ -118,7 +118,9 @@ h9{
         </form>
       </div>
     </div>
-
+        <br><br><br>
+         <hr class="line1">
+         <br><br>
         <div class="container" >
            <div class="row">
             <div class="col-md-4" id="ab" style="text-align: center;"><br>
@@ -197,7 +199,7 @@ h9{
                 <option value="OCR_CAMPUS_REGISTRAR">
               </datalist><br><br>
               <button id="add1" href="{% url 'Supplydept_statuslimit'%}"> ADD LIMIT</button>
-            </form><br><br>     
+            </form><br><br>
         </div>
         <div class="col-md-8 " style="width:600px; height:350px; overflow:auto;">
           <form action = "" method = "POST">
@@ -260,16 +262,16 @@ h9{
                   <td>{{a.limit_item_name}}</td>
                   <td>{{a.limit_quantity}}</td>
                   <td>{{a.limit_unit}}</td>
-                  <td>{{a.limit_department}}</td>   
+                  <td>{{a.limit_department}}</td>
                 </tr>
                 {% endfor %}
-                
+
           </table>
           </form><br><br><br>
         </div>
-    </div>  
-    </div><br><br><br> 
-         
+    </div>
+    </div><br><br><br>
+
 </main>
   <!-- End your project here-->
   <!-- jQuery -->

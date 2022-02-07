@@ -45,13 +45,13 @@
 </style>
 <body>
 
-  <!-- Start your project here--> 
+  <!-- Start your project here-->
   <header>
     <nav class="navbar">
           <h2  class="title" >SUPPLY INVENTORY SYSTEM </h2>
           <label  id="deliverybtn"  >DELIVERY</label>
     </nav>
- 
+
   </header><br>
   <main>
     <div class="container">
@@ -84,16 +84,23 @@
                 <option value="Staple Wire(big)">
                 <option value="Pencil Sharpener">
               </datalist><br>
-           
+
               <label  class="label2" id="UNIT" for = "unit">UNIT:</label><br>
-              <input type="text" required autocomplete="off" name = "delivery_unit"><br><br>
+              <input type="text" required autocomplete="off" list="unit" name = "delivery_unit"><br><br>
+              <datalist id="unit" >
+                <option value="Pcs">
+                <option value="Ream">
+                <option value="bottle">
+                <option value="Bundle">
+                <option value="Box">
+              </datalist>
               <label  class="label2" id="QUAN" for = "quantity">QUANTITY:</label><br>
-              <input type="text" required autocomplete="off" name = "delivery_quantity"><br><br>
+              <input type="number" required autocomplete="off" name = "delivery_quantity"><br><br>
               <label  class="label2" id="DES" for = "description">DESCRIPTION:</label><br>
               <input type="text" required autocomplete="off" name = "delivery_description"><br><br>
               <button type="submit" id="add" href="{% url 'Supplydept_delivery'%}">ADD</button>
             </form>
-          </div> 
+          </div>
         <div class="col-md-8 ">
           <table id="t01" class="table1">
               <tr>
@@ -112,20 +119,20 @@
                 <td>{{x.delivery_quantity}}</td>
                 <td>{{x.delivery_remaining}}</td>
                 <td>{{x.current_date}}</td>
-              </tr> 
+              </tr>
               {% endfor %}
-          </table>  
-              </div> 
+          </table>
+              </div>
             </div>
           </div>
-        </div> 
+        </div>
       </div>
     </div>
     <br><br><br><br>
   </main>
 
   <!-- End your project here-->
- 
+
   <!-- jQuery -->
 
   <!-- Your custom scripts (optional) -->
