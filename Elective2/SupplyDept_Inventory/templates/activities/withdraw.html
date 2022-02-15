@@ -121,6 +121,9 @@ td{
       <br><br>
     </form>
       <div class="container" class="col-md-12" style="text-align: center;">
+          <form style="text-align: right;" action="{% url 'Supplydept_withdraw' %}">
+                <button id='btn'>Refresh</button>
+            </form>
         <form method="GET" >
         {% csrf_token %}
             <label id="dept" for="depart">Choose your deparment:</label><br>

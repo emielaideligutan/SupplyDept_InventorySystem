@@ -72,13 +72,13 @@
 </style>
 
 <body>
-  <!-- Start your project here--> 
+  <!-- Start your project here-->
   <header>
     <nav class="navbar">
           <h2  class="title" >SUPPLY INVENTORY SYSTEM </h2>
           <label  id="statusbtn"  >STATUS</label>
     </nav>
- 
+
   </header><br>
 
    <div class="">
@@ -87,17 +87,20 @@
           <form action="{% url 'Supplydept_mainpage' %}">
             <button id="btn" data-mdb-toogle="tooltip" title="Back to home " >Back</button>
           </form>
-        </div> 
+        </div>
         <div class="col-md-8">
            <img src="pic.png" alt="" class="img-fluid rounded " width="100%"  >
       </div>
     </div>
-  <main> 
+  <main>
     <hr class="line1">
     <div class="container">
       <br><br>
       <div class="row">
         <div class="col-md-12" >
+            <form action="{% url 'Supplydept_status' %}" style="text-align: right;" >
+                <button id='btn' >Refresh</button>
+            </form>
           <form method="POST" style="text-align: center;">
           {% csrf_token %}
               <select  id="items" name="search_item_name" >
@@ -128,10 +131,10 @@
                   <tr>
                     <td>{{x.ItemName}}</td>
                     <td>{{x.Quantity}}</td>
-                  </tr> 
-              {% endfor %}      
+                  </tr>
+              {% endfor %}
             </table>
-          </form>  
+          </form>
         </div>
       </div>
 
@@ -141,7 +144,7 @@
 
   <div class="container">
     <h6 id="lbl">PER DEPARTMENT</h6><br><br>
-   
+
           <br><br>
           <form action= "{% url 'Supplydept_statuslimit'%}" style="text-align: center;"  >
             <label for="">Update the limit of the deparment</label><br>

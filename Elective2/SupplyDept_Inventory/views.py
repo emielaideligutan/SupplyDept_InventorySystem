@@ -30,7 +30,7 @@ def addaccnt(request):
 
     else:
         return HttpResponse('You are not authorized to access this page')
-    
+
     context = {
         'form':form
     }
@@ -157,7 +157,7 @@ def withdraw(request):
         if request.method == "GET":
             if  request.GET.get('withdraw_quantity'):
                 if limitrecords.objects.filter(limit_id = request.GET.get('withdraw_id')).exists() == True:
-                    if mainstorage.objects.filter(ItemName = limitrecords.objects.get(limit_id = request.GET.get('withdraw_id')).limit_item_name).exists == True:
+                    if mainstorage.objects.filter(ItemName = limitrecords.objects.get(limit_id = request.GET.get('withdraw_id')).limit_item_name).exists() == True:
                         updatelimit = limitrecords()
                         information1 = mainstorage.objects.get(ItemName = limitrecords.objects.get(limit_id = request.GET.get('withdraw_id')).limit_item_name)
                         updatelimit.limit_id = request.GET.get('withdraw_id')
@@ -171,7 +171,7 @@ def withdraw(request):
                         update_mainstorage = mainstorage()
                         update_mainstorage.ItemName = limitrecords.objects.get(limit_id = request.GET.get('withdraw_id')).limit_item_name
                         update_mainstorage.Quantity = int(information1.Quantity) - int(request.GET.get('withdraw_quantity'))
-                        if updatelimit.limit_quantity >= 0 or update_mainstorage >= 0:
+                        if updatelimit.limit_quantity >= 0:
                             updatelimit.save()
                             updatewithdraw.save()
                             mainstorage.objects.filter(ItemName = limitrecords.objects.get(limit_id = request.GET.get('withdraw_id')).limit_item_name).delete()
@@ -185,7 +185,6 @@ def withdraw(request):
                 else:
                     messages.error(request, 'Invalid Id')
                     return redirect (request.path)
-
 
         context = {
             'information' : information,
@@ -247,39 +246,38 @@ def statuslimit(request):
 
 
     if request.method == "POST":
-            if  request.POST.get('limit_item_name') and request.POST.get('limit_quantity') and request.POST.get('limit_department') and request.POST.get('limit_id'):
-                if request.POST.get('limit_id') == "Not Existing":
-                        save_record = limitrecords()
-                        save_record.limit_item_name = request.POST.get('limit_item_name')
-                        save_record.limit_quantity = request.POST.get('limit_quantity')
-                        save_record.limit_department = request.POST.get('limit_department')
-                        save_record.save()
-                        messages.success(request, 'Limit Successfully Added')
-                        return redirect (request.path)
+        if  request.POST.get('limit_item_name') and request.POST.get('limit_quantity') and request.POST.get('limit_department') and request.POST.get('limit_id'):
+            if request.POST.get('limit_id') == "Not Existing":
+                save_record = limitrecords()
+                save_record.limit_item_name = request.POST.get('limit_item_name')
+                save_record.limit_quantity = request.POST.get('limit_quantity')
+                save_record.limit_department = request.POST.get('limit_department')
+                save_record.save()
+                messages.success(request, 'Limit Successfully Added')
+                return redirect (request.path)
 
 
-                elif limitrecords.objects.filter(limit_id = request.POST.get('limit_id')).exists() == True:
-                    if (request.POST.get('limit_item_name') == limitrecords.objects.get(limit_id = request.POST.get('limit_id')).limit_item_name) and (request.POST.get('limit_unit') == limitrecords.objects.get(limit_id = request.POST.get('limit_id')).limit_unit) and (request.POST.get('limit_department') == limitrecords.objects.get(limit_id = request.POST.get('limit_id')).limit_department):
-                        information1 = limitrecords.objects.get(limit_id = request.POST.get('limit_id'))
-                        updatinglimit = int(information1.limit_quantity) + int(request.POST.get('limit_quantity'))
-                        update_limit_record = limitrecords()
-                        update_limit_record.limit_id = request.POST.get('limit_id')
-                        update_limit_record.limit_item_name = request.POST.get('limit_item_name')
-                        update_limit_record.limit_department = request.POST.get('limit_department')
-                        update_limit_record.limit_quantity = updatinglimit
-                        limitrecords.objects.filter(limit_id = request.POST.get('limit_id')).delete()
-                        update_limit_record.save()
-                        messages.success(request, 'Limit Successfully Added')
-                        return redirect (request.path)
-                    else:
-                        messages.error(request, 'Something is wrong please try again')
-                        return redirect (request.path)
+            elif limitrecords.objects.filter(limit_id = request.POST.get('limit_id')).exists() == True:
+                if (request.POST.get('limit_item_name') == limitrecords.objects.get(limit_id = request.POST.get('limit_id')).limit_item_name) and (request.POST.get('limit_department') == limitrecords.objects.get(limit_id = request.POST.get('limit_id')).limit_department):
+                    information1 = limitrecords.objects.get(limit_id = request.POST.get('limit_id'))
+                    updatinglimit = int(information1.limit_quantity) + int(request.POST.get('limit_quantity'))
+                    update_limit_record = limitrecords()
+                    update_limit_record.limit_id = request.POST.get('limit_id')
+                    update_limit_record.limit_item_name = request.POST.get('limit_item_name')
+                    update_limit_record.limit_department = request.POST.get('limit_department')
+                    update_limit_record.limit_quantity = updatinglimit
+                    limitrecords.objects.filter(limit_id = request.POST.get('limit_id')).delete()
+                    update_limit_record.save()
+                    messages.success(request, 'Limit Successfully Added')
+                    return redirect (request.path)
 
                 else:
-                        messages.error(request, 'Something is wrong please try again')
-                        return redirect (request.path)
+                    messages.error(request, 'Something is wrong please try again')
+                    return redirect (request.path)
 
-
+            else:
+                    messages.error(request, 'Something is wrong please try again')
+                    return redirect (request.path)
 
 
     context = {

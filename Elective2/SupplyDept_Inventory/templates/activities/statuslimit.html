@@ -150,7 +150,7 @@ h9{
                 <option>Red White Board Marker (Box)</option>
                 <option>Glue (Box)</option>
               </datalist><br>
-            
+
               <label  class="label2" id="QUAN" for = "quantity">QUANTITY:</label><br>
               <input type="number" required autocomplete="off" name = "limit_quantity"><br><br>
               <label  class="label2" id="DEP" for = "limit_department">DEPARTMENT:</label><br>
@@ -196,6 +196,10 @@ h9{
             </form><br><br>
         </div>
         <div class="col-md-8 " style="width:600px; height:350px; overflow:auto;">
+            <form style="text-align: right;" action="{% url 'Supplydept_statuslimit' %}">
+                <button id='btn'>Refresh</button>
+            </form>
+            <br><br>
           <form action = "" method = "POST">
           {% csrf_token %}
           <div class="">
